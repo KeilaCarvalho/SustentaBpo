@@ -27,14 +27,7 @@ const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20meu%20diagn%C3%B3stico%20financeiro%20gratuito";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
-  return (
-    <iconify-icon
-      icon={name}
-      class={className}
-      // @ts-expect-error iconify-icon web component
-      noobserver=""
-    />
-  );
+  return <iconify-icon icon={name} className={className} />;
 }
 
 function Landing() {
