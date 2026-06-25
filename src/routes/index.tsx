@@ -73,7 +73,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
       {/* Vídeo de fundo cobrindo a tela inteira */}
       <video
         src={heroVideo.url}
@@ -85,52 +85,54 @@ function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Overlays: gradiente escuro + grid blueprint para legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      {/* Overlays: gradiente escuro mais denso no mobile + véu lateral em desktop */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90 md:from-black/75 md:via-black/55 md:to-black/85" />
+      <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
       <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
         <div className="blueprint-grid w-full h-full" style={{ filter: "invert(1)" }} />
       </div>
 
       {/* Conteúdo */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-6 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-white">
+      <div className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center text-white">
         <div className="lg:col-span-8">
-          <p className="text-xs font-mono tracking-widest text-[#fb923c] mb-6">
+          <p className="text-[10px] sm:text-xs font-mono tracking-widest text-[#fb923c] mb-5 sm:mb-6">
             // BPO FINANCEIRO PARA PMEs
           </p>
-          <h1 className="text-5xl md:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.9]">
+          <h1 className="text-[2.5rem] leading-[1] sm:text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tighter md:leading-[0.9] [text-wrap:balance] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]">
             SEU FINANCEIRO,
-            <br />
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             SOB{" "}
             <span className="bg-gradient-to-r from-[#fb923c] to-orange-300 bg-clip-text text-transparent">
               CONTROLE.
             </span>
           </h1>
-          <p className="mt-8 border-l-2 border-white/40 pl-6 text-white/80 max-w-xl">
+          <p className="mt-6 sm:mt-8 border-l-2 border-white/40 pl-4 sm:pl-6 text-sm sm:text-base text-white/85 max-w-xl">
             Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu
             negócio — com clareza, segurança e relatórios que você realmente entende.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6">
             <a
               href="#agendar"
-              className="bg-[#ea580c] hover:bg-white hover:text-neutral-900 text-white px-8 py-4 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center gap-2"
+              className="bg-[#ea580c] hover:bg-white hover:text-neutral-900 text-white px-6 sm:px-8 py-4 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               Agendar Diagnóstico Gratuito
               <Icon name="lucide:arrow-right" className="text-base" />
             </a>
             <a
               href="#como-funciona"
-              className="text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-[#fb923c] hover:text-[#fb923c] transition-colors duration-300"
+              className="text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-[#fb923c] hover:text-[#fb923c] transition-colors duration-300 text-center sm:text-left"
             >
               Ver como funciona
             </a>
           </div>
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-xs font-mono text-white/60 uppercase tracking-widest">
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-[10px] sm:text-xs font-mono text-white/70 uppercase tracking-widest">
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse shrink-0" />
               +150 empreendedores atendidos
             </span>
-            <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline">CNPJ ativo desde 2019</span>
+            <span className="hidden sm:inline">•</span>
+            <span>CNPJ ativo desde 2019</span>
           </div>
         </div>
 
@@ -154,8 +156,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 font-mono text-[10px] uppercase tracking-widest flex flex-col items-center gap-2">
+      {/* Indicador de scroll — escondido em telas pequenas para não competir com o CTA */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
         <span>Scroll</span>
         <span className="w-px h-8 bg-white/40" />
       </div>
