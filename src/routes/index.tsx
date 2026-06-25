@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-entrepreneur.jpg";
 import caseImg from "@/assets/case-meeting.jpg";
+import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,42 +73,60 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="blueprint-grid-bg pt-32 pb-24 md:pt-40 md:pb-32">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7">
-          <p className="text-xs font-mono tracking-widest text-[#ea580c] mb-6">
+    <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden">
+      {/* Vídeo de fundo cobrindo a tela inteira */}
+      <video
+        src={heroVideo.url}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Overlays: gradiente escuro + grid blueprint para legibilidade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+        <div className="blueprint-grid w-full h-full" style={{ filter: "invert(1)" }} />
+      </div>
+
+      {/* Conteúdo */}
+      <div className="relative z-10 h-full max-w-7xl mx-auto px-6 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-white">
+        <div className="lg:col-span-8">
+          <p className="text-xs font-mono tracking-widest text-[#fb923c] mb-6">
             // BPO FINANCEIRO PARA PMEs
           </p>
           <h1 className="text-5xl md:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.9]">
             SEU FINANCEIRO,
             <br />
             SOB{" "}
-            <span className="bg-gradient-to-r from-[#ea580c] to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#fb923c] to-orange-300 bg-clip-text text-transparent">
               CONTROLE.
             </span>
           </h1>
-          <p className="mt-8 border-l-2 border-neutral-300 pl-6 text-neutral-500 max-w-xl">
+          <p className="mt-8 border-l-2 border-white/40 pl-6 text-white/80 max-w-xl">
             Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu
             negócio — com clareza, segurança e relatórios que você realmente entende.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a
               href="#agendar"
-              className="bg-[#ea580c] hover:bg-neutral-900 text-white px-8 py-4 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center gap-2"
+              className="bg-[#ea580c] hover:bg-white hover:text-neutral-900 text-white px-8 py-4 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center gap-2"
             >
               Agendar Diagnóstico Gratuito
               <Icon name="lucide:arrow-right" className="text-base" />
             </a>
             <a
               href="#como-funciona"
-              className="text-sm text-neutral-900 underline underline-offset-4 decoration-neutral-400 hover:decoration-[#ea580c] hover:text-[#ea580c] transition-colors duration-300"
+              className="text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-[#fb923c] hover:text-[#fb923c] transition-colors duration-300"
             >
               Ver como funciona
             </a>
           </div>
-          <div className="mt-12 flex items-center gap-6 text-xs font-mono text-neutral-500 uppercase tracking-widest">
+          <div className="mt-12 flex flex-wrap items-center gap-6 text-xs font-mono text-white/60 uppercase tracking-widest">
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
               +150 empreendedores atendidos
             </span>
             <span className="hidden md:inline">•</span>
@@ -116,46 +134,30 @@ function Hero() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 perspective-hero">
-          <div className="relative preserve-3d group" style={{ transform: "rotateY(-4deg) rotateX(2deg)" }}>
-            <div className="relative overflow-hidden border border-neutral-200">
-              <img
-                src={heroImg}
-                alt="Empreendedor revisando dashboard financeiro"
-                width={1024}
-                height={1536}
-                className="w-full h-[520px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
-              />
-              <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
-                <div className="blueprint-grid w-full h-full" />
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="w-48 h-48 border border-[#ea580c]/60 animate-[spin_10s_linear_infinite]">
-                  <div className="absolute inset-4 border border-[#ea580c]/40" />
-                  <div className="absolute top-1/2 left-0 right-0 h-px bg-[#ea580c]/40" />
-                  <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#ea580c]/40" />
-                </div>
-              </div>
+        {/* Cards flutuantes de status */}
+        <div className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end">
+          <div className="bg-white/95 backdrop-blur border border-white/20 px-4 py-3 shadow-lg font-mono text-[11px] text-neutral-900">
+            <div className="flex items-center gap-2 text-neutral-500">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+              STATUS
             </div>
-
-            <div className="absolute -bottom-6 left-0 z-10 bg-[#ea580c] text-white px-5 py-4 shadow-xl">
-              <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">Indicador</p>
-              <p className="mt-1 text-sm font-medium flex items-center gap-2">
-                <Icon name="lucide:check-circle" className="text-base" />
-                Fluxo de Caixa: Saudável
-              </p>
-            </div>
-
-            <div className="absolute top-8 -left-4 z-20 bg-white/95 backdrop-blur border border-neutral-200 px-4 py-3 shadow-lg font-mono text-[11px]">
-              <div className="flex items-center gap-2 text-neutral-500">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                STATUS
-              </div>
-              <p className="mt-1 text-neutral-900">Conciliação: 100%</p>
-              <p className="text-neutral-900">Atualizado: hoje</p>
-            </div>
+            <p className="mt-1">Conciliação: 100%</p>
+            <p>Atualizado: hoje</p>
+          </div>
+          <div className="bg-[#ea580c] text-white px-5 py-4 shadow-xl">
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">Indicador</p>
+            <p className="mt-1 text-sm font-medium flex items-center gap-2">
+              <Icon name="lucide:check-circle" className="text-base" />
+              Fluxo de Caixa: Saudável
+            </p>
           </div>
         </div>
+      </div>
+
+      {/* Indicador de scroll */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 font-mono text-[10px] uppercase tracking-widest flex flex-col items-center gap-2">
+        <span>Scroll</span>
+        <span className="w-px h-8 bg-white/40" />
       </div>
     </section>
   );
