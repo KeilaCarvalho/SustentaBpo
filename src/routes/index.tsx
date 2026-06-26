@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
+import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
 import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -22,7 +24,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const BRAND = "FINCORE"; // placeholder — substituir pelo nome definitivo
+const BRAND = "FINCORE";
 const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20meu%20diagn%C3%B3stico%20financeiro%20gratuito";
 
@@ -30,11 +32,39 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
 }
 
+/* ---------- Mouse parallax hook ---------- */
+function useMouseParallax() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.setProperty("--mx", x.toFixed(3));
+        el.style.setProperty("--my", y.toFixed(3));
+      });
+    };
+    el.addEventListener("mousemove", onMove);
+    return () => {
+      el.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+  return ref;
+}
+
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans">
       <Nav />
       <Hero />
+      <Marquee />
       <WhatIs />
       <Values />
       <Metrics />
@@ -46,163 +76,230 @@ function Landing() {
   );
 }
 
+/* ---------- Nav ---------- */
 function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-sm border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <span className="w-4 h-4 bg-[#ea580c] block" />
-          <span className="text-xl font-semibold tracking-tighter">{BRAND}</span>
+          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
+          <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-neutral-600">
-          <li><a href="#sobre" className="hover:text-[#ea580c] transition-colors duration-300">Sobre</a></li>
-          <li><a href="#como-funciona" className="hover:text-[#ea580c] transition-colors duration-300">Como Funciona</a></li>
-          <li><a href="#depoimentos" className="hover:text-[#ea580c] transition-colors duration-300">Depoimentos</a></li>
-          <li><a href="#agendar" className="hover:text-[#ea580c] transition-colors duration-300">Contato</a></li>
+        <ul className="hidden md:flex items-center gap-8 text-sm text-white/60 font-medium">
+          <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
+          <li><a href="#como-funciona" className="hover:text-white transition-colors">Processo</a></li>
+          <li><a href="#depoimentos" className="hover:text-white transition-colors">Clientes</a></li>
+          <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
         </ul>
         <a
           href="#agendar"
-          className="bg-neutral-900 hover:bg-[#ea580c] text-white text-sm px-6 py-2.5 transition-colors duration-300"
+          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
         >
-          Diagnóstico Gratuito
+          Diagnóstico
         </a>
       </div>
     </nav>
   );
 }
 
+/* ---------- Hero with mouse parallax + video bg ---------- */
 function Hero() {
+  const ref = useMouseParallax();
   return (
-    <section id="top" className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* Vídeo de fundo cobrindo a tela inteira */}
-      <video
-        src={heroVideo.url}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      {/* Overlays: gradiente escuro mais denso no mobile + véu lateral em desktop */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/90 md:from-black/75 md:via-black/55 md:to-black/85" />
-      <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
-        <div className="blueprint-grid w-full h-full" style={{ filter: "invert(1)" }} />
+    <section
+      id="top"
+      ref={ref}
+      className="relative min-h-[100svh] w-full overflow-hidden bg-black"
+      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
+    >
+      {/* Video layer (parallax) */}
+      <div
+        className="absolute inset-0 transition-transform duration-300 ease-out"
+        style={{
+          transform:
+            "translate3d(calc(var(--mx) * -20px), calc(var(--my) * -20px), 0) scale(1.08)",
+        }}
+      >
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
 
-      {/* Conteúdo */}
-      <div className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center text-white">
-        <div className="lg:col-span-8">
-          <p className="text-[10px] sm:text-xs font-mono tracking-widest text-[#fb923c] mb-5 sm:mb-6">
-            // BPO FINANCEIRO PARA PMEs
+      {/* Gradient + grid overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black" />
+      <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
+
+      {/* Radial glow following mouse */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-60 transition-opacity"
+        style={{
+          background:
+            "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(254,76,0,0.18), transparent 60%)",
+        }}
+      />
+
+      {/* Scanner */}
+      <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden pointer-events-none">
+        <div className="scanner-bar" />
+      </div>
+
+      {/* Content */}
+      <div
+        className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center text-white"
+        style={{
+          transform:
+            "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
+        }}
+      >
+        <div className="lg:col-span-8 overflow-hidden">
+          <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
+            // BPO FINANCEIRO · OPERAÇÃO 24/7
           </p>
-          <h1 className="text-[2.5rem] leading-[1] sm:text-6xl md:text-7xl xl:text-8xl font-semibold tracking-tighter md:leading-[0.9] [text-wrap:balance] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]">
-            SEU FINANCEIRO,
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            SOB{" "}
-            <span className="bg-gradient-to-r from-[#fb923c] to-orange-300 bg-clip-text text-transparent">
-              CONTROLE.
+          <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
+            <span className="block overflow-hidden">
+              <span className="block reveal-mask delay-1">Seu financeiro,</span>
+            </span>
+            <span className="block overflow-hidden">
+              <span className="block reveal-mask delay-2">
+                sob <span className="text-[#fe4c00]">controle.</span>
+              </span>
             </span>
           </h1>
-          <p className="mt-6 sm:mt-8 border-l-2 border-white/40 pl-4 sm:pl-6 text-sm sm:text-base text-white/85 max-w-xl">
-            Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu
-            negócio — com clareza, segurança e relatórios que você realmente entende.
-          </p>
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6">
+          <div className="overflow-hidden mt-8 max-w-xl">
+            <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
+              Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa
+              do seu negócio — com clareza, segurança e relatórios que você realmente entende.
+            </p>
+          </div>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
             <a
               href="#agendar"
-              className="bg-[#ea580c] hover:bg-white hover:text-neutral-900 text-white px-6 sm:px-8 py-4 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
               Agendar Diagnóstico Gratuito
-              <Icon name="lucide:arrow-right" className="text-base" />
+              <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href="#como-funciona"
-              className="text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-[#fb923c] hover:text-[#fb923c] transition-colors duration-300 text-center sm:text-left"
+              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
             >
-              Ver como funciona
+              Ver como funciona →
             </a>
-          </div>
-          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-6 text-[10px] sm:text-xs font-mono text-white/70 uppercase tracking-widest">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse shrink-0" />
-              +150 empreendedores atendidos
-            </span>
-            <span className="hidden sm:inline">•</span>
-            <span>CNPJ ativo desde 2019</span>
           </div>
         </div>
 
-        {/* Cards flutuantes de status */}
-        <div className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end">
-          <div className="bg-white/95 backdrop-blur border border-white/20 px-4 py-3 shadow-lg font-mono text-[11px] text-neutral-900">
-            <div className="flex items-center gap-2 text-neutral-500">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-              STATUS
+        {/* Floating glass cards w/ parallax */}
+        <div
+          className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
+          style={{
+            transform:
+              "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
+          }}
+        >
+          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
+            <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+              Sistema
             </div>
-            <p className="mt-1">Conciliação: 100%</p>
-            <p>Atualizado: hoje</p>
+            <p className="mt-2 text-white">Conciliação · 100%</p>
+            <p className="text-white/60">Atualizado: agora</p>
           </div>
-          <div className="bg-[#ea580c] text-white px-5 py-4 shadow-xl">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">Indicador</p>
-            <p className="mt-1 text-sm font-medium flex items-center gap-2">
-              <Icon name="lucide:check-circle" className="text-base" />
-              Fluxo de Caixa: Saudável
+          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Indicador</p>
+            <p className="mt-2 text-base font-medium flex items-center gap-2">
+              <Icon name="lucide:trending-up" className="text-lg" />
+              Fluxo de Caixa Saudável
             </p>
+          </div>
+          <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
+            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
+              <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
+            </div>
+            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
+              Engine ativa
+              <p className="text-white/90 normal-case tracking-normal text-xs">Processando lotes</p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Indicador de scroll — escondido em telas pequenas para não competir com o CTA */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/70 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
+      {/* Scroll indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
         <span>Scroll</span>
-        <span className="w-px h-8 bg-white/40" />
+        <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
 }
 
+/* ---------- Marquee ---------- */
+function Marquee() {
+  const items = [
+    "Contas a Pagar",
+    "Contas a Receber",
+    "Conciliação Bancária",
+    "Fluxo de Caixa",
+    "DRE Mensal",
+    "Emissão de NF",
+    "Cobrança Automática",
+    "Relatórios Gerenciais",
+  ];
+  const row = [...items, ...items];
+  return (
+    <div className="bg-[#fe4c00] border-y border-[#fe4c00] py-6 overflow-hidden">
+      <div className="marquee">
+        <div className="marquee-track font-display text-2xl md:text-4xl font-bold text-black uppercase tracking-tight">
+          {row.map((t, i) => (
+            <span key={i} className="flex items-center gap-16">
+              {t}
+              <span className="text-black/60">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- WhatIs ---------- */
 function WhatIs() {
   const services = [
-    { icon: "lucide:arrow-up-right", label: "Contas a Pagar" },
-    { icon: "lucide:arrow-down-left", label: "Contas a Receber" },
-    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária" },
-    { icon: "lucide:bar-chart-3", label: "Relatórios Gerenciais" },
+    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Agendamento, baixas e relatórios diários." },
+    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Boletos, PIX, cobrança ativa e régua." },
+    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Match diário de extratos vs. ERP." },
+    { icon: "lucide:bar-chart-3", label: "Relatórios Gerenciais", desc: "DRE, fluxo de caixa e KPIs mensais." },
   ];
   return (
-    <section id="sobre" className="py-24 md:py-32 bg-[#f5f5f5]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
+      <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         <div>
-          <p className="text-xs font-mono tracking-widest text-[#ea580c] mb-6">// 01 — O QUE FAZEMOS</p>
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[0.95]">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — O QUE FAZEMOS</p>
+          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
             O que é BPO Financeiro.
           </h2>
-          <p className="mt-8 text-neutral-600 text-lg leading-relaxed max-w-lg">
-            É a terceirização das rotinas financeiras do seu negócio — contas a pagar, a receber,
+          <p className="mt-10 text-white/60 text-lg leading-relaxed max-w-lg">
+            Terceirização das rotinas financeiras do seu negócio — contas a pagar, a receber,
             conciliação bancária, fluxo de caixa, emissão de boletos e notas — para uma equipe
-            especializada. Você ganha tempo, organização e foco no que realmente importa: fazer
-            seu negócio crescer.
+            especializada. Você ganha tempo, organização e foco no que importa.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-[1px] bg-neutral-200 border border-neutral-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {services.map((s) => (
             <div
               key={s.label}
-              className="bg-white p-8 group hover:bg-neutral-900 transition-colors duration-300"
+              className="glass-card rounded-3xl p-8 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1"
             >
-              <Icon
-                name={s.icon}
-                className="text-3xl text-[#ea580c] group-hover:text-white transition-colors duration-300"
-              />
-              <p className="mt-6 text-sm font-medium text-neutral-900 group-hover:text-white transition-colors duration-300">
-                {s.label}
-              </p>
-              <p className="mt-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-                Serviço incluso
-              </p>
+              <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
+              <p className="mt-8 font-display text-xl font-bold text-white">{s.label}</p>
+              <p className="mt-2 text-sm text-white/50">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -211,52 +308,40 @@ function WhatIs() {
   );
 }
 
+/* ---------- Values ---------- */
 function Values() {
   const items = [
-    {
-      icon: "lucide:eye",
-      title: "Clareza, não jargão",
-      desc: "Relatórios financeiros que qualquer empreendedor entende, sem economês.",
-    },
-    {
-      icon: "lucide:message-circle",
-      title: "Atendimento humano",
-      desc: "Você fala com uma pessoa, não com um ticket. Comunicação direta via WhatsApp.",
-    },
-    {
-      icon: "lucide:shield-check",
-      title: "Segurança e organização",
-      desc: "Rotinas padronizadas, conciliação diária e dados sempre atualizados.",
-    },
+    { icon: "lucide:eye", title: "Clareza, não jargão", desc: "Relatórios que qualquer empreendedor entende." },
+    { icon: "lucide:message-circle", title: "Atendimento humano", desc: "Você fala com uma pessoa, direto no WhatsApp." },
+    { icon: "lucide:shield-check", title: "Segurança e organização", desc: "Rotinas padronizadas e dados sempre atualizados." },
   ];
   return (
-    <section className="py-24 md:py-32 blueprint-grid-bg">
+    <section className="py-32 md:py-48 bg-black relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <p className="text-xs font-mono tracking-widest text-[#ea580c] mb-6">// 02 — DIFERENCIAIS</p>
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[0.95]">
-            Por que terceirizar com a gente.
+        <div className="max-w-2xl mb-20">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — DIFERENCIAIS</p>
+          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
+            Por que terceirizar
+            <br />
+            com a gente.
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-neutral-200 border border-neutral-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {items.map((it, i) => (
             <div
               key={it.title}
-              className="bg-white p-10 group hover:bg-neutral-900 transition-colors duration-300"
+              className="glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <Icon
-                  name={it.icon}
-                  className="text-4xl text-[#ea580c] group-hover:text-white transition-colors duration-300"
-                />
-                <span className="text-[10px] font-mono tracking-widest text-neutral-400 group-hover:text-neutral-500">
+                <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
+                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-10 text-2xl font-semibold tracking-tight text-neutral-900 group-hover:text-white transition-colors duration-300">
+              <h3 className="mt-10 font-display text-2xl font-bold text-white group-hover:text-black transition-colors">
                 {it.title}
               </h3>
-              <p className="mt-3 text-sm text-neutral-500 group-hover:text-neutral-300 leading-relaxed transition-colors duration-300">
+              <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
                 {it.desc}
               </p>
             </div>
@@ -267,95 +352,118 @@ function Values() {
   );
 }
 
+/* ---------- Metrics ---------- */
 function Metrics() {
   const stats = [
     { v: "150+", l: "Empresas atendidas" },
-    { v: "R$ 80M", l: "Movimentados/conciliados" },
+    { v: "R$80M", l: "Movimentados/conciliados" },
     { v: "98%", l: "Satisfação dos clientes" },
     { v: "0", l: "Multas por atraso em 2024" },
   ];
   return (
-    <section className="py-24 md:py-32 bg-neutral-900 text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <p className="text-xs font-mono tracking-widest text-[#ea580c]">// NOSSO IMPACTO</p>
-            <p className="mt-4 text-sm text-neutral-400 max-w-[14ch]">
-              Números que mostram o tamanho da operação que cuidamos.
-            </p>
-          </div>
-          {stats.slice(0, 3).map((s) => (
-            <div key={s.l} className="border-l border-white pl-4 group">
-              <p className="text-5xl md:text-6xl font-semibold tracking-tighter text-white group-hover:text-[#ea580c] transition-colors duration-300">
+    <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-6">
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// NOSSO IMPACTO</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
+          {stats.map((s) => (
+            <div key={s.l} className="group">
+              <p className="font-display text-6xl md:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none">
                 {s.v}
               </p>
-              <p className="mt-3 text-xs font-mono uppercase tracking-widest text-neutral-400">
+              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
                 {s.l}
               </p>
             </div>
           ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
-          <div className="hidden md:block" />
-          <div className="border-l border-white pl-4 group">
-            <p className="text-5xl md:text-6xl font-semibold tracking-tighter text-white group-hover:text-[#ea580c] transition-colors duration-300">
-              {stats[3].v}
-            </p>
-            <p className="mt-3 text-xs font-mono uppercase tracking-widest text-neutral-400">
-              {stats[3].l}
-            </p>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
+/* ---------- Testimonials (sticky stack) ---------- */
 function Testimonials() {
   const list = [
-    {
-      q: "Antes eu perdia fim de semana revisando planilha. Hoje recebo um relatório que realmente entendo.",
-      n: "Camila R.",
-      r: "Estúdio de design",
-    },
-    {
-      q: "Profissionalizou meu financeiro sem eu precisar contratar ninguém.",
-      n: "Lucas M.",
-      r: "E-commerce de moda",
-    },
-    {
-      q: "Atendimento rápido, direto no WhatsApp. Isso fez toda diferença.",
-      n: "Andréa P.",
-      r: "Clínica odontológica",
-    },
+    { q: "Antes eu perdia fim de semana revisando planilha. Hoje recebo um relatório que realmente entendo.", n: "Camila R.", r: "Estúdio de design" },
+    { q: "Profissionalizou meu financeiro sem eu precisar contratar ninguém.", n: "Lucas M.", r: "E-commerce de moda" },
+    { q: "Atendimento rápido, direto no WhatsApp. Isso fez toda diferença.", n: "Andréa P.", r: "Clínica odontológica" },
   ];
   return (
-    <section id="depoimentos" className="py-24 md:py-32 bg-white">
+    <section id="depoimentos" className="bg-black py-32 md:py-48 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <p className="text-xs font-mono tracking-widest text-[#ea580c] mb-6">// 03 — DEPOIMENTOS</p>
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[0.95]">
+        <div className="max-w-3xl mb-20">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — DEPOIMENTOS</p>
+          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
             Empreendedores que confiam o financeiro a nós.
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-neutral-200 border border-neutral-200">
-          {list.map((t) => (
-            <figure key={t.n} className="bg-white p-10 relative">
-              <span className="absolute top-6 right-8 text-7xl font-serif text-[#ea580c]/20 leading-none select-none">
-                "
-              </span>
-              <blockquote className="text-lg text-neutral-800 leading-relaxed">
+        <div className="space-y-6">
+          {list.map((t, i) => (
+            <figure
+              key={t.n}
+              className="sticky glass-card rounded-3xl p-10 md:p-16"
+              style={{ top: `${100 + i * 24}px` }}
+            >
+              <span className="font-display text-7xl text-[#fe4c00] leading-none">"</span>
+              <blockquote className="mt-4 font-display text-2xl md:text-4xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-neutral-200 font-mono text-xs uppercase tracking-widest">
-                <span className="text-neutral-900">{t.n}</span>
-                <span className="text-neutral-500"> · {t.r}</span>
+              <figcaption className="mt-10 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
+                <span className="text-white">{t.n}</span>
+                <span className="text-white/50">· {t.r}</span>
               </figcaption>
             </figure>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------- Process with image → video on hover ---------- */
+function ProcessMedia() {
+  const [hover, setHover] = useState(false);
+  const vRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (hover) vRef.current?.play().catch(() => {});
+    else vRef.current?.pause();
+  }, [hover]);
+  return (
+    <div
+      className="relative group overflow-hidden rounded-3xl border border-white/10 h-[560px]"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <img
+        src={caseImg}
+        alt="Sessão de diagnóstico financeiro"
+        loading="lazy"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-0" : "opacity-100"} grayscale`}
+      />
+      <video
+        ref={vRef}
+        src={heroVideo.url}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-100 scale-105" : "opacity-0"}`}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+      <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
+        Diagnóstico · 60 min · gratuito
+      </div>
+      <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+        <p className="font-display text-2xl text-white max-w-xs leading-tight">
+          Sessão presencial ou remota.
+        </p>
+        <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
+          <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -367,33 +475,26 @@ function Process() {
     { n: "04", t: "Acompanhamento contínuo", d: "Conciliação diária, relatórios mensais e suporte direto." },
   ];
   return (
-    <section id="como-funciona" className="py-24 md:py-32 bg-[#f5f5f5]">
+    <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="relative group overflow-hidden border border-neutral-200">
-          <img
-            src={caseImg}
-            alt="Sessão de diagnóstico financeiro"
-            loading="lazy"
-            width={1280}
-            height={1280}
-            className="w-full h-[560px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
-          />
-          <div className="absolute bottom-6 left-6 bg-white px-4 py-2 font-mono text-[10px] uppercase tracking-widest">
-            Diagnóstico · 60 min · gratuito
-          </div>
-        </div>
+        <ProcessMedia />
         <div>
-          <p className="text-xs font-mono tracking-widest text-[#ea580c] mb-6">// PROCESSO</p>
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter leading-[0.95]">
-            Como começamos a trabalhar juntos.
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// PROCESSO</p>
+          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter text-white">
+            Como começamos a
+            <br />
+            trabalhar juntos.
           </h2>
-          <ul className="mt-12 space-y-8">
+          <ul className="mt-12 space-y-6">
             {steps.map((s) => (
-              <li key={s.n} className="grid grid-cols-[auto_1fr] gap-6">
-                <span className="font-mono text-sm text-[#ea580c] pt-1">{s.n}</span>
-                <div className="border-l-2 border-[#ea580c] pl-5">
-                  <h3 className="text-lg font-semibold tracking-tight">{s.t}</h3>
-                  <p className="mt-1 text-sm text-neutral-600">{s.d}</p>
+              <li
+                key={s.n}
+                className="glass-card rounded-2xl p-6 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              >
+                <span className="font-mono text-sm text-[#fe4c00] pt-1">{s.n}</span>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-white">{s.t}</h3>
+                  <p className="mt-1 text-sm text-white/60">{s.d}</p>
                 </div>
               </li>
             ))}
@@ -404,20 +505,36 @@ function Process() {
   );
 }
 
+/* ---------- Final CTA ---------- */
 function FinalCTA() {
+  const ref = useMouseParallax();
   return (
-    <section id="agendar" className="relative bg-[#ea580c] text-white py-28 md:py-40 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
-        <div className="blueprint-grid w-full h-full" style={{ filter: "invert(1)" }} />
-      </div>
+    <section
+      id="agendar"
+      ref={ref}
+      className="relative bg-black text-white py-40 md:py-56 overflow-hidden"
+      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
+    >
+      <img
+        src={heroEntrepreneur}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        style={{ transform: "translate3d(calc(var(--mx) * -30px), calc(var(--my) * -30px), 0) scale(1.1)" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
+        }}
+      />
       <div className="relative max-w-5xl mx-auto px-6 text-center">
-        <p className="text-xs font-mono tracking-widest text-white/70 mb-6">// AGENDAR</p>
-        <h2 className="text-4xl md:text-7xl font-semibold tracking-tighter leading-[0.95]">
-          Vamos diagnosticar o financeiro
-          <br />
-          do seu negócio — de graça.
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// AGENDAR</p>
+        <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
+          Vamos diagnosticar o financeiro do seu negócio — <span className="text-[#fe4c00]">de graça.</span>
         </h2>
-        <p className="mt-8 text-white/80 max-w-xl mx-auto">
+        <p className="mt-10 text-white/70 text-lg max-w-xl mx-auto">
           60 minutos, direto ao ponto. Sem compromisso. Você sai com um plano de ação concreto.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4">
@@ -425,14 +542,14 @@ function FinalCTA() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white hover:bg-neutral-900 text-[#ea580c] hover:text-white px-10 py-5 text-sm font-medium tracking-wide transition-colors duration-300 inline-flex items-center gap-3"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Falar no WhatsApp
           </a>
           <a
             href="mailto:contato@fincore.com.br"
-            className="border border-white/40 hover:border-white text-white px-10 py-5 text-sm font-medium tracking-wide transition-colors duration-300"
+            className="border border-white/30 hover:border-white text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors"
           >
             Enviar e-mail
           </a>
@@ -442,14 +559,15 @@ function FinalCTA() {
   );
 }
 
+/* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-400 py-16">
+    <footer className="bg-black text-white/60 py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <span className="w-4 h-4 bg-[#ea580c] block" />
-            <span className="text-xl font-semibold tracking-tighter text-white">{BRAND}</span>
+            <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
+            <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-sm">
             BPO Financeiro para micro e pequenos empreendedores. Clareza, organização e
@@ -457,28 +575,24 @@ function Footer() {
           </p>
         </div>
         <div>
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">Navegar</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
           <ul className="space-y-2 text-sm">
-            <li><a href="#sobre" className="hover:text-[#ea580c]">Sobre</a></li>
-            <li><a href="#como-funciona" className="hover:text-[#ea580c]">Como Funciona</a></li>
-            <li><a href="#depoimentos" className="hover:text-[#ea580c]">Depoimentos</a></li>
-            <li><a href="#agendar" className="hover:text-[#ea580c]">Agendar</a></li>
+            <li><a href="#sobre" className="hover:text-[#fe4c00]">Sobre</a></li>
+            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como Funciona</a></li>
+            <li><a href="#depoimentos" className="hover:text-[#fe4c00]">Depoimentos</a></li>
+            <li><a href="#agendar" className="hover:text-[#fe4c00]">Agendar</a></li>
           </ul>
         </div>
         <div>
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">Contato</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
-            <li>
-              <a href={WHATSAPP} className="hover:text-[#ea580c]">
-                WhatsApp
-              </a>
-            </li>
+            <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
             <li>contato@fincore.com.br</li>
             <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-neutral-800 text-xs font-mono text-neutral-500 flex justify-between">
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
