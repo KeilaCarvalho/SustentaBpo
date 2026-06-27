@@ -347,19 +347,20 @@ function WhatIs() {
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
       <div id="fazemos" className="relative site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
-        {/* Row 1 — Eyebrow + Headline aligned on same baseline */}
-        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
-          // 01 — SOBRE A FINCORE
-        </p>
-        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
-          Operação financeira{" "}
-          <em className="italic text-[#fe4c00]">que funciona</em>{" "}
-          todos os dias.
-        </h2>
+        {/* Row 1 — Eyebrow above, headline left-aligned */}
+        <div className="col-span-4 md:col-span-12 lg:col-span-10">
+          <p className="eyebrow mb-4 sm:mb-5">
+            // 01 — SOBRE A FINCORE
+          </p>
+          <h2 className="display-xl text-white text-left">
+            Operação financeira{" "}
+            <em className="italic text-[#fe4c00]">que funciona</em>{" "}
+            todos os dias.
+          </h2>
+        </div>
 
-        {/* Row 2 — Description aligned under headline */}
-        <div className="hidden md:block md:col-span-4" aria-hidden="true" />
-        <p className="col-span-4 md:col-span-7 body-lg text-white/65 max-w-2xl">
+        {/* Row 2 — Description left-aligned under headline */}
+        <p className="col-span-4 md:col-span-8 lg:col-span-7 body-lg text-white/65 max-w-2xl">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
