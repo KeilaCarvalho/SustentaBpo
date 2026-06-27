@@ -398,29 +398,24 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section className="py-32 md:py-48 bg-black relative">
-      <div className="site-container site-grid">
-        <div className="col-span-4 md:col-start-4 md:col-span-9">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
+    <section className="py-24 sm:py-32 lg:py-44 bg-black relative">
+      <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
+          <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
             // 02 — O QUE NÃO FAZEMOS
           </p>
-          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
-            Transparência
-            <br className="hidden sm:block" />{" "}
-            sobre os{" "}
+          <h2 className="display-xl text-white xl:text-right">
+            Transparência sobre os{" "}
             <em className="italic text-[#fe4c00]">nossos limites.</em>
           </h2>
         </div>
 
-
-        {/* Cards — full-width band, 3-col grid on lg with staggered offsets */}
-        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        {/* Cards — clean grid, no stagger */}
+        <div className="col-span-4 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {items.map((it, i) => (
             <div
               key={it.title}
-              className={`glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
-                i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-12" : "lg:mt-24"
-              }`}
+              className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
                 <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
@@ -428,7 +423,7 @@ function Values() {
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-10 font-display text-2xl text-white group-hover:text-black transition-colors leading-tight">
+              <h3 className="mt-8 font-display text-xl sm:text-2xl text-white group-hover:text-black transition-colors leading-tight">
                 {it.title}
               </h3>
               <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
@@ -437,11 +432,11 @@ function Values() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
+
 
 
 /* ---------- Metrics ---------- */
