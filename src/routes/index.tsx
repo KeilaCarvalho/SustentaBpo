@@ -705,7 +705,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
+      <div className="site-container mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
