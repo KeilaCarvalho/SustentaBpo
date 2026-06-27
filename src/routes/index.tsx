@@ -221,7 +221,7 @@ function Hero() {
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="lg:col-span-8 overflow-hidden">
+        <div className="col-span-4 md:col-span-12 lg:col-span-8 overflow-hidden">
           <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
