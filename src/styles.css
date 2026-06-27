@@ -52,6 +52,49 @@
     background-color: #fe4c00;
     color: #ffffff;
   }
+
+  /* Remove default outline only when we replace it with focus-visible ring */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  /* Visible, high-contrast focus ring on keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 2px solid #fe4c00;
+    outline-offset: 3px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(254, 76, 0, 0.45);
+    transition: box-shadow 0.12s ease-out;
+  }
+  /* Skip link for keyboard users */
+  .skip-to-content {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    z-index: 100;
+    background: #fe4c00;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.18s ease-out;
+  }
+  .skip-to-content:focus,
+  .skip-to-content:focus-visible {
+    transform: translate(-50%, 0);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
