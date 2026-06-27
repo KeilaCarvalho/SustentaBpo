@@ -402,7 +402,7 @@ function Values() {
   return (
     <section className="py-32 md:py-48 bg-black relative">
       <div className="site-container site-grid">
-        <div className="col-span-4 md:col-span-12">
+        <div className="col-span-4 md:col-start-4 md:col-span-9">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
             // 02 — O QUE NÃO FAZEMOS
           </p>
@@ -413,6 +413,7 @@ function Values() {
             <em className="italic text-[#fe4c00]">nossos limites.</em>
           </h2>
         </div>
+
 
         {/* Cards — stack on mobile, staggered only on lg+ */}
         {items.map((it, i) => (
