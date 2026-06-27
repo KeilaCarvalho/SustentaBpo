@@ -392,7 +392,7 @@ function Metrics() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-8">
           {stats.map((s) => (
             <div key={s.l} className="group">
-              <p className="font-display text-6xl md:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none">
+              <p className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none [text-wrap:balance]">
                 {s.v}
               </p>
               <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
