@@ -214,7 +214,8 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center text-white"
+        className="relative z-10 min-h-[100svh] site-container pt-32 pb-20 site-grid items-center text-white"
+
         style={{
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
