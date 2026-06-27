@@ -160,22 +160,23 @@ function Hero() {
       >
         <div className="lg:col-span-8 overflow-hidden">
           <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
-            // BPO FINANCEIRO · OPERAÇÃO 24/7
+            // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
           <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
             <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-1">Seu financeiro,</span>
+              <span className="block reveal-mask delay-1">O financeiro</span>
             </span>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-2">
-                sob <span className="text-[#fe4c00]">controle.</span>
+                não deveria depender <span className="text-[#fe4c00]">do seu tempo.</span>
               </span>
             </span>
           </h1>
           <div className="overflow-hidden mt-8 max-w-xl">
             <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
-              Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa
-              do seu negócio — com clareza, segurança e relatórios que você realmente entende.
+              A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
+              contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
+              com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
@@ -183,14 +184,14 @@ function Hero() {
               href="#agendar"
               className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
-              Agendar Diagnóstico Gratuito
+              Diagnóstico Financeiro Gratuito
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
-              href="#como-funciona"
+              href="#fazemos"
               className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
             >
-              Ver como funciona →
+              Conhecer a operação →
             </a>
           </div>
         </div>
