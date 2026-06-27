@@ -613,7 +613,7 @@ function FinalCTA() {
     <section
       id="agendar"
       ref={ref}
-      className="relative bg-black text-white py-40 md:py-56 overflow-hidden"
+      className="relative bg-black text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       <img
@@ -631,31 +631,31 @@ function FinalCTA() {
         }}
       />
       <div className="relative site-container max-w-5xl text-center">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
-        <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
+        <p className="eyebrow mb-6 sm:mb-8">// POSICIONAMENTO</p>
+        <h2 className="display-xl">
+          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
+        </h2>
+        <p className="mt-8 sm:mt-10 display-md text-white/80 max-w-3xl mx-auto">
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
           da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
         </p>
-        <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
-          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
-        </h2>
-        <p className="mt-10 text-white/70 text-lg max-w-2xl mx-auto">
+        <p className="mt-6 body-lg text-white/70 max-w-2xl mx-auto">
           Entenda como sua operação financeira pode funcionar com mais organização,
           previsibilidade e controle.
         </p>
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
           <a
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Diagnóstico Financeiro Gratuito
           </a>
           <a
             href="mailto:contato@fincore.com.br"
-            className="border border-white/30 hover:border-white text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors"
+            className="border border-white/30 hover:border-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
           >
             Enviar e-mail
           </a>
@@ -664,6 +664,7 @@ function FinalCTA() {
     </section>
   );
 }
+
 
 /* ---------- Footer ---------- */
 function Footer() {
