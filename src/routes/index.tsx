@@ -473,21 +473,21 @@ function ProcessMedia() {
 
 function Process() {
   const steps = [
-    { n: "01", t: "Diagnóstico gratuito", d: "Conversamos sobre suas rotinas atuais, dores e prioridades." },
-    { n: "02", t: "Mapeamento das rotinas", d: "Levantamos contas, prazos, acessos e identificamos riscos." },
-    { n: "03", t: "Implantação", d: "Padronizamos processos, integramos bancos e iniciamos a operação." },
-    { n: "04", t: "Acompanhamento contínuo", d: "Conciliação diária, relatórios mensais e suporte direto." },
+    { n: "01", t: "Diagnóstico", d: "Entendemos como a operação financeira funciona hoje e o nível de organização existente." },
+    { n: "02", t: "Implantação", d: "Organizamos sistema, processos e rotina financeira dentro da operação." },
+    { n: "03", t: "Execução diária", d: "Assumimos a operação financeira com rotina estruturada e acompanhamento contínuo." },
+    { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <ProcessMedia />
         <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// PROCESSO</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// COMO FUNCIONA</p>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter text-white">
-            Como começamos a
+            Quatro passos para
             <br />
-            trabalhar juntos.
+            estruturar a rotina.
           </h2>
           <ul className="mt-12 space-y-6">
             {steps.map((s) => (
