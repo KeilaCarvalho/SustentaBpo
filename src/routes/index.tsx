@@ -281,16 +281,14 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-12">
-        {/* Eyebrow — left margin column */}
+      <div id="fazemos" className="relative max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-12">
         <div className="col-span-4 md:col-span-3 md:pt-3">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
-            // 01 —<br />SOBRE A<br />FINCORE
+            // 01 — SOBRE A FINCORE
           </p>
         </div>
 
-        {/* Headline — wide editorial column with controlled breaks */}
-        <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
+        <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
           Operação financeira
           <br className="hidden md:block" />{" "}
           <em className="italic text-[#fe4c00]">que funciona</em>
@@ -298,20 +296,19 @@ function WhatIs() {
           todos os dias.
         </h2>
 
-        {/* Body copy — offset right, narrow column */}
-        <p className="col-span-4 md:col-start-4 md:col-span-5 text-white/60 text-base md:text-lg leading-relaxed md:pl-0">
+        <p className="col-span-4 md:col-start-4 md:col-span-6 lg:col-span-5 text-white/60 text-base md:text-lg leading-relaxed">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua dentro do Conta Azul.
         </p>
 
-        {/* Cards — right column, staggered */}
-        <div className="col-span-4 md:col-start-9 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+        {/* Cards — stack on mobile, 2-col on tablet, single staggered col on desktop */}
+        <div className="col-span-4 md:col-span-12 lg:col-start-9 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
           {services.map((s, i) => (
             <div
               key={s.label}
-              className={`glass-card rounded-3xl p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "md:translate-x-[-30%] md:w-[130%]" : ""}`}
+              className={`glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "lg:translate-x-[-30%] lg:w-[130%]" : ""}`}
             >
               <div className="flex items-baseline justify-between">
                 <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
