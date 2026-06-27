@@ -534,12 +534,17 @@ function FinalCTA() {
         }}
       />
       <div className="relative max-w-5xl mx-auto px-6 text-center">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// AGENDAR</p>
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
+        <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
+          A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
+          da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
+        </p>
         <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
-          Vamos diagnosticar o financeiro do seu negócio — <span className="text-[#fe4c00]">de graça.</span>
+          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
         </h2>
-        <p className="mt-10 text-white/70 text-lg max-w-xl mx-auto">
-          60 minutos, direto ao ponto. Sem compromisso. Você sai com um plano de ação concreto.
+        <p className="mt-10 text-white/70 text-lg max-w-2xl mx-auto">
+          Entenda como sua operação financeira pode funcionar com mais organização,
+          previsibilidade e controle.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <a
@@ -549,7 +554,7 @@ function FinalCTA() {
             className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
-            Falar no WhatsApp
+            Diagnóstico Financeiro Gratuito
           </a>
           <a
             href="mailto:contato@fincore.com.br"
