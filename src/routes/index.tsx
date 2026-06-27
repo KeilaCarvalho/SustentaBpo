@@ -281,16 +281,18 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — O QUE FAZEMOS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — SOBRE A FINCORE</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            O que é BPO Financeiro.
+            Operação financeira que funciona todos os dias.
           </h2>
           <p className="mt-10 text-white/60 text-lg leading-relaxed max-w-lg">
-            Terceirização das rotinas financeiras do seu negócio — contas a pagar, a receber,
-            conciliação bancária, fluxo de caixa, emissão de boletos e notas — para uma equipe
-            especializada. Você ganha tempo, organização e foco no que importa.
+            A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
+            a operação para que o empresário não precise lidar com o dia a dia operacional —
+            apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
+            contínua dentro do Conta Azul, garantindo informação financeira sempre organizada
+            e acessível.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
