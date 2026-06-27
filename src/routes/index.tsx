@@ -7,17 +7,17 @@ import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FINCORE — BPO Financeiro para PMEs" },
+      { title: "FINCORE — BPO Financeiro com rotina diária" },
       {
         name: "description",
         content:
-          "Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu negócio — com clareza, segurança e relatórios que você realmente entende.",
+          "A FINCORE assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária dentro do Conta Azul.",
       },
-      { property: "og:title", content: "FINCORE — BPO Financeiro para PMEs" },
+      { property: "og:title", content: "FINCORE — BPO Financeiro com rotina diária" },
       {
         property: "og:description",
         content:
-          "Seu financeiro, sob controle. BPO Financeiro para micro e pequenos empreendedores.",
+          "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A FINCORE executa.",
       },
     ],
   }),
