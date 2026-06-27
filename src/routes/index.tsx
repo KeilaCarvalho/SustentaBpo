@@ -415,28 +415,31 @@ function Values() {
         </div>
 
 
-        {/* Cards — stack on mobile, staggered only on lg+ */}
-        {items.map((it, i) => (
-          <div
-            key={it.title}
-            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
-              i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-16" : "lg:mt-32"
-            }`}
-          >
-            <div className="flex items-center justify-between">
-              <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
-              <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
-                0{i + 1}
-              </span>
+        {/* Cards — full-width band, 3-col grid on lg with staggered offsets */}
+        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          {items.map((it, i) => (
+            <div
+              key={it.title}
+              className={`glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
+                i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-12" : "lg:mt-24"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
+                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
+                  0{i + 1}
+                </span>
+              </div>
+              <h3 className="mt-10 font-display text-2xl text-white group-hover:text-black transition-colors leading-tight">
+                {it.title}
+              </h3>
+              <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
+                {it.desc}
+              </p>
             </div>
-            <h3 className="mt-10 font-display text-2xl text-white group-hover:text-black transition-colors leading-tight">
-              {it.title}
-            </h3>
-            <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
-              {it.desc}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
     </section>
   );
