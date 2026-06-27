@@ -359,17 +359,17 @@ function Values() {
 /* ---------- Metrics ---------- */
 function Metrics() {
   const stats = [
-    { v: "150+", l: "Empresas atendidas" },
-    { v: "R$80M", l: "Movimentados/conciliados" },
-    { v: "98%", l: "Satisfação dos clientes" },
-    { v: "0", l: "Multas por atraso em 2024" },
+    { v: "Diário", l: "Contas a pagar e a receber organizadas" },
+    { v: "Contínuo", l: "Conciliação bancária acompanhada" },
+    { v: "Atualizado", l: "Fluxo de caixa todos os dias" },
+    { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
     <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// NOSSO IMPACTO</p>
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
           {stats.map((s) => (
             <div key={s.l} className="group">
