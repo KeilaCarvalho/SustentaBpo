@@ -87,15 +87,16 @@ function Nav() {
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm text-white/60 font-medium">
           <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
-          <li><a href="#como-funciona" className="hover:text-white transition-colors">Processo</a></li>
-          <li><a href="#depoimentos" className="hover:text-white transition-colors">Clientes</a></li>
+          <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
+          <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
+          <li><a href="#para-quem" className="hover:text-white transition-colors">Para quem é</a></li>
           <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
         </ul>
         <a
           href="#agendar"
           className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
         >
-          Diagnóstico
+          Diagnóstico Gratuito
         </a>
       </div>
     </nav>
