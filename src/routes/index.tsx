@@ -236,7 +236,7 @@ function Hero() {
               </span>
             </span>
           </h1>
-          <div className="overflow-hidden mt-6 sm:mt-8 max-w-md">
+          <div className="overflow-hidden mt-6 sm:mt-8 max-w-2xl">
             <p className="reveal-mask delay-3 body-lg text-white/70">
               A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
@@ -640,7 +640,7 @@ function FinalCTA() {
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
           da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
         </p>
-        <p className="mt-6 body-lg text-white/70 max-w-2xl mx-auto">
+        <p className="mt-6 body-lg text-white/70 max-w-3xl mx-auto">
           Entenda como sua operação financeira pode funcionar com mais organização,
           previsibilidade e controle.
         </p>
@@ -677,7 +677,7 @@ function Footer() {
             <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
-          <p className="mt-4 text-sm max-w-sm">
+          <p className="mt-4 text-sm max-w-md">
             BPO Financeiro com rotina diária, organização em sistema e execução contínua dentro
             do Conta Azul.
           </p>
