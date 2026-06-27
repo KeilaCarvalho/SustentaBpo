@@ -32,15 +32,17 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
 }
 
-/* ---------- Mouse parallax hook ---------- */
+/* ---------- Mouse parallax + focus/hover glow hook ---------- */
 function useMouseParallax() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     let raf = 0;
     const onMove = (e: MouseEvent) => {
+      if (reduce) return;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const rect = el.getBoundingClientRect();
@@ -50,9 +52,48 @@ function useMouseParallax() {
         el.style.setProperty("--my", y.toFixed(3));
       });
     };
+
+    const selector = "a, button, [role='button']";
+    const setGlowFromTarget = (target: Element) => {
+      const rect = el.getBoundingClientRect();
+      const tr = (target as HTMLElement).getBoundingClientRect();
+      const gx = ((tr.left + tr.width / 2 - rect.left) / rect.width) * 100;
+      const gy = ((tr.top + tr.height / 2 - rect.top) / rect.height) * 100;
+      el.style.setProperty("--gx", `${gx.toFixed(2)}%`);
+      el.style.setProperty("--gy", `${gy.toFixed(2)}%`);
+      el.style.setProperty("--gi", "1");
+    };
+    const clearGlow = () => el.style.setProperty("--gi", "0");
+
+    const closestInteractive = (n: EventTarget | null) =>
+      n instanceof Element ? n.closest(selector) : null;
+
+    const onOver = (e: Event) => {
+      const t = closestInteractive(e.target);
+      if (t) setGlowFromTarget(t);
+    };
+    const onOut = (e: Event) => {
+      if (closestInteractive(e.target)) clearGlow();
+    };
+    const onFocusIn = (e: FocusEvent) => {
+      const t = closestInteractive(e.target);
+      if (t) setGlowFromTarget(t);
+    };
+    const onFocusOut = (e: FocusEvent) => {
+      if (closestInteractive(e.target)) clearGlow();
+    };
+
     el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseover", onOver);
+    el.addEventListener("mouseout", onOut);
+    el.addEventListener("focusin", onFocusIn);
+    el.addEventListener("focusout", onFocusOut);
     return () => {
       el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseover", onOver);
+      el.removeEventListener("mouseout", onOut);
+      el.removeEventListener("focusin", onFocusIn);
+      el.removeEventListener("focusout", onFocusOut);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -147,6 +188,14 @@ function Hero() {
         style={{
           background:
             "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(254,76,0,0.18), transparent 60%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none mix-blend-screen transition-opacity duration-500 ease-out"
+        style={{
+          opacity: "calc(var(--gi, 0) * 0.55)",
+          background:
+            "radial-gradient(280px circle at var(--gx, 50%) var(--gy, 50%), rgba(254,76,0,0.45), rgba(254,76,0,0.12) 40%, transparent 70%)",
         }}
       />
 
