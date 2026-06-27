@@ -1,23 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import caseImg from "@/assets/case-meeting.jpg";
-import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
-import heroVideo from "@/assets/hero-bg.mp4.asset.json";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FINCORE — BPO Financeiro para PMEs" },
+      { title: "FINCORE — BPO Financeiro | Operação financeira que funciona todos os dias" },
       {
         name: "description",
         content:
-          "Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu negócio — com clareza, segurança e relatórios que você realmente entende.",
+          "A FINCORE assume a operação financeira da sua empresa: contas a pagar, contas a receber, conciliação bancária e fluxo de caixa — com rotina estruturada no Conta Azul.",
       },
-      { property: "og:title", content: "FINCORE — BPO Financeiro para PMEs" },
+      { property: "og:title", content: "FINCORE — BPO Financeiro" },
       {
         property: "og:description",
         content:
-          "Seu financeiro, sob controle. BPO Financeiro para micro e pequenos empreendedores.",
+          "Você acompanha. Aprova. Decide. Nós executamos. Operação financeira completa para empresas em crescimento.",
       },
     ],
   }),
@@ -32,318 +29,284 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
 }
 
-/* ---------- Mouse parallax hook ---------- */
-function useMouseParallax() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const onMove = (e: MouseEvent) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        el.style.setProperty("--mx", x.toFixed(3));
-        el.style.setProperty("--my", y.toFixed(3));
-      });
-    };
-    el.addEventListener("mousemove", onMove);
-    return () => {
-      el.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-  return ref;
-}
-
 function Landing() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      <Nav />
-      <Hero />
-      <Marquee />
-      <WhatIs />
-      <Values />
-      <Metrics />
-      <Testimonials />
-      <Process />
-      <FinalCTA />
+    <div className="min-h-screen bg-white text-navy font-sans">
+      <Header />
+      <main>
+        <Hero />
+        <Bullets />
+        <About />
+        <Services />
+        <NotDoing />
+        <HowItWorks />
+        <ForWhom />
+        <Positioning />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );
 }
 
-/* ---------- Nav ---------- */
-function Nav() {
+/* ---------- Header ---------- */
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { href: "#enxerga", label: "O que você enxerga" },
+    { href: "#sobre", label: "Sobre" },
+    { href: "#servicos", label: "Serviços" },
+    { href: "#como-funciona", label: "Como funciona" },
+    { href: "#para-quem", label: "Para quem é" },
+  ];
+
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
-          <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md border-b border-navy/10"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <a href="#top" className="flex items-center gap-2">
+          <div className="h-2.5 w-2.5 rounded-full bg-navy" />
+          <span className="font-display text-2xl tracking-tight text-navy">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-white/60 font-medium">
-          <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
-          <li><a href="#como-funciona" className="hover:text-white transition-colors">Processo</a></li>
-          <li><a href="#depoimentos" className="hover:text-white transition-colors">Clientes</a></li>
-          <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
-        </ul>
+
+        <nav className="hidden items-center gap-8 lg:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-navy/70 transition-colors hover:text-navy"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+
         <a
-          href="#agendar"
-          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
+          href={WHATSAPP}
+          target="_blank"
+          rel="noreferrer"
+          className="hidden items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-navy/90 lg:inline-flex"
+        >
+          Diagnóstico Gratuito
+          <Icon name="lucide:arrow-right" className="text-base" />
+        </a>
+
+        <a
+          href={WHATSAPP}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-xs font-medium text-white lg:hidden"
         >
           Diagnóstico
         </a>
       </div>
-    </nav>
+    </header>
   );
 }
 
-/* ---------- Hero with mouse parallax + video bg ---------- */
+/* ---------- Hero ---------- */
 function Hero() {
-  const ref = useMouseParallax();
   return (
-    <section
-      id="top"
-      ref={ref}
-      className="relative min-h-[100svh] w-full overflow-hidden bg-black"
-      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
-    >
-      {/* Video layer (parallax) */}
-      <div
-        className="absolute inset-0 transition-transform duration-300 ease-out"
-        style={{
-          transform:
-            "translate3d(calc(var(--mx) * -20px), calc(var(--my) * -20px), 0) scale(1.08)",
-        }}
-      >
-        <video
-          src={heroVideo.url}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+    <section id="top" className="relative overflow-hidden pt-32 pb-24 lg:pt-44 lg:pb-32">
+      {/* Soft navy gradient backdrop */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-navy/[0.04] blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#0a1f44 1px, transparent 1px), linear-gradient(90deg, #0a1f44 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
         />
       </div>
 
-      {/* Gradient + grid overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black" />
-      <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-navy/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            BPO Financeiro · Conta Azul
+          </div>
 
-      {/* Radial glow following mouse */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-60 transition-opacity"
-        style={{
-          background:
-            "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(254,76,0,0.18), transparent 60%)",
-        }}
-      />
-
-      {/* Scanner */}
-      <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden pointer-events-none">
-        <div className="scanner-bar" />
-      </div>
-
-      {/* Content */}
-      <div
-        className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center text-white"
-        style={{
-          transform:
-            "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
-        }}
-      >
-        <div className="lg:col-span-8 overflow-hidden">
-          <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
-            // BPO FINANCEIRO · OPERAÇÃO 24/7
-          </p>
-          <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
-            <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-1">Seu financeiro,</span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-2">
-                sob <span className="text-[#fe4c00]">controle.</span>
-              </span>
-            </span>
+          <h1 className="font-display text-5xl leading-[1.05] text-navy md:text-6xl lg:text-7xl">
+            O financeiro da sua empresa não deveria depender do seu tempo.
           </h1>
-          <div className="overflow-hidden mt-8 max-w-xl">
-            <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
-              Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa
-              do seu negócio — com clareza, segurança e relatórios que você realmente entende.
-            </p>
-          </div>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
+
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-navy/70 md:text-xl">
+            Ele precisa funcionar todos os dias — com organização, rotina e
+            execução consistente.
+          </p>
+
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy/60">
+            A FINCORE assume a operação financeira completa da sua empresa:
+            contas a pagar, contas a receber, conciliação bancária e controle de
+            fluxo de caixa — tudo organizado em sistema e com acompanhamento
+            diário.
+          </p>
+
+          <p className="mt-4 max-w-2xl font-display text-xl text-navy md:text-2xl">
+            Você acompanha. Aprova. Decide. <span className="text-navy/50">Nós executamos.</span>
+          </p>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="#agendar"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-4 text-base font-medium text-white transition-all hover:bg-navy/90"
             >
-              Agendar Diagnóstico Gratuito
-              <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
+              Diagnóstico Financeiro Gratuito
+              <Icon name="lucide:arrow-right" className="text-lg" />
             </a>
             <a
-              href="#como-funciona"
-              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
+              href="#servicos"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-7 py-4 text-base font-medium text-navy transition-all hover:border-navy hover:bg-navy/[0.03]"
             >
-              Ver como funciona →
+              Conhecer a operação
             </a>
           </div>
         </div>
-
-        {/* Floating glass cards w/ parallax */}
-        <div
-          className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
-          style={{
-            transform:
-              "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
-          }}
-        >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
-            <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Sistema
-            </div>
-            <p className="mt-2 text-white">Conciliação · 100%</p>
-            <p className="text-white/60">Atualizado: agora</p>
-          </div>
-          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Indicador</p>
-            <p className="mt-2 text-base font-medium flex items-center gap-2">
-              <Icon name="lucide:trending-up" className="text-lg" />
-              Fluxo de Caixa Saudável
-            </p>
-          </div>
-          <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
-              <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
-            </div>
-            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
-              Engine ativa
-              <p className="text-white/90 normal-case tracking-normal text-xs">Processando lotes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
-        <span>Scroll</span>
-        <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );
 }
 
-/* ---------- Marquee ---------- */
-function Marquee() {
+/* ---------- Bullets: O que você enxerga ---------- */
+function Bullets() {
   const items = [
-    "Contas a Pagar",
-    "Contas a Receber",
-    "Conciliação Bancária",
-    "Fluxo de Caixa",
-    "DRE Mensal",
-    "Emissão de NF",
-    "Cobrança Automática",
-    "Relatórios Gerenciais",
+    { icon: "lucide:calendar-check", label: "Organização diária das contas a pagar e receber" },
+    { icon: "lucide:repeat", label: "Conciliação bancária contínua" },
+    { icon: "lucide:trending-up", label: "Fluxo de caixa atualizado" },
+    { icon: "lucide:layout-grid", label: "Rotina financeira estruturada em sistema" },
+    { icon: "lucide:file-text", label: "Informações organizadas para tomada de decisão" },
+    { icon: "lucide:activity", label: "Operação executada com acompanhamento constante" },
   ];
-  const row = [...items, ...items];
+
   return (
-    <div className="bg-[#fe4c00] border-y border-[#fe4c00] py-6 overflow-hidden">
-      <div className="marquee">
-        <div className="marquee-track font-display text-2xl md:text-4xl font-bold text-black uppercase tracking-tight">
-          {row.map((t, i) => (
-            <span key={i} className="flex items-center gap-16">
-              {t}
-              <span className="text-black/60">✦</span>
-            </span>
+    <section id="enxerga" className="border-t border-navy/10 bg-navy/[0.02] py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionLabel>02 — Resultado prático</SectionLabel>
+        <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-navy md:text-5xl">
+          O que você enxerga na prática.
+        </h2>
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-navy/10 bg-navy/10 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => (
+            <div
+              key={item.label}
+              className="group flex items-start gap-4 bg-white p-8 transition-colors hover:bg-navy/[0.02]"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-white">
+                <Icon name={item.icon} className="text-lg" />
+              </div>
+              <p className="text-base leading-relaxed text-navy/80">{item.label}</p>
+            </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-/* ---------- WhatIs ---------- */
-function WhatIs() {
-  const services = [
-    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Agendamento, baixas e relatórios diários." },
-    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Boletos, PIX, cobrança ativa e régua." },
-    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Match diário de extratos vs. ERP." },
-    { icon: "lucide:bar-chart-3", label: "Relatórios Gerenciais", desc: "DRE, fluxo de caixa e KPIs mensais." },
-  ];
+/* ---------- About ---------- */
+function About() {
   return (
-    <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
-      <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-        <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — O QUE FAZEMOS</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            O que é BPO Financeiro.
+    <section id="sobre" className="py-24 lg:py-32">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
+        <div className="lg:col-span-5">
+          <SectionLabel>03 — Sobre a FINCORE</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-navy md:text-5xl">
+            Experiência prática no financeiro de empresas reais.
           </h2>
-          <p className="mt-10 text-white/60 text-lg leading-relaxed max-w-lg">
-            Terceirização das rotinas financeiras do seu negócio — contas a pagar, a receber,
-            conciliação bancária, fluxo de caixa, emissão de boletos e notas — para uma equipe
-            especializada. Você ganha tempo, organização e foco no que importa.
+        </div>
+        <div className="space-y-6 text-lg leading-relaxed text-navy/75 lg:col-span-7">
+          <p>
+            A FINCORE nasce da experiência prática no financeiro de empresas
+            reais. Com anos de atuação na operação financeira dentro de empresas
+            de BPO, estruturamos um modelo que prioriza consistência,
+            organização e controle diário da rotina financeira.
+          </p>
+          <p>
+            Assumimos a operação financeira para que o empresário não precise
+            lidar com o dia a dia operacional — apenas acompanhar e aprovar o
+            que é necessário.
+          </p>
+          <p>
+            Trabalhamos com processos definidos e execução contínua dentro do{" "}
+            <span className="font-medium text-navy">Conta Azul</span>,
+            garantindo que a informação financeira esteja sempre organizada e
+            acessível.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {services.map((s) => (
-            <div
-              key={s.label}
-              className="glass-card rounded-3xl p-8 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1"
-            >
-              <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
-              <p className="mt-8 font-display text-xl font-bold text-white">{s.label}</p>
-              <p className="mt-2 text-sm text-white/50">{s.desc}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Values ---------- */
-function Values() {
+/* ---------- Services: O que fazemos ---------- */
+function Services() {
   const items = [
-    { icon: "lucide:eye", title: "Clareza, não jargão", desc: "Relatórios que qualquer empreendedor entende." },
-    { icon: "lucide:message-circle", title: "Atendimento humano", desc: "Você fala com uma pessoa, direto no WhatsApp." },
-    { icon: "lucide:shield-check", title: "Segurança e organização", desc: "Rotinas padronizadas e dados sempre atualizados." },
+    {
+      icon: "lucide:credit-card",
+      title: "Contas a pagar",
+      desc: "Controle e execução de pagamentos com rotina diária.",
+    },
+    {
+      icon: "lucide:wallet",
+      title: "Contas a receber",
+      desc: "Lançamentos e acompanhamento de recebíveis.",
+    },
+    {
+      icon: "lucide:landmark",
+      title: "Conciliação bancária",
+      desc: "Fechamento contínuo entre extrato e sistema.",
+    },
+    {
+      icon: "lucide:line-chart",
+      title: "Fluxo de caixa diário",
+      desc: "Posição de caixa atualizada para decisões rápidas.",
+    },
+    {
+      icon: "lucide:database",
+      title: "Organização financeira em sistema",
+      desc: "Estrutura e padronização dentro do Conta Azul.",
+    },
+    {
+      icon: "lucide:hand-coins",
+      title: "Apoio na rotina operacional",
+      desc: "Execução financeira contínua com acompanhamento.",
+    },
   ];
+
   return (
-    <section className="py-32 md:py-48 bg-black relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — DIFERENCIAIS</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Por que terceirizar
-            <br />
-            com a gente.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {items.map((it, i) => (
+    <section id="servicos" className="border-t border-navy/10 py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionLabel>04 — O que fazemos</SectionLabel>
+        <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-navy md:text-5xl">
+          Operação financeira completa, executada com método.
+        </h2>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((s) => (
             <div
-              key={it.title}
-              className="glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
+              key={s.title}
+              className="group rounded-2xl border border-navy/10 bg-white p-8 transition-all hover:border-navy hover:shadow-[0_24px_60px_-24px_rgba(10,31,68,0.18)]"
             >
-              <div className="flex items-center justify-between">
-                <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
-                  0{i + 1}
-                </span>
-              </div>
-              <h3 className="mt-10 font-display text-2xl font-bold text-white group-hover:text-black transition-colors">
-                {it.title}
-              </h3>
-              <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
-                {it.desc}
-              </p>
+              <Icon name={s.icon} className="text-3xl text-navy" />
+              <h3 className="mt-5 font-display text-2xl text-navy">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy/65">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -352,154 +315,153 @@ function Values() {
   );
 }
 
-/* ---------- Metrics ---------- */
-function Metrics() {
-  const stats = [
-    { v: "150+", l: "Empresas atendidas" },
-    { v: "R$80M", l: "Movimentados/conciliados" },
-    { v: "98%", l: "Satisfação dos clientes" },
-    { v: "0", l: "Multas por atraso em 2024" },
+/* ---------- Not Doing ---------- */
+function NotDoing() {
+  const items = [
+    "Não substituímos a decisão do empresário",
+    "Não atuamos como consultoria estratégica isolada",
+    "Não fazemos promessas fora da realidade operacional",
+    "Não trabalhamos sem processo e organização mínima do cliente",
   ];
+
   return (
-    <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// NOSSO IMPACTO</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
-          {stats.map((s) => (
-            <div key={s.l} className="group">
-              <p className="font-display text-6xl md:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none">
-                {s.v}
-              </p>
-              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
-                {s.l}
+    <section className="py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="rounded-3xl border-l-4 border-navy bg-navy/[0.04] p-10 lg:p-16">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <SectionLabel>05 — Transparência</SectionLabel>
+              <h2 className="mt-4 font-display text-4xl leading-tight text-navy md:text-5xl">
+                O que não fazemos.
+              </h2>
+              <p className="mt-5 text-base text-navy/65">
+                Clareza sobre o escopo evita ruídos e protege a entrega.
               </p>
             </div>
-          ))}
+            <ul className="space-y-4 lg:col-span-7">
+              {items.map((it) => (
+                <li
+                  key={it}
+                  className="flex items-start gap-4 border-b border-navy/10 pb-4 last:border-0"
+                >
+                  <Icon
+                    name="lucide:x"
+                    className="mt-1 shrink-0 text-lg text-navy/40"
+                  />
+                  <span className="text-lg text-navy/85">{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Testimonials (sticky stack) ---------- */
-function Testimonials() {
-  const list = [
-    { q: "Antes eu perdia fim de semana revisando planilha. Hoje recebo um relatório que realmente entendo.", n: "Camila R.", r: "Estúdio de design" },
-    { q: "Profissionalizou meu financeiro sem eu precisar contratar ninguém.", n: "Lucas M.", r: "E-commerce de moda" },
-    { q: "Atendimento rápido, direto no WhatsApp. Isso fez toda diferença.", n: "Andréa P.", r: "Clínica odontológica" },
-  ];
-  return (
-    <section id="depoimentos" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — DEPOIMENTOS</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Empreendedores que confiam o financeiro a nós.
-          </h2>
-        </div>
-        <div className="space-y-6">
-          {list.map((t, i) => (
-            <figure
-              key={t.n}
-              className="sticky glass-card rounded-3xl p-10 md:p-16"
-              style={{ top: `${100 + i * 24}px` }}
-            >
-              <span className="font-display text-7xl text-[#fe4c00] leading-none">"</span>
-              <blockquote className="mt-4 font-display text-2xl md:text-4xl text-white tracking-tight leading-snug">
-                {t.q}
-              </blockquote>
-              <figcaption className="mt-10 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
-                <span className="text-white">{t.n}</span>
-                <span className="text-white/50">· {t.r}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Process with image → video on hover ---------- */
-function ProcessMedia() {
-  const [hover, setHover] = useState(false);
-  const vRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    if (hover) vRef.current?.play().catch(() => {});
-    else vRef.current?.pause();
-  }, [hover]);
-  return (
-    <div
-      className="relative group overflow-hidden rounded-3xl border border-white/10 h-[560px]"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <img
-        src={caseImg}
-        alt="Sessão de diagnóstico financeiro"
-        loading="lazy"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-0" : "opacity-100"} grayscale`}
-      />
-      <video
-        ref={vRef}
-        src={heroVideo.url}
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-100 scale-105" : "opacity-0"}`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-      <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-        Diagnóstico · 60 min · gratuito
-      </div>
-      <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-        <p className="font-display text-2xl text-white max-w-xs leading-tight">
-          Sessão presencial ou remota.
-        </p>
-        <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
-          <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function Process() {
+/* ---------- How It Works ---------- */
+function HowItWorks() {
   const steps = [
-    { n: "01", t: "Diagnóstico gratuito", d: "Conversamos sobre suas rotinas atuais, dores e prioridades." },
-    { n: "02", t: "Mapeamento das rotinas", d: "Levantamos contas, prazos, acessos e identificamos riscos." },
-    { n: "03", t: "Implantação", d: "Padronizamos processos, integramos bancos e iniciamos a operação." },
-    { n: "04", t: "Acompanhamento contínuo", d: "Conciliação diária, relatórios mensais e suporte direto." },
+    {
+      n: "01",
+      title: "Diagnóstico",
+      desc: "Entendemos como a operação financeira funciona hoje e identificamos o nível de desorganização ou estrutura existente.",
+    },
+    {
+      n: "02",
+      title: "Implantação",
+      desc: "Organizamos o sistema, processos e rotina financeira dentro da operação.",
+    },
+    {
+      n: "03",
+      title: "Execução diária",
+      desc: "Assumimos a operação financeira com rotina estruturada e acompanhamento contínuo.",
+    },
+    {
+      n: "04",
+      title: "Acompanhamento",
+      desc: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa.",
+    },
   ];
+
   return (
-    <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <ProcessMedia />
-        <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// PROCESSO</p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter text-white">
-            Como começamos a
-            <br />
-            trabalhar juntos.
-          </h2>
-          <ul className="mt-12 space-y-6">
-            {steps.map((s) => (
-              <li
-                key={s.n}
-                className="glass-card rounded-2xl p-6 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
-              >
-                <span className="font-mono text-sm text-[#fe4c00] pt-1">{s.n}</span>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-white">{s.t}</h3>
-                  <p className="mt-1 text-sm text-white/60">{s.d}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+    <section id="como-funciona" className="border-t border-navy/10 bg-navy/[0.02] py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionLabel>06 — Como funciona</SectionLabel>
+        <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-navy md:text-5xl">
+          Um processo, quatro etapas.
+        </h2>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <div key={s.n} className="relative">
+              <div className="flex items-baseline gap-3">
+                <span className="font-display text-5xl text-navy/20">{s.n}</span>
+                {i < steps.length - 1 && (
+                  <span className="hidden h-px flex-1 bg-navy/15 lg:block" />
+                )}
+              </div>
+              <h3 className="mt-4 font-display text-2xl text-navy">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-navy/65">{s.desc}</p>
+            </div>
+          ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- For Whom ---------- */
+function ForWhom() {
+  const items = [
+    "Estão em crescimento e precisam de organização financeira real",
+    "Não conseguem manter rotina consistente no financeiro",
+    "Querem previsibilidade e controle do caixa",
+    "Precisam tirar o peso da operação do dia a dia",
+    "Querem profissionalizar o financeiro sem contratar equipe interna",
+  ];
+
+  return (
+    <section id="para-quem" className="py-24 lg:py-32">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
+        <div className="lg:col-span-5">
+          <SectionLabel>07 — Para quem é</SectionLabel>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-navy md:text-5xl">
+            A FINCORE é para empresas que:
+          </h2>
+        </div>
+        <ul className="space-y-5 lg:col-span-7">
+          {items.map((it) => (
+            <li
+              key={it}
+              className="flex items-start gap-4 border-b border-navy/10 pb-5"
+            >
+              <Icon
+                name="lucide:check"
+                className="mt-1 shrink-0 text-xl text-navy"
+              />
+              <span className="text-lg leading-relaxed text-navy/85">{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Positioning ---------- */
+function Positioning() {
+  return (
+    <section className="bg-navy py-28 text-white lg:py-40">
+      <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+        <SectionLabel light>08 — Posicionamento</SectionLabel>
+        <p className="mt-8 font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
+          A FINCORE não é apenas um BPO financeiro.
+        </p>
+        <p className="mt-6 font-display text-2xl leading-snug text-white/70 md:text-3xl">
+          É a estrutura que garante que o financeiro da empresa funcione todos
+          os dias com consistência.
+        </p>
       </div>
     </section>
   );
@@ -507,53 +469,27 @@ function Process() {
 
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
-  const ref = useMouseParallax();
   return (
-    <section
-      id="agendar"
-      ref={ref}
-      className="relative bg-black text-white py-40 md:py-56 overflow-hidden"
-      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
-    >
-      <img
-        src={heroEntrepreneur}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-        style={{ transform: "translate3d(calc(var(--mx) * -30px), calc(var(--my) * -30px), 0) scale(1.1)" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
-        }}
-      />
-      <div className="relative max-w-5xl mx-auto px-6 text-center">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// AGENDAR</p>
-        <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
-          Vamos diagnosticar o financeiro do seu negócio — <span className="text-[#fe4c00]">de graça.</span>
+    <section className="border-t border-navy/10 py-24 lg:py-32">
+      <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+        <h2 className="font-display text-4xl leading-tight text-navy md:text-5xl">
+          Agende um diagnóstico e entenda como sua operação financeira pode
+          funcionar com mais organização, previsibilidade e controle.
         </h2>
-        <p className="mt-10 text-white/70 text-lg max-w-xl mx-auto">
-          60 minutos, direto ao ponto. Sem compromisso. Você sai com um plano de ação concreto.
-        </p>
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-10">
           <a
             href={WHATSAPP}
             target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-base font-medium text-white transition-all hover:bg-navy/90"
           >
-            <Icon name="lucide:message-circle" className="text-lg" />
-            Falar no WhatsApp
-          </a>
-          <a
-            href="mailto:contato@fincore.com.br"
-            className="border border-white/30 hover:border-white text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors"
-          >
-            Enviar e-mail
+            Diagnóstico Financeiro Gratuito
+            <Icon name="lucide:arrow-right" className="text-lg" />
           </a>
         </div>
+        <p className="mt-5 text-sm text-navy/55">
+          Atendimento inicial via WhatsApp · Resposta no mesmo dia útil
+        </p>
       </div>
     </section>
   );
@@ -562,40 +498,41 @@ function FinalCTA() {
 /* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-black text-white/60 py-20 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
-            <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
-          </div>
-          <p className="mt-4 text-sm max-w-sm">
-            BPO Financeiro para micro e pequenos empreendedores. Clareza, organização e
-            atendimento humano.
-          </p>
+    <footer className="border-t border-navy/10 bg-navy/[0.02]">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-10">
+        <div className="flex items-center gap-2">
+          <div className="h-2 w-2 rounded-full bg-navy" />
+          <span className="font-display text-xl text-navy">{BRAND}</span>
+          <span className="ml-4 text-xs text-navy/50">
+            BPO Financeiro · Conta Azul
+          </span>
         </div>
-        <div>
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#sobre" className="hover:text-[#fe4c00]">Sobre</a></li>
-            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como Funciona</a></li>
-            <li><a href="#depoimentos" className="hover:text-[#fe4c00]">Depoimentos</a></li>
-            <li><a href="#agendar" className="hover:text-[#fe4c00]">Agendar</a></li>
-          </ul>
-        </div>
-        <div>
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
-          <ul className="space-y-2 text-sm">
-            <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li>contato@fincore.com.br</li>
-            <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
-          </ul>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
-        <span>© {new Date().getFullYear()} {BRAND}</span>
-        <span>// SISTEMA OPERACIONAL</span>
+        <p className="text-xs text-navy/55">
+          © {new Date().getFullYear()} FINCORE. Todos os direitos reservados.
+        </p>
       </div>
     </footer>
+  );
+}
+
+/* ---------- Helpers ---------- */
+function SectionLabel({
+  children,
+  light = false,
+}: {
+  children: React.ReactNode;
+  light?: boolean;
+}) {
+  return (
+    <div
+      className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] ${
+        light ? "text-white/60" : "text-navy/50"
+      }`}
+    >
+      <span
+        className={`h-px w-8 ${light ? "bg-white/40" : "bg-navy/30"}`}
+      />
+      {children}
+    </div>
   );
 }

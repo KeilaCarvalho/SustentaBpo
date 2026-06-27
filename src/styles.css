@@ -5,33 +5,37 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", ui-serif, Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-navy: var(--navy);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-hover: var(--primary-hover);
   --color-border: var(--border);
-  --color-glass: var(--glass);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-input: var(--input);
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --surface: #09090b;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --primary: #fe4c00;
+  --background: #ffffff;
+  --foreground: #0a1f44;
+  --navy: #0a1f44;
+  --primary: #0a1f44;
   --primary-foreground: #ffffff;
-  --primary-hover: #cc0000;
-  --border: #18181b;
-  --glass: rgba(0, 0, 0, 0.5);
+  --border: rgba(10, 31, 68, 0.1);
+  --muted: #f4f5f8;
+  --muted-foreground: rgba(10, 31, 68, 0.6);
+  --ring: #0a1f44;
+  --accent: #f4f5f8;
+  --accent-foreground: #0a1f44;
+  --input: rgba(10, 31, 68, 0.15);
 }
 
 @layer base {
@@ -40,7 +44,7 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #000;
+    background-color: #fff;
   }
   body {
     background-color: var(--color-background);
@@ -49,7 +53,7 @@
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background-color: #fe4c00;
+    background-color: #0a1f44;
     color: #ffffff;
   }
   ::-webkit-scrollbar {
@@ -57,90 +61,21 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #000;
+    background: #fff;
   }
   ::-webkit-scrollbar-thumb {
-    background: #fe4c00;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track,
-    .pinwheel,
-    .scanner-bar {
-      animation: none !important;
-    }
+    background: rgba(10, 31, 68, 0.3);
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
   .font-mono {
     font-family: var(--font-mono);
   }
-  .font-display {
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-  .glass-card {
-    background-color: rgba(9, 9, 11, 0.4);
-    backdrop-filter: blur(60px);
-    border: 1px solid rgba(24, 24, 27, 0.8);
-  }
-  .glow-orange {
-    background: radial-gradient(circle at center, rgba(254, 76, 0, 0.35), transparent 60%);
-  }
-  .reveal-mask {
-    clip-path: inset(0 0 100% 0);
-    animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  .reveal-mask.delay-1 { animation-delay: 0.1s; }
-  .reveal-mask.delay-2 { animation-delay: 0.2s; }
-  .reveal-mask.delay-3 { animation-delay: 0.3s; }
-  .reveal-mask.delay-4 { animation-delay: 0.4s; }
-
-  .marquee {
-    overflow: hidden;
-    width: 100%;
-    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  }
-  .marquee-track {
-    display: inline-flex;
-    gap: 4rem;
-    animation: marquee 40s linear infinite;
-    white-space: nowrap;
-    will-change: transform;
-  }
-  .pinwheel {
-    animation: spin 12s linear infinite;
-  }
-  .scanner-bar {
-    position: absolute;
-    inset-inline: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #fe4c00, transparent);
-    animation: scan 3.5s ease-in-out infinite;
-  }
-  .grid-lines {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-}
-
-@keyframes reveal-up {
-  0% { clip-path: inset(0 0 100% 0); transform: translateY(20px); }
-  100% { clip-path: inset(0 0 0 0); transform: translateY(0); }
-}
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-@keyframes scan {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
 }
