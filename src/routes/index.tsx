@@ -579,17 +579,18 @@ function Footer() {
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-sm">
-            BPO Financeiro para micro e pequenos empreendedores. Clareza, organização e
-            atendimento humano.
+            BPO Financeiro com rotina diária, organização em sistema e execução contínua dentro
+            do Conta Azul.
           </p>
         </div>
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
           <ul className="space-y-2 text-sm">
             <li><a href="#sobre" className="hover:text-[#fe4c00]">Sobre</a></li>
-            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como Funciona</a></li>
-            <li><a href="#depoimentos" className="hover:text-[#fe4c00]">Depoimentos</a></li>
-            <li><a href="#agendar" className="hover:text-[#fe4c00]">Agendar</a></li>
+            <li><a href="#fazemos" className="hover:text-[#fe4c00]">O que fazemos</a></li>
+            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como funciona</a></li>
+            <li><a href="#para-quem" className="hover:text-[#fe4c00]">Para quem é</a></li>
+            <li><a href="#agendar" className="hover:text-[#fe4c00]">Diagnóstico</a></li>
           </ul>
         </div>
         <div>
