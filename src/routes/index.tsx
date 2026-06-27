@@ -125,13 +125,12 @@ function Landing() {
 function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
-      <div className="site-container h-20 md:h-24 flex items-center justify-between">
-
-        <a href="#top" className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
-          <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
+      <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
+        <a href="#top" className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00] shrink-0" />
+          <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white truncate">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-white/75 font-medium">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
           <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
           <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
           <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
@@ -141,14 +140,16 @@ function Nav() {
 
         <a
           href="#agendar"
-          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
+          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
         >
-          Diagnóstico Gratuito
+          <span className="hidden sm:inline">Diagnóstico Gratuito</span>
+          <span className="sm:hidden">Diagnóstico</span>
         </a>
       </div>
     </nav>
   );
 }
+
 
 /* ---------- Hero with mouse parallax + video bg ---------- */
 function Hero() {
@@ -214,18 +215,18 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] site-container pt-32 pb-20 site-grid items-center text-white"
+        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-center text-white"
 
         style={{
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="col-span-4 md:col-span-12 lg:col-span-8 overflow-hidden">
-          <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
+        <div className="col-span-4 md:col-span-12 lg:col-span-7 overflow-visible">
+          <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
+          <h1 className="display-xxl">
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-1">O financeiro</span>
             </span>
@@ -235,24 +236,24 @@ function Hero() {
               </span>
             </span>
           </h1>
-          <div className="overflow-hidden mt-8 max-w-xl">
-            <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
+          <div className="overflow-hidden mt-6 sm:mt-8 max-w-xl">
+            <p className="reveal-mask delay-3 body-lg text-white/70">
               A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 reveal-mask delay-4">
             <a
               href="#agendar"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Diagnóstico Financeiro Gratuito
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href="#fazemos"
-              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
+              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-2 py-3 sm:py-4"
             >
               Conhecer a operação →
             </a>
@@ -261,13 +262,13 @@ function Hero() {
 
         {/* Floating glass cards w/ parallax */}
         <div
-          className="col-span-4 md:col-span-12 lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
+          className="col-span-4 md:col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-4 items-end"
           style={{
             transform:
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
           }}
         >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
+          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
               Conta Azul
@@ -275,24 +276,25 @@ function Hero() {
             <p className="mt-2 text-white">Conciliação · em dia</p>
             <p className="text-white/60">Atualizado: hoje</p>
           </div>
-          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
+          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] max-w-[300px] w-full">
             <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
               Fluxo de caixa atualizado
             </p>
           </div>
-          <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
+          <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
+            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center shrink-0">
               <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
             </div>
-            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
+            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
               Operação ativa
               <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
@@ -341,36 +343,31 @@ function WhatIs() {
     { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
-    <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
+    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative site-container site-grid">
-        {/* Row 1 — Eyebrow + Headline */}
-        <div className="col-span-4 md:col-span-3 md:pt-3">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
-            // 01 — SOBRE A FINCORE
-          </p>
-        </div>
-
-        <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
-          Operação financeira
-          <br className="hidden md:block" />{" "}
-          <em className="italic text-[#fe4c00]">que funciona</em>
-          <br />
+      <div id="fazemos" className="relative site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        {/* Row 1 — Eyebrow + Headline aligned on same baseline */}
+        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
+          // 01 — SOBRE A FINCORE
+        </p>
+        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
+          Operação financeira{" "}
+          <em className="italic text-[#fe4c00]">que funciona</em>{" "}
           todos os dias.
         </h2>
 
         {/* Row 2 — Description aligned under headline */}
-        <div className="hidden md:block md:col-span-3" aria-hidden="true" />
-        <p className="col-span-4 md:col-span-7 lg:col-span-6 text-white/65 text-base md:text-lg leading-relaxed max-w-2xl">
+        <div className="hidden md:block md:col-span-4" aria-hidden="true" />
+        <p className="col-span-4 md:col-span-7 body-lg text-white/65 max-w-2xl">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua dentro do Conta Azul.
         </p>
 
-        {/* Row 3 — Cards full width, 4-col grid on desktop */}
-        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Row 3 — Cards full width with progressive grid */}
+        <div className="col-span-4 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {services.map((s, i) => (
             <div
               key={s.label}
@@ -392,6 +389,7 @@ function WhatIs() {
 
 
 
+
 /* ---------- Values ---------- */
 function Values() {
   const items = [
@@ -400,29 +398,24 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section className="py-32 md:py-48 bg-black relative">
-      <div className="site-container site-grid">
-        <div className="col-span-4 md:col-start-4 md:col-span-9">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
+    <section className="py-24 sm:py-32 lg:py-44 bg-black relative">
+      <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
+          <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
             // 02 — O QUE NÃO FAZEMOS
           </p>
-          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
-            Transparência
-            <br className="hidden sm:block" />{" "}
-            sobre os{" "}
+          <h2 className="display-xl text-white xl:text-right">
+            Transparência sobre os{" "}
             <em className="italic text-[#fe4c00]">nossos limites.</em>
           </h2>
         </div>
 
-
-        {/* Cards — full-width band, 3-col grid on lg with staggered offsets */}
-        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        {/* Cards — clean grid, no stagger */}
+        <div className="col-span-4 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {items.map((it, i) => (
             <div
               key={it.title}
-              className={`glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
-                i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-12" : "lg:mt-24"
-              }`}
+              className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
                 <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
@@ -430,7 +423,7 @@ function Values() {
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-10 font-display text-2xl text-white group-hover:text-black transition-colors leading-tight">
+              <h3 className="mt-8 font-display text-xl sm:text-2xl text-white group-hover:text-black transition-colors leading-tight">
                 {it.title}
               </h3>
               <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
@@ -439,11 +432,11 @@ function Values() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 }
+
 
 
 /* ---------- Metrics ---------- */
@@ -455,15 +448,15 @@ function Metrics() {
     { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
-    <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+    <section className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative site-container">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-10">
+        <p className="eyebrow mb-12 lg:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 lg:gap-x-10">
           {stats.map((s) => (
-            <div key={s.l} className="group min-w-0">
-              <p className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] xl:text-7xl font-bold tracking-[-0.04em] text-[#fe4c00] leading-[0.95] break-words hyphens-auto">
+            <div key={s.l} className="group min-w-0 border-t border-white/10 pt-6 sm:pt-8">
+              <p className="display-lg text-[#fe4c00]">
                 {s.v}
               </p>
               <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50 leading-relaxed">
@@ -477,6 +470,7 @@ function Metrics() {
   );
 }
 
+
 /* ---------- Testimonials (sticky stack) ---------- */
 function Testimonials() {
   const list = [
@@ -485,30 +479,26 @@ function Testimonials() {
     { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="site-container site-grid">
-        <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
+    <section id="para-quem" className="bg-black py-24 sm:py-32 lg:py-44 relative">
+      <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
+          <p className="eyebrow mb-5 sm:mb-6">
             // 03 — PARA QUEM É A FINCORE
           </p>
-          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
-            Para empresas
-            <br />
-            que querem o{" "}
-            <em className="italic text-[#fe4c00]">financeiro</em>
-            <br className="hidden md:block" />{" "}
+          <h2 className="display-xl text-white">
+            Para empresas que querem o{" "}
+            <em className="italic text-[#fe4c00]">financeiro</em>{" "}
             funcionando todo dia.
           </h2>
         </div>
-        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-5 md:space-y-6">
-          {list.map((t, i) => (
+        <div className="col-span-4 md:col-span-12 lg:col-span-6 lg:col-start-7 space-y-4 sm:space-y-5">
+          {list.map((t) => (
             <figure
               key={t.n}
-              className="md:sticky glass-card rounded-3xl p-7 sm:p-8 md:p-12"
-              style={{ top: `${100 + i * 24}px` }}
+              className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10"
             >
-              <span className="font-display text-6xl sm:text-7xl text-[#fe4c00] leading-none italic">"</span>
-              <blockquote className="mt-2 font-display text-xl sm:text-2xl md:text-3xl text-white tracking-tight leading-snug">
+              <span className="block font-display text-5xl text-[#fe4c00] leading-none italic mb-3">"</span>
+              <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
               <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -522,6 +512,7 @@ function Testimonials() {
     </section>
   );
 }
+
 
 
 /* ---------- Process with image → video on hover ---------- */
@@ -577,34 +568,28 @@ function Process() {
     { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
-    <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="site-container site-grid items-start">
-        {/* Title block */}
-        <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
-          <div className="site-grid">
+    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] border-y border-white/5">
+      <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        {/* Title block — flat 12-col header, no nested grid */}
+        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
+          // 04 — COMO FUNCIONA
+        </p>
+        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
+          Quatro passos para{" "}
+          <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
+        </h2>
 
-            <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
-              // 04 — COMO FUNCIONA
-            </p>
-            <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
-              Quatro passos para
-              <br />
-              <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
-            </h2>
-          </div>
-        </div>
-
-        {/* Media — sticky on desktop only */}
-        <div className="col-span-4 md:col-span-5 lg:sticky lg:top-32">
+        {/* Media — sticky only at xl */}
+        <div className="col-span-4 md:col-span-12 lg:col-span-5 xl:sticky xl:top-32">
           <ProcessMedia />
         </div>
 
         {/* Steps */}
-        <ul className="col-span-4 md:col-span-7 lg:col-span-6 lg:col-start-7 space-y-5 md:space-y-6">
+        <ul className="col-span-4 md:col-span-12 lg:col-span-7 xl:col-span-6 xl:col-start-7 space-y-4 sm:space-y-5">
           {steps.map((s) => (
             <li
               key={s.n}
-              className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
             >
               <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
               <div className="min-w-0">
@@ -620,6 +605,7 @@ function Process() {
 }
 
 
+
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
   const ref = useMouseParallax();
@@ -627,7 +613,7 @@ function FinalCTA() {
     <section
       id="agendar"
       ref={ref}
-      className="relative bg-black text-white py-40 md:py-56 overflow-hidden"
+      className="relative bg-black text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       <img
@@ -645,31 +631,31 @@ function FinalCTA() {
         }}
       />
       <div className="relative site-container max-w-5xl text-center">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
-        <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
+        <p className="eyebrow mb-6 sm:mb-8">// POSICIONAMENTO</p>
+        <h2 className="display-xl">
+          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
+        </h2>
+        <p className="mt-8 sm:mt-10 display-md text-white/80 max-w-3xl mx-auto">
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
           da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
         </p>
-        <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
-          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
-        </h2>
-        <p className="mt-10 text-white/70 text-lg max-w-2xl mx-auto">
+        <p className="mt-6 body-lg text-white/70 max-w-2xl mx-auto">
           Entenda como sua operação financeira pode funcionar com mais organização,
           previsibilidade e controle.
         </p>
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
           <a
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Diagnóstico Financeiro Gratuito
           </a>
           <a
             href="mailto:contato@fincore.com.br"
-            className="border border-white/30 hover:border-white text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors"
+            className="border border-white/30 hover:border-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
           >
             Enviar e-mail
           </a>
@@ -679,12 +665,13 @@ function FinalCTA() {
   );
 }
 
+
 /* ---------- Footer ---------- */
 function Footer() {
   return (
     <footer className="bg-black text-white/60 py-20 border-t border-white/5">
-      <div className="site-container grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div className="md:col-span-2">
+      <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
@@ -708,15 +695,16 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li>contato@fincore.com.br</li>
+            <li className="break-all">contato@fincore.com.br</li>
             <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
           </ul>
         </div>
       </div>
-      <div className="site-container mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
+      <div className="site-container mt-12 sm:mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex flex-col sm:flex-row gap-3 sm:justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
+
     </footer>
   );
 }
