@@ -479,30 +479,26 @@ function Testimonials() {
     { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="site-container site-grid">
-        <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
+    <section id="para-quem" className="bg-black py-24 sm:py-32 lg:py-44 relative">
+      <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
+          <p className="eyebrow mb-5 sm:mb-6">
             // 03 — PARA QUEM É A FINCORE
           </p>
-          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
-            Para empresas
-            <br />
-            que querem o{" "}
-            <em className="italic text-[#fe4c00]">financeiro</em>
-            <br className="hidden md:block" />{" "}
+          <h2 className="display-xl text-white">
+            Para empresas que querem o{" "}
+            <em className="italic text-[#fe4c00]">financeiro</em>{" "}
             funcionando todo dia.
           </h2>
         </div>
-        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-5 md:space-y-6">
-          {list.map((t, i) => (
+        <div className="col-span-4 md:col-span-12 lg:col-span-6 lg:col-start-7 space-y-4 sm:space-y-5">
+          {list.map((t) => (
             <figure
               key={t.n}
-              className="md:sticky glass-card rounded-3xl p-7 sm:p-8 md:p-12"
-              style={{ top: `${100 + i * 24}px` }}
+              className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10"
             >
-              <span className="font-display text-6xl sm:text-7xl text-[#fe4c00] leading-none italic">"</span>
-              <blockquote className="mt-2 font-display text-xl sm:text-2xl md:text-3xl text-white tracking-tight leading-snug">
+              <span className="block font-display text-5xl text-[#fe4c00] leading-none italic mb-3">"</span>
+              <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
               <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -516,6 +512,7 @@ function Testimonials() {
     </section>
   );
 }
+
 
 
 /* ---------- Process with image → video on hover ---------- */
