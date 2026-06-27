@@ -62,19 +62,23 @@ function useMouseParallax() {
 function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
+      <a href="#main-content" className="skip-to-content">Pular para o conteúdo</a>
       <Nav />
-      <Hero />
-      <Marquee />
-      <WhatIs />
-      <Values />
-      <Metrics />
-      <Testimonials />
-      <Process />
-      <FinalCTA />
+      <main id="main-content">
+        <Hero />
+        <Marquee />
+        <WhatIs />
+        <Values />
+        <Metrics />
+        <Testimonials />
+        <Process />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );
 }
+
 
 /* ---------- Nav ---------- */
 function Nav() {
