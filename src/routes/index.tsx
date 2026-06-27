@@ -369,7 +369,7 @@ function WhatIs() {
           {services.map((s, i) => (
             <div
               key={s.label}
-              className={`glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "lg:translate-x-[-30%] lg:w-[130%]" : ""}`}
+              className="glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1"
             >
               <div className="flex items-baseline justify-between">
                 <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
