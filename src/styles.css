@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", ui-serif, Georgia, serif;
+  --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   --color-background: var(--background);
@@ -77,8 +77,12 @@
   }
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1;
+  }
+  .font-display em, .font-display .italic {
+    font-style: italic;
   }
   .glass-card {
     background-color: rgba(9, 9, 11, 0.4);
