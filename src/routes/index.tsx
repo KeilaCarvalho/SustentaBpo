@@ -207,16 +207,16 @@ function Hero() {
           <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Sistema
+              Conta Azul
             </div>
-            <p className="mt-2 text-white">Conciliação · 100%</p>
-            <p className="text-white/60">Atualizado: agora</p>
+            <p className="mt-2 text-white">Conciliação · em dia</p>
+            <p className="text-white/60">Atualizado: hoje</p>
           </div>
           <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Indicador</p>
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
-              Fluxo de Caixa Saudável
+              Fluxo de caixa atualizado
             </p>
           </div>
           <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
@@ -224,8 +224,8 @@ function Hero() {
               <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
             </div>
             <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
-              Engine ativa
-              <p className="text-white/90 normal-case tracking-normal text-xs">Processando lotes</p>
+              Operação ativa
+              <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
             </div>
           </div>
         </div>
