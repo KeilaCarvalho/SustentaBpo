@@ -387,9 +387,9 @@ function Metrics() {
     <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6">
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-8">
           {stats.map((s) => (
             <div key={s.l} className="group">
               <p className="font-display text-6xl md:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none">
