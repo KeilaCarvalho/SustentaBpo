@@ -168,7 +168,7 @@ function Hero() {
             </span>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-2">
-                não deveria depender <span className="text-[#fe4c00]">do seu tempo.</span>
+                não deveria depender <em className="italic text-[#fe4c00]">do seu tempo.</em>
               </span>
             </span>
           </h1>
