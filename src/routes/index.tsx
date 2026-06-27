@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 
 const BRAND = "FINCORE";
 const WHATSAPP =
-  "https://wa.me/5511999999999?text=Quero%20meu%20diagn%C3%B3stico%20financeiro%20gratuito";
+  "https://wa.me/5511999999999?text=Quero%20meu%20Diagn%C3%B3stico%20Financeiro%20Gratuito";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
