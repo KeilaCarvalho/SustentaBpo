@@ -7,17 +7,17 @@ import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FINCORE — BPO Financeiro para PMEs" },
+      { title: "FINCORE — BPO Financeiro com rotina diária" },
       {
         name: "description",
         content:
-          "Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa do seu negócio — com clareza, segurança e relatórios que você realmente entende.",
+          "A FINCORE assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária dentro do Conta Azul.",
       },
-      { property: "og:title", content: "FINCORE — BPO Financeiro para PMEs" },
+      { property: "og:title", content: "FINCORE — BPO Financeiro com rotina diária" },
       {
         property: "og:description",
         content:
-          "Seu financeiro, sob controle. BPO Financeiro para micro e pequenos empreendedores.",
+          "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A FINCORE executa.",
       },
     ],
   }),
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 
 const BRAND = "FINCORE";
 const WHATSAPP =
-  "https://wa.me/5511999999999?text=Quero%20meu%20diagn%C3%B3stico%20financeiro%20gratuito";
+  "https://wa.me/5511999999999?text=Quero%20meu%20Diagn%C3%B3stico%20Financeiro%20Gratuito";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
@@ -87,15 +87,16 @@ function Nav() {
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm text-white/60 font-medium">
           <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
-          <li><a href="#como-funciona" className="hover:text-white transition-colors">Processo</a></li>
-          <li><a href="#depoimentos" className="hover:text-white transition-colors">Clientes</a></li>
+          <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
+          <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
+          <li><a href="#para-quem" className="hover:text-white transition-colors">Para quem é</a></li>
           <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
         </ul>
         <a
           href="#agendar"
           className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
         >
-          Diagnóstico
+          Diagnóstico Gratuito
         </a>
       </div>
     </nav>
@@ -159,22 +160,23 @@ function Hero() {
       >
         <div className="lg:col-span-8 overflow-hidden">
           <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
-            // BPO FINANCEIRO · OPERAÇÃO 24/7
+            // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
           <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
             <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-1">Seu financeiro,</span>
+              <span className="block reveal-mask delay-1">O financeiro</span>
             </span>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-2">
-                sob <span className="text-[#fe4c00]">controle.</span>
+                não deveria depender <span className="text-[#fe4c00]">do seu tempo.</span>
               </span>
             </span>
           </h1>
           <div className="overflow-hidden mt-8 max-w-xl">
             <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
-              Terceirizamos contas a pagar, a receber, conciliação bancária e fluxo de caixa
-              do seu negócio — com clareza, segurança e relatórios que você realmente entende.
+              A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
+              contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
+              com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
@@ -182,14 +184,14 @@ function Hero() {
               href="#agendar"
               className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
-              Agendar Diagnóstico Gratuito
+              Diagnóstico Financeiro Gratuito
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
-              href="#como-funciona"
+              href="#fazemos"
               className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
             >
-              Ver como funciona →
+              Conhecer a operação →
             </a>
           </div>
         </div>
@@ -205,16 +207,16 @@ function Hero() {
           <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Sistema
+              Conta Azul
             </div>
-            <p className="mt-2 text-white">Conciliação · 100%</p>
-            <p className="text-white/60">Atualizado: agora</p>
+            <p className="mt-2 text-white">Conciliação · em dia</p>
+            <p className="text-white/60">Atualizado: hoje</p>
           </div>
           <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Indicador</p>
+            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
-              Fluxo de Caixa Saudável
+              Fluxo de caixa atualizado
             </p>
           </div>
           <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
@@ -222,8 +224,8 @@ function Hero() {
               <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
             </div>
             <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
-              Engine ativa
-              <p className="text-white/90 normal-case tracking-normal text-xs">Processando lotes</p>
+              Operação ativa
+              <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
             </div>
           </div>
         </div>
@@ -244,11 +246,11 @@ function Marquee() {
     "Contas a Pagar",
     "Contas a Receber",
     "Conciliação Bancária",
-    "Fluxo de Caixa",
-    "DRE Mensal",
-    "Emissão de NF",
-    "Cobrança Automática",
-    "Relatórios Gerenciais",
+    "Fluxo de Caixa Diário",
+    "Rotina Estruturada",
+    "Organização em Sistema",
+    "Acompanhamento Contínuo",
+    "Conta Azul",
   ];
   const row = [...items, ...items];
   return (
@@ -270,25 +272,27 @@ function Marquee() {
 /* ---------- WhatIs ---------- */
 function WhatIs() {
   const services = [
-    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Agendamento, baixas e relatórios diários." },
-    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Boletos, PIX, cobrança ativa e régua." },
-    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Match diário de extratos vs. ERP." },
-    { icon: "lucide:bar-chart-3", label: "Relatórios Gerenciais", desc: "DRE, fluxo de caixa e KPIs mensais." },
+    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Controle e execução, com agendamentos e baixas no Conta Azul." },
+    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Lançamentos, acompanhamento e organização dos recebimentos." },
+    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Conferência contínua dos extratos contra o sistema." },
+    { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — O QUE FAZEMOS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — SOBRE A FINCORE</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            O que é BPO Financeiro.
+            Operação financeira que funciona todos os dias.
           </h2>
           <p className="mt-10 text-white/60 text-lg leading-relaxed max-w-lg">
-            Terceirização das rotinas financeiras do seu negócio — contas a pagar, a receber,
-            conciliação bancária, fluxo de caixa, emissão de boletos e notas — para uma equipe
-            especializada. Você ganha tempo, organização e foco no que importa.
+            A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
+            a operação para que o empresário não precise lidar com o dia a dia operacional —
+            apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
+            contínua dentro do Conta Azul, garantindo informação financeira sempre organizada
+            e acessível.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -311,19 +315,19 @@ function WhatIs() {
 /* ---------- Values ---------- */
 function Values() {
   const items = [
-    { icon: "lucide:eye", title: "Clareza, não jargão", desc: "Relatórios que qualquer empreendedor entende." },
-    { icon: "lucide:message-circle", title: "Atendimento humano", desc: "Você fala com uma pessoa, direto no WhatsApp." },
-    { icon: "lucide:shield-check", title: "Segurança e organização", desc: "Rotinas padronizadas e dados sempre atualizados." },
+    { icon: "lucide:x", title: "Não substituímos a decisão", desc: "A decisão estratégica continua sendo do empresário. Nós damos a base organizada para ela acontecer." },
+    { icon: "lucide:x", title: "Não somos consultoria isolada", desc: "Não atuamos como consultoria estratégica desconectada da rotina. Nosso trabalho é a operação diária." },
+    { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — DIFERENCIAIS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — O QUE NÃO FAZEMOS</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Por que terceirizar
+            Transparência sobre
             <br />
-            com a gente.
+            os nossos limites.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -355,17 +359,17 @@ function Values() {
 /* ---------- Metrics ---------- */
 function Metrics() {
   const stats = [
-    { v: "150+", l: "Empresas atendidas" },
-    { v: "R$80M", l: "Movimentados/conciliados" },
-    { v: "98%", l: "Satisfação dos clientes" },
-    { v: "0", l: "Multas por atraso em 2024" },
+    { v: "Diário", l: "Contas a pagar e a receber organizadas" },
+    { v: "Contínuo", l: "Conciliação bancária acompanhada" },
+    { v: "Atualizado", l: "Fluxo de caixa todos os dias" },
+    { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
     <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// NOSSO IMPACTO</p>
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
           {stats.map((s) => (
             <div key={s.l} className="group">
@@ -386,17 +390,17 @@ function Metrics() {
 /* ---------- Testimonials (sticky stack) ---------- */
 function Testimonials() {
   const list = [
-    { q: "Antes eu perdia fim de semana revisando planilha. Hoje recebo um relatório que realmente entendo.", n: "Camila R.", r: "Estúdio de design" },
-    { q: "Profissionalizou meu financeiro sem eu precisar contratar ninguém.", n: "Lucas M.", r: "E-commerce de moda" },
-    { q: "Atendimento rápido, direto no WhatsApp. Isso fez toda diferença.", n: "Andréa P.", r: "Clínica odontológica" },
+    { q: "Está em crescimento e precisa de organização financeira real, não só planilha.", n: "Perfil 01", r: "Empresa em expansão" },
+    { q: "Quer previsibilidade e controle do caixa sem precisar montar um time financeiro interno.", n: "Perfil 02", r: "PME enxuta" },
+    { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="depoimentos" className="bg-black py-32 md:py-48 relative">
+    <section id="para-quem" className="bg-black py-32 md:py-48 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — DEPOIMENTOS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — PARA QUEM É A FINCORE</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Empreendedores que confiam o financeiro a nós.
+            Para empresas que querem o financeiro funcionando todo dia.
           </h2>
         </div>
         <div className="space-y-6">
@@ -453,11 +457,11 @@ function ProcessMedia() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
       <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-        Diagnóstico · 60 min · gratuito
+        Diagnóstico · gratuito · sem compromisso
       </div>
       <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
         <p className="font-display text-2xl text-white max-w-xs leading-tight">
-          Sessão presencial ou remota.
+          Entendemos como sua operação financeira funciona hoje.
         </p>
         <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
           <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
@@ -469,21 +473,21 @@ function ProcessMedia() {
 
 function Process() {
   const steps = [
-    { n: "01", t: "Diagnóstico gratuito", d: "Conversamos sobre suas rotinas atuais, dores e prioridades." },
-    { n: "02", t: "Mapeamento das rotinas", d: "Levantamos contas, prazos, acessos e identificamos riscos." },
-    { n: "03", t: "Implantação", d: "Padronizamos processos, integramos bancos e iniciamos a operação." },
-    { n: "04", t: "Acompanhamento contínuo", d: "Conciliação diária, relatórios mensais e suporte direto." },
+    { n: "01", t: "Diagnóstico", d: "Entendemos como a operação financeira funciona hoje e o nível de organização existente." },
+    { n: "02", t: "Implantação", d: "Organizamos sistema, processos e rotina financeira dentro da operação." },
+    { n: "03", t: "Execução diária", d: "Assumimos a operação financeira com rotina estruturada e acompanhamento contínuo." },
+    { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <ProcessMedia />
         <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// PROCESSO</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// COMO FUNCIONA</p>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter text-white">
-            Como começamos a
+            Quatro passos para
             <br />
-            trabalhar juntos.
+            estruturar a rotina.
           </h2>
           <ul className="mt-12 space-y-6">
             {steps.map((s) => (
@@ -530,12 +534,17 @@ function FinalCTA() {
         }}
       />
       <div className="relative max-w-5xl mx-auto px-6 text-center">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// AGENDAR</p>
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
+        <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
+          A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
+          da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
+        </p>
         <h2 className="font-display text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95]">
-          Vamos diagnosticar o financeiro do seu negócio — <span className="text-[#fe4c00]">de graça.</span>
+          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
         </h2>
-        <p className="mt-10 text-white/70 text-lg max-w-xl mx-auto">
-          60 minutos, direto ao ponto. Sem compromisso. Você sai com um plano de ação concreto.
+        <p className="mt-10 text-white/70 text-lg max-w-2xl mx-auto">
+          Entenda como sua operação financeira pode funcionar com mais organização,
+          previsibilidade e controle.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <a
@@ -545,7 +554,7 @@ function FinalCTA() {
             className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center gap-3"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
-            Falar no WhatsApp
+            Diagnóstico Financeiro Gratuito
           </a>
           <a
             href="mailto:contato@fincore.com.br"
@@ -570,17 +579,18 @@ function Footer() {
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-sm">
-            BPO Financeiro para micro e pequenos empreendedores. Clareza, organização e
-            atendimento humano.
+            BPO Financeiro com rotina diária, organização em sistema e execução contínua dentro
+            do Conta Azul.
           </p>
         </div>
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
           <ul className="space-y-2 text-sm">
             <li><a href="#sobre" className="hover:text-[#fe4c00]">Sobre</a></li>
-            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como Funciona</a></li>
-            <li><a href="#depoimentos" className="hover:text-[#fe4c00]">Depoimentos</a></li>
-            <li><a href="#agendar" className="hover:text-[#fe4c00]">Agendar</a></li>
+            <li><a href="#fazemos" className="hover:text-[#fe4c00]">O que fazemos</a></li>
+            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como funciona</a></li>
+            <li><a href="#para-quem" className="hover:text-[#fe4c00]">Para quem é</a></li>
+            <li><a href="#agendar" className="hover:text-[#fe4c00]">Diagnóstico</a></li>
           </ul>
         </div>
         <div>
