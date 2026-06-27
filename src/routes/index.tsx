@@ -125,7 +125,8 @@ function Landing() {
 function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+      <div className="site-container h-20 md:h-24 flex items-center justify-between">
+
         <a href="#top" className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
           <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
@@ -213,13 +214,14 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] max-w-7xl mx-auto px-5 sm:px-6 pt-32 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center text-white"
+        className="relative z-10 min-h-[100svh] site-container pt-32 pb-20 site-grid items-center text-white"
+
         style={{
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="lg:col-span-8 overflow-hidden">
+        <div className="col-span-4 md:col-span-12 lg:col-span-8 overflow-hidden">
           <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
@@ -259,7 +261,7 @@ function Hero() {
 
         {/* Floating glass cards w/ parallax */}
         <div
-          className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
+          className="col-span-4 md:col-span-12 lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
           style={{
             transform:
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
@@ -342,7 +344,7 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-12">
+      <div id="fazemos" className="relative site-container site-grid">
         <div className="col-span-4 md:col-span-3 md:pt-3">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
             // 01 — SOBRE A FINCORE
@@ -395,7 +397,7 @@ function Values() {
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-16">
+      <div className="site-container site-grid">
         <div className="col-span-4 md:col-span-12">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
             // 02 — O QUE NÃO FAZEMOS
@@ -448,7 +450,7 @@ function Metrics() {
     <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-6">
+      <div className="relative site-container">
         <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-10">
           {stats.map((s) => (
@@ -476,7 +478,7 @@ function Testimonials() {
   ];
   return (
     <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10">
+      <div className="site-container site-grid">
         <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
             // 03 — PARA QUEM É A FINCORE
@@ -568,10 +570,11 @@ function Process() {
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16 items-start">
+      <div className="site-container site-grid items-start">
         {/* Title block */}
         <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
-          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-6">
+          <div className="site-grid">
+
             <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
               // 04 — COMO FUNCIONA
             </p>
@@ -633,7 +636,7 @@ function FinalCTA() {
             "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
         }}
       />
-      <div className="relative max-w-5xl mx-auto px-6 text-center">
+      <div className="relative site-container max-w-5xl text-center">
         <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
         <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
@@ -672,7 +675,7 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="bg-black text-white/60 py-20 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="site-container grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
@@ -702,7 +705,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
+      <div className="site-container mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
