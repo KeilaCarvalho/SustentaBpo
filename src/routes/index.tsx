@@ -457,11 +457,11 @@ function ProcessMedia() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
       <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-        Diagnóstico · 60 min · gratuito
+        Diagnóstico · gratuito · sem compromisso
       </div>
       <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
         <p className="font-display text-2xl text-white max-w-xs leading-tight">
-          Sessão presencial ou remota.
+          Entendemos como sua operação financeira funciona hoje.
         </p>
         <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
           <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
