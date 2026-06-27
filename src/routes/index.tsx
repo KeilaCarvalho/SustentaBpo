@@ -570,10 +570,11 @@ function Process() {
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16 items-start">
+      <div className="site-container site-grid items-start">
         {/* Title block */}
         <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
-          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-6">
+          <div className="site-grid">
+
             <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
               // 04 — COMO FUNCIONA
             </p>
