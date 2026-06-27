@@ -315,19 +315,19 @@ function WhatIs() {
 /* ---------- Values ---------- */
 function Values() {
   const items = [
-    { icon: "lucide:eye", title: "Clareza, não jargão", desc: "Relatórios que qualquer empreendedor entende." },
-    { icon: "lucide:message-circle", title: "Atendimento humano", desc: "Você fala com uma pessoa, direto no WhatsApp." },
-    { icon: "lucide:shield-check", title: "Segurança e organização", desc: "Rotinas padronizadas e dados sempre atualizados." },
+    { icon: "lucide:x", title: "Não substituímos a decisão", desc: "A decisão estratégica continua sendo do empresário. Nós damos a base organizada para ela acontecer." },
+    { icon: "lucide:x", title: "Não somos consultoria isolada", desc: "Não atuamos como consultoria estratégica desconectada da rotina. Nosso trabalho é a operação diária." },
+    { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — DIFERENCIAIS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — O QUE NÃO FAZEMOS</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Por que terceirizar
+            Transparência sobre
             <br />
-            com a gente.
+            os nossos limites.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
