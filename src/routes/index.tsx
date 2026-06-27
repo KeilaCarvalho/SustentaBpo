@@ -246,11 +246,11 @@ function Marquee() {
     "Contas a Pagar",
     "Contas a Receber",
     "Conciliação Bancária",
-    "Fluxo de Caixa",
-    "DRE Mensal",
-    "Emissão de NF",
-    "Cobrança Automática",
-    "Relatórios Gerenciais",
+    "Fluxo de Caixa Diário",
+    "Rotina Estruturada",
+    "Organização em Sistema",
+    "Acompanhamento Contínuo",
+    "Conta Azul",
   ];
   const row = [...items, ...items];
   return (
