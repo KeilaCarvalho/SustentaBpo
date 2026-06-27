@@ -415,12 +415,12 @@ function Testimonials() {
   ];
   return (
     <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6">
-        <div className="col-span-4 md:col-span-5 md:col-start-1 mb-16 md:mb-0">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10">
+        <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
             // 03 — PARA QUEM É A FINCORE
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
             Para empresas
             <br />
             que querem o{" "}
@@ -429,18 +429,18 @@ function Testimonials() {
             funcionando todo dia.
           </h2>
         </div>
-        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
+        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-5 md:space-y-6">
           {list.map((t, i) => (
             <figure
               key={t.n}
-              className="sticky glass-card rounded-3xl p-8 md:p-12"
+              className="md:sticky glass-card rounded-3xl p-7 sm:p-8 md:p-12"
               style={{ top: `${100 + i * 24}px` }}
             >
-              <span className="font-display text-7xl text-[#fe4c00] leading-none italic">"</span>
-              <blockquote className="mt-2 font-display text-2xl md:text-3xl text-white tracking-tight leading-snug">
+              <span className="font-display text-6xl sm:text-7xl text-[#fe4c00] leading-none italic">"</span>
+              <blockquote className="mt-2 font-display text-xl sm:text-2xl md:text-3xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
+              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-white">{t.n}</span>
                 <span className="text-white/50">· {t.r}</span>
               </figcaption>
