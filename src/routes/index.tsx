@@ -478,7 +478,7 @@ function Testimonials() {
   ];
   return (
     <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10">
+      <div className="site-container site-grid">
         <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
             // 03 — PARA QUEM É A FINCORE
