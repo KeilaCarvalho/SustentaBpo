@@ -281,16 +281,14 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-12">
-        {/* Eyebrow — left margin column */}
+      <div id="fazemos" className="relative max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-12">
         <div className="col-span-4 md:col-span-3 md:pt-3">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
-            // 01 —<br />SOBRE A<br />FINCORE
+            // 01 — SOBRE A FINCORE
           </p>
         </div>
 
-        {/* Headline — wide editorial column with controlled breaks */}
-        <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
+        <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
           Operação financeira
           <br className="hidden md:block" />{" "}
           <em className="italic text-[#fe4c00]">que funciona</em>
@@ -298,20 +296,19 @@ function WhatIs() {
           todos os dias.
         </h2>
 
-        {/* Body copy — offset right, narrow column */}
-        <p className="col-span-4 md:col-start-4 md:col-span-5 text-white/60 text-base md:text-lg leading-relaxed md:pl-0">
+        <p className="col-span-4 md:col-start-4 md:col-span-6 lg:col-span-5 text-white/60 text-base md:text-lg leading-relaxed">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua dentro do Conta Azul.
         </p>
 
-        {/* Cards — right column, staggered */}
-        <div className="col-span-4 md:col-start-9 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+        {/* Cards — stack on mobile, 2-col on tablet, single staggered col on desktop */}
+        <div className="col-span-4 md:col-span-12 lg:col-start-9 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
           {services.map((s, i) => (
             <div
               key={s.label}
-              className={`glass-card rounded-3xl p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "md:translate-x-[-30%] md:w-[130%]" : ""}`}
+              className={`glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "lg:translate-x-[-30%] lg:w-[130%]" : ""}`}
             >
               <div className="flex items-baseline justify-between">
                 <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
@@ -337,13 +334,12 @@ function Values() {
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16">
-        {/* Right-aligned eyebrow + title (editorial flip) */}
-        <div className="col-span-4 md:col-span-12 md:col-start-1">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-16">
+        <div className="col-span-4 md:col-span-12">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
             // 02 — O QUE NÃO FAZEMOS
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
+          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
             Transparência
             <br className="hidden sm:block" />{" "}
             sobre os{" "}
@@ -351,12 +347,12 @@ function Values() {
           </h2>
         </div>
 
-        {/* Cards — staggered alignment per breakpoint */}
+        {/* Cards — stack on mobile, staggered only on lg+ */}
         {items.map((it, i) => (
           <div
             key={it.title}
-            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
-              i === 0 ? "md:mt-0" : i === 1 ? "md:mt-16" : "md:mt-32"
+            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
+              i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-16" : "lg:mt-32"
             }`}
           >
             <div className="flex items-center justify-between">
@@ -391,12 +387,12 @@ function Metrics() {
     <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6">
+        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-8">
           {stats.map((s) => (
             <div key={s.l} className="group">
-              <p className="font-display text-6xl md:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none">
+              <p className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none [text-wrap:balance]">
                 {s.v}
               </p>
               <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
@@ -419,12 +415,12 @@ function Testimonials() {
   ];
   return (
     <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6">
-        <div className="col-span-4 md:col-span-5 md:col-start-1 mb-16 md:mb-0">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10">
+        <div className="col-span-4 md:col-span-5 mb-4 md:mb-0">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:mb-8">
             // 03 — PARA QUEM É A FINCORE
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
             Para empresas
             <br />
             que querem o{" "}
@@ -433,18 +429,18 @@ function Testimonials() {
             funcionando todo dia.
           </h2>
         </div>
-        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
+        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-5 md:space-y-6">
           {list.map((t, i) => (
             <figure
               key={t.n}
-              className="sticky glass-card rounded-3xl p-8 md:p-12"
+              className="md:sticky glass-card rounded-3xl p-7 sm:p-8 md:p-12"
               style={{ top: `${100 + i * 24}px` }}
             >
-              <span className="font-display text-7xl text-[#fe4c00] leading-none italic">"</span>
-              <blockquote className="mt-2 font-display text-2xl md:text-3xl text-white tracking-tight leading-snug">
+              <span className="font-display text-6xl sm:text-7xl text-[#fe4c00] leading-none italic">"</span>
+              <blockquote className="mt-2 font-display text-xl sm:text-2xl md:text-3xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-8 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
+              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-white">{t.n}</span>
                 <span className="text-white/50">· {t.r}</span>
               </figcaption>
@@ -467,7 +463,7 @@ function ProcessMedia() {
   }, [hover]);
   return (
     <div
-      className="relative group overflow-hidden rounded-3xl border border-white/10 h-[560px]"
+      className="relative group overflow-hidden rounded-3xl border border-white/10 h-[360px] sm:h-[460px] md:h-[560px]"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -511,14 +507,14 @@ function Process() {
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16 items-start">
-        {/* Title block — spans full width as section opener */}
-        <div className="col-span-4 md:col-span-12 mb-4">
-          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16 items-start">
+        {/* Title block */}
+        <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
+          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-6">
             <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
               // 04 — COMO FUNCIONA
             </p>
-            <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+            <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
               Quatro passos para
               <br />
               <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
@@ -526,21 +522,21 @@ function Process() {
           </div>
         </div>
 
-        {/* Media — left column, sticky on desktop */}
-        <div className="col-span-4 md:col-span-5 md:sticky md:top-32">
+        {/* Media — sticky on desktop only */}
+        <div className="col-span-4 md:col-span-5 lg:sticky lg:top-32">
           <ProcessMedia />
         </div>
 
-        {/* Steps — right column */}
-        <ul className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
+        {/* Steps */}
+        <ul className="col-span-4 md:col-span-7 lg:col-span-6 lg:col-start-7 space-y-5 md:space-y-6">
           {steps.map((s) => (
             <li
               key={s.n}
-              className="glass-card rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
             >
               <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
-              <div>
-                <h3 className="font-display text-2xl text-white leading-tight">{s.t}</h3>
+              <div className="min-w-0">
+                <h3 className="font-display text-xl sm:text-2xl text-white leading-tight">{s.t}</h3>
                 <p className="mt-2 text-sm text-white/60 leading-relaxed">{s.d}</p>
               </div>
             </li>
