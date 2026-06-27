@@ -450,13 +450,13 @@ function Metrics() {
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6">
         <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-10">
           {stats.map((s) => (
-            <div key={s.l} className="group">
-              <p className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.05em] text-[#fe4c00] leading-none [text-wrap:balance]">
+            <div key={s.l} className="group min-w-0">
+              <p className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] xl:text-7xl font-bold tracking-[-0.04em] text-[#fe4c00] leading-[0.95] break-words hyphens-auto">
                 {s.v}
               </p>
-              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
+              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50 leading-relaxed">
                 {s.l}
               </p>
             </div>
