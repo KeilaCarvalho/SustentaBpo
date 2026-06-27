@@ -272,10 +272,10 @@ function Marquee() {
 /* ---------- WhatIs ---------- */
 function WhatIs() {
   const services = [
-    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Agendamento, baixas e relatórios diários." },
-    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Boletos, PIX, cobrança ativa e régua." },
-    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Match diário de extratos vs. ERP." },
-    { icon: "lucide:bar-chart-3", label: "Relatórios Gerenciais", desc: "DRE, fluxo de caixa e KPIs mensais." },
+    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Controle e execução, com agendamentos e baixas no Conta Azul." },
+    { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Lançamentos, acompanhamento e organização dos recebimentos." },
+    { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Conferência contínua dos extratos contra o sistema." },
+    { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
