@@ -670,8 +670,8 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="bg-black text-white/60 py-20 border-t border-white/5">
-      <div className="site-container grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div className="md:col-span-2">
+      <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
@@ -695,15 +695,16 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li>contato@fincore.com.br</li>
+            <li className="break-all">contato@fincore.com.br</li>
             <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
           </ul>
         </div>
       </div>
-      <div className="site-container mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex justify-between">
+      <div className="site-container mt-12 sm:mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex flex-col sm:flex-row gap-3 sm:justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
+
     </footer>
   );
 }
