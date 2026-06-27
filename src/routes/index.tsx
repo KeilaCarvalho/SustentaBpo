@@ -174,13 +174,20 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
       </div>
 
-      {/* Gradient + grid overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black" />
-      <div className="absolute inset-0 grid-lines opacity-25 pointer-events-none" />
+      {/* Gradient + vignette + grid overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/85 to-black" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.85) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 grid-lines opacity-15 pointer-events-none" />
 
       {/* Radial glow following mouse */}
       <div
