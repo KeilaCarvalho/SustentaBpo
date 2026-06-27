@@ -261,7 +261,7 @@ function Hero() {
 
         {/* Floating glass cards w/ parallax */}
         <div
-          className="lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
+          className="col-span-4 md:col-span-12 lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
           style={{
             transform:
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
