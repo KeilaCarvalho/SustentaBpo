@@ -448,15 +448,15 @@ function Metrics() {
     { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
-    <section className="py-32 md:py-48 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+    <section className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative site-container">
-        <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-12 md:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 md:gap-y-16 gap-x-6 md:gap-x-10">
+        <p className="eyebrow mb-12 lg:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 lg:gap-x-10">
           {stats.map((s) => (
-            <div key={s.l} className="group min-w-0">
-              <p className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] xl:text-7xl font-bold tracking-[-0.04em] text-[#fe4c00] leading-[0.95] break-words hyphens-auto">
+            <div key={s.l} className="group min-w-0 border-t border-white/10 pt-6 sm:pt-8">
+              <p className="display-lg text-[#fe4c00]">
                 {s.v}
               </p>
               <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50 leading-relaxed">
@@ -469,6 +469,7 @@ function Metrics() {
     </section>
   );
 }
+
 
 /* ---------- Testimonials (sticky stack) ---------- */
 function Testimonials() {
