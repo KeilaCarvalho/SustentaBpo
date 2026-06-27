@@ -281,29 +281,44 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-        <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 01 — SOBRE A FINCORE</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Operação financeira que funciona todos os dias.
-          </h2>
-          <p className="mt-10 text-white/60 text-lg leading-relaxed max-w-lg">
-            A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
-            a operação para que o empresário não precise lidar com o dia a dia operacional —
-            apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
-            contínua dentro do Conta Azul, garantindo informação financeira sempre organizada
-            e acessível.
+      <div id="fazemos" className="relative max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-12">
+        {/* Eyebrow — left margin column */}
+        <div className="col-span-4 md:col-span-3 md:pt-3">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
+            // 01 —<br />SOBRE A<br />FINCORE
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {services.map((s) => (
+
+        {/* Headline — wide editorial column with controlled breaks */}
+        <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
+          Operação financeira
+          <br className="hidden md:block" />{" "}
+          <em className="italic text-[#fe4c00]">que funciona</em>
+          <br />
+          todos os dias.
+        </h2>
+
+        {/* Body copy — offset right, narrow column */}
+        <p className="col-span-4 md:col-start-4 md:col-span-5 text-white/60 text-base md:text-lg leading-relaxed md:pl-0">
+          A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
+          a operação para que o empresário não precise lidar com o dia a dia operacional —
+          apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
+          contínua dentro do Conta Azul.
+        </p>
+
+        {/* Cards — right column, staggered */}
+        <div className="col-span-4 md:col-start-9 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+          {services.map((s, i) => (
             <div
               key={s.label}
-              className="glass-card rounded-3xl p-8 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1"
+              className={`glass-card rounded-3xl p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1 ${i % 2 === 1 ? "md:translate-x-[-30%] md:w-[130%]" : ""}`}
             >
-              <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
-              <p className="mt-8 font-display text-xl font-bold text-white">{s.label}</p>
-              <p className="mt-2 text-sm text-white/50">{s.desc}</p>
+              <div className="flex items-baseline justify-between">
+                <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
+                <span className="font-mono text-[10px] tracking-[0.3em] text-white/30">0{i + 1}</span>
+              </div>
+              <p className="mt-8 font-display text-2xl text-white leading-tight">{s.label}</p>
+              <p className="mt-2 text-sm text-white/50 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -311,6 +326,7 @@ function WhatIs() {
     </section>
   );
 }
+
 
 /* ---------- Values ---------- */
 function Values() {
@@ -321,40 +337,47 @@ function Values() {
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 02 — O QUE NÃO FAZEMOS</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Transparência sobre
-            <br />
-            os nossos limites.
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16">
+        {/* Right-aligned eyebrow + title (editorial flip) */}
+        <div className="col-span-4 md:col-span-12 md:col-start-1">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
+            // 02 — O QUE NÃO FAZEMOS
+          </p>
+          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
+            Transparência
+            <br className="hidden sm:block" />{" "}
+            sobre os{" "}
+            <em className="italic text-[#fe4c00]">nossos limites.</em>
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {items.map((it, i) => (
-            <div
-              key={it.title}
-              className="glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
-            >
-              <div className="flex items-center justify-between">
-                <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
-                  0{i + 1}
-                </span>
-              </div>
-              <h3 className="mt-10 font-display text-2xl font-bold text-white group-hover:text-black transition-colors">
-                {it.title}
-              </h3>
-              <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
-                {it.desc}
-              </p>
+
+        {/* Cards — staggered alignment per breakpoint */}
+        {items.map((it, i) => (
+          <div
+            key={it.title}
+            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
+              i === 0 ? "md:mt-0" : i === 1 ? "md:mt-16" : "md:mt-32"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
+              <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
+                0{i + 1}
+              </span>
             </div>
-          ))}
-        </div>
+            <h3 className="mt-10 font-display text-2xl text-white group-hover:text-black transition-colors leading-tight">
+              {it.title}
+            </h3>
+            <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
+              {it.desc}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
+
 
 /* ---------- Metrics ---------- */
 function Metrics() {
@@ -396,25 +419,32 @@ function Testimonials() {
   ];
   return (
     <section id="para-quem" className="bg-black py-32 md:py-48 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — PARA QUEM É A FINCORE</p>
-          <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Para empresas que querem o financeiro funcionando todo dia.
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6">
+        <div className="col-span-4 md:col-span-5 md:col-start-1 mb-16 md:mb-0">
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">
+            // 03 — PARA QUEM É A FINCORE
+          </p>
+          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+            Para empresas
+            <br />
+            que querem o{" "}
+            <em className="italic text-[#fe4c00]">financeiro</em>
+            <br className="hidden md:block" />{" "}
+            funcionando todo dia.
           </h2>
         </div>
-        <div className="space-y-6">
+        <div className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
           {list.map((t, i) => (
             <figure
               key={t.n}
-              className="sticky glass-card rounded-3xl p-10 md:p-16"
+              className="sticky glass-card rounded-3xl p-8 md:p-12"
               style={{ top: `${100 + i * 24}px` }}
             >
-              <span className="font-display text-7xl text-[#fe4c00] leading-none">"</span>
-              <blockquote className="mt-4 font-display text-2xl md:text-4xl text-white tracking-tight leading-snug">
+              <span className="font-display text-7xl text-[#fe4c00] leading-none italic">"</span>
+              <blockquote className="mt-2 font-display text-2xl md:text-3xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-10 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
+              <figcaption className="mt-8 pt-6 border-t border-white/10 font-mono text-xs uppercase tracking-[0.2em] flex items-center gap-3">
                 <span className="text-white">{t.n}</span>
                 <span className="text-white/50">· {t.r}</span>
               </figcaption>
@@ -425,6 +455,7 @@ function Testimonials() {
     </section>
   );
 }
+
 
 /* ---------- Process with image → video on hover ---------- */
 function ProcessMedia() {
@@ -480,34 +511,46 @@ function Process() {
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <ProcessMedia />
-        <div>
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// COMO FUNCIONA</p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tighter text-white">
-            Quatro passos para
-            <br />
-            estruturar a rotina.
-          </h2>
-          <ul className="mt-12 space-y-6">
-            {steps.map((s) => (
-              <li
-                key={s.n}
-                className="glass-card rounded-2xl p-6 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
-              >
-                <span className="font-mono text-sm text-[#fe4c00] pt-1">{s.n}</span>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-white">{s.t}</h3>
-                  <p className="mt-1 text-sm text-white/60">{s.d}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16 items-start">
+        {/* Title block — spans full width as section opener */}
+        <div className="col-span-4 md:col-span-12 mb-4">
+          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-6">
+            <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
+              // 04 — COMO FUNCIONA
+            </p>
+            <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+              Quatro passos para
+              <br />
+              <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
+            </h2>
+          </div>
         </div>
+
+        {/* Media — left column, sticky on desktop */}
+        <div className="col-span-4 md:col-span-5 md:sticky md:top-32">
+          <ProcessMedia />
+        </div>
+
+        {/* Steps — right column */}
+        <ul className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
+          {steps.map((s) => (
+            <li
+              key={s.n}
+              className="glass-card rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
+            >
+              <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
+              <div>
+                <h3 className="font-display text-2xl text-white leading-tight">{s.t}</h3>
+                <p className="mt-2 text-sm text-white/60 leading-relaxed">{s.d}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
 }
+
 
 /* ---------- Final CTA ---------- */
 function FinalCTA() {
