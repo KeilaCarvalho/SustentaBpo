@@ -345,6 +345,7 @@ function WhatIs() {
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
       <div id="fazemos" className="relative site-container site-grid">
+        {/* Row 1 — Eyebrow + Headline */}
         <div className="col-span-4 md:col-span-3 md:pt-3">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
             // 01 — SOBRE A FINCORE
@@ -359,15 +360,17 @@ function WhatIs() {
           todos os dias.
         </h2>
 
-        <p className="col-span-4 md:col-start-4 md:col-span-6 lg:col-span-5 text-white/60 text-base md:text-lg leading-relaxed">
+        {/* Row 2 — Description aligned under headline */}
+        <div className="hidden md:block md:col-span-3" aria-hidden="true" />
+        <p className="col-span-4 md:col-span-7 lg:col-span-6 text-white/65 text-base md:text-lg leading-relaxed max-w-2xl">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua dentro do Conta Azul.
         </p>
 
-        {/* Cards — stack on mobile, 2-col on tablet, single staggered col on desktop */}
-        <div className="col-span-4 md:col-span-12 lg:col-start-9 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
+        {/* Row 3 — Cards full width, 4-col grid on desktop */}
+        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {services.map((s, i) => (
             <div
               key={s.label}
@@ -386,6 +389,7 @@ function WhatIs() {
     </section>
   );
 }
+
 
 
 /* ---------- Values ---------- */
