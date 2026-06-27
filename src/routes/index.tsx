@@ -215,18 +215,18 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] site-container pt-32 pb-20 site-grid items-center text-white"
+        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-center text-white"
 
         style={{
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="col-span-4 md:col-span-12 lg:col-span-8 overflow-hidden">
-          <p className="text-[10px] sm:text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 reveal-mask">
+        <div className="col-span-4 md:col-span-12 lg:col-span-7 overflow-visible">
+          <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="font-display text-[2.75rem] sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold tracking-[-0.04em] leading-[0.92] [text-wrap:balance]">
+          <h1 className="display-xxl">
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-1">O financeiro</span>
             </span>
@@ -236,24 +236,24 @@ function Hero() {
               </span>
             </span>
           </h1>
-          <div className="overflow-hidden mt-8 max-w-xl">
-            <p className="reveal-mask delay-3 text-base sm:text-lg text-white/70 leading-relaxed">
+          <div className="overflow-hidden mt-6 sm:mt-8 max-w-xl">
+            <p className="reveal-mask delay-3 body-lg text-white/70">
               A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 reveal-mask delay-4">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 reveal-mask delay-4">
             <a
               href="#agendar"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Diagnóstico Financeiro Gratuito
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href="#fazemos"
-              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-4 py-4 text-center"
+              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-2 py-3 sm:py-4"
             >
               Conhecer a operação →
             </a>
@@ -262,13 +262,13 @@ function Hero() {
 
         {/* Floating glass cards w/ parallax */}
         <div
-          className="col-span-4 md:col-span-12 lg:col-span-4 hidden lg:flex flex-col gap-4 items-end"
+          className="col-span-4 md:col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-4 items-end"
           style={{
             transform:
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
           }}
         >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 min-w-[220px]">
+          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
               Conta Azul
@@ -276,24 +276,25 @@ function Hero() {
             <p className="mt-2 text-white">Conciliação · em dia</p>
             <p className="text-white/60">Atualizado: hoje</p>
           </div>
-          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] min-w-[260px]">
+          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] max-w-[300px] w-full">
             <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
               Fluxo de caixa atualizado
             </p>
           </div>
-          <div className="glass-card rounded-2xl p-4 flex items-center gap-3">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
+          <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
+            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center shrink-0">
               <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
             </div>
-            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
+            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
               Operação ativa
               <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
