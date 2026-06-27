@@ -334,13 +334,12 @@ function Values() {
   ];
   return (
     <section className="py-32 md:py-48 bg-black relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16">
-        {/* Right-aligned eyebrow + title (editorial flip) */}
-        <div className="col-span-4 md:col-span-12 md:col-start-1">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-16">
+        <div className="col-span-4 md:col-span-12">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-6 md:text-right">
             // 02 — O QUE NÃO FAZEMOS
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
+          <h2 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] md:text-right [text-wrap:balance]">
             Transparência
             <br className="hidden sm:block" />{" "}
             sobre os{" "}
@@ -348,12 +347,12 @@ function Values() {
           </h2>
         </div>
 
-        {/* Cards — staggered alignment per breakpoint */}
+        {/* Cards — stack on mobile, staggered only on lg+ */}
         {items.map((it, i) => (
           <div
             key={it.title}
-            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
-              i === 0 ? "md:mt-0" : i === 1 ? "md:mt-16" : "md:mt-32"
+            className={`col-span-4 md:col-span-4 glass-card rounded-3xl p-8 sm:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500 ${
+              i === 0 ? "lg:mt-0" : i === 1 ? "lg:mt-16" : "lg:mt-32"
             }`}
           >
             <div className="flex items-center justify-between">
