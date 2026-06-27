@@ -507,14 +507,14 @@ function Process() {
   ];
   return (
     <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-16 items-start">
-        {/* Title block — spans full width as section opener */}
-        <div className="col-span-4 md:col-span-12 mb-4">
-          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16 items-start">
+        {/* Title block */}
+        <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
+          <div className="grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-6">
             <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
               // 04 — COMO FUNCIONA
             </p>
-            <h2 className="col-span-4 md:col-span-9 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
+            <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
               Quatro passos para
               <br />
               <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
@@ -522,21 +522,21 @@ function Process() {
           </div>
         </div>
 
-        {/* Media — left column, sticky on desktop */}
-        <div className="col-span-4 md:col-span-5 md:sticky md:top-32">
+        {/* Media — sticky on desktop only */}
+        <div className="col-span-4 md:col-span-5 lg:sticky lg:top-32">
           <ProcessMedia />
         </div>
 
-        {/* Steps — right column */}
-        <ul className="col-span-4 md:col-span-6 md:col-start-7 space-y-6">
+        {/* Steps */}
+        <ul className="col-span-4 md:col-span-7 lg:col-span-6 lg:col-start-7 space-y-5 md:space-y-6">
           {steps.map((s) => (
             <li
               key={s.n}
-              className="glass-card rounded-2xl p-6 md:p-8 grid grid-cols-[auto_1fr] gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
             >
               <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
-              <div>
-                <h3 className="font-display text-2xl text-white leading-tight">{s.t}</h3>
+              <div className="min-w-0">
+                <h3 className="font-display text-xl sm:text-2xl text-white leading-tight">{s.t}</h3>
                 <p className="mt-2 text-sm text-white/60 leading-relaxed">{s.d}</p>
               </div>
             </li>
