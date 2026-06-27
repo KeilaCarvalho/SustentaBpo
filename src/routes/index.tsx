@@ -360,7 +360,7 @@ function WhatIs() {
         </div>
 
         {/* Row 2 — Description left-aligned under headline */}
-        <p className="col-span-4 md:col-span-8 lg:col-span-7 body-lg text-white/65 max-w-2xl">
+        <p className="col-span-4 md:col-span-10 lg:col-span-9 body-lg text-white/65 max-w-3xl">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
