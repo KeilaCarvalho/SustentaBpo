@@ -125,13 +125,12 @@ function Landing() {
 function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
-      <div className="site-container h-20 md:h-24 flex items-center justify-between">
-
-        <a href="#top" className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
-          <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
+      <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
+        <a href="#top" className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00] shrink-0" />
+          <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white truncate">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-white/75 font-medium">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
           <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
           <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
           <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
@@ -141,14 +140,16 @@ function Nav() {
 
         <a
           href="#agendar"
-          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-sm px-5 py-2.5 rounded-full font-medium transition-colors"
+          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
         >
-          Diagnóstico Gratuito
+          <span className="hidden sm:inline">Diagnóstico Gratuito</span>
+          <span className="sm:hidden">Diagnóstico</span>
         </a>
       </div>
     </nav>
   );
 }
+
 
 /* ---------- Hero with mouse parallax + video bg ---------- */
 function Hero() {
