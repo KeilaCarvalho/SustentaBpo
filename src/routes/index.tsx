@@ -344,7 +344,7 @@ function WhatIs() {
     <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-4 md:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-10 md:gap-y-12">
+      <div id="fazemos" className="relative site-container site-grid">
         <div className="col-span-4 md:col-span-3 md:pt-3">
           <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
             // 01 — SOBRE A FINCORE
