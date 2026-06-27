@@ -343,36 +343,31 @@ function WhatIs() {
     { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
-    <section id="sobre" className="py-32 md:py-48 bg-black relative overflow-hidden">
+    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-black relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
-      <div id="fazemos" className="relative site-container site-grid">
-        {/* Row 1 — Eyebrow + Headline */}
-        <div className="col-span-4 md:col-span-3 md:pt-3">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] md:sticky md:top-32">
-            // 01 — SOBRE A FINCORE
-          </p>
-        </div>
-
-        <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6.5rem] tracking-tight text-white text-left leading-[0.95] [text-wrap:balance]">
-          Operação financeira
-          <br className="hidden md:block" />{" "}
-          <em className="italic text-[#fe4c00]">que funciona</em>
-          <br />
+      <div id="fazemos" className="relative site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        {/* Row 1 — Eyebrow + Headline aligned on same baseline */}
+        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
+          // 01 — SOBRE A FINCORE
+        </p>
+        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
+          Operação financeira{" "}
+          <em className="italic text-[#fe4c00]">que funciona</em>{" "}
           todos os dias.
         </h2>
 
         {/* Row 2 — Description aligned under headline */}
-        <div className="hidden md:block md:col-span-3" aria-hidden="true" />
-        <p className="col-span-4 md:col-span-7 lg:col-span-6 text-white/65 text-base md:text-lg leading-relaxed max-w-2xl">
+        <div className="hidden md:block md:col-span-4" aria-hidden="true" />
+        <p className="col-span-4 md:col-span-7 body-lg text-white/65 max-w-2xl">
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional —
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua dentro do Conta Azul.
         </p>
 
-        {/* Row 3 — Cards full width, 4-col grid on desktop */}
-        <div className="col-span-4 md:col-span-12 mt-8 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Row 3 — Cards full width with progressive grid */}
+        <div className="col-span-4 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {services.map((s, i) => (
             <div
               key={s.label}
@@ -391,6 +386,7 @@ function WhatIs() {
     </section>
   );
 }
+
 
 
 
