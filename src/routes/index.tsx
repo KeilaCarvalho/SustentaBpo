@@ -125,7 +125,8 @@ function Landing() {
 function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+      <div className="site-container h-20 md:h-24 flex items-center justify-between">
+
         <a href="#top" className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00]" />
           <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
