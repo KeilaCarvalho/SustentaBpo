@@ -636,7 +636,7 @@ function FinalCTA() {
             "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
         }}
       />
-      <div className="relative max-w-5xl mx-auto px-6 text-center">
+      <div className="relative site-container max-w-5xl text-center">
         <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// POSICIONAMENTO</p>
         <p className="font-display text-2xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 leading-snug">
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
