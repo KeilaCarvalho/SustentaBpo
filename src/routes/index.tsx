@@ -190,6 +190,14 @@ function Hero() {
             "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(254,76,0,0.18), transparent 60%)",
         }}
       />
+      <div
+        className="absolute inset-0 pointer-events-none mix-blend-screen transition-opacity duration-500 ease-out"
+        style={{
+          opacity: "calc(var(--gi, 0) * 0.55)",
+          background:
+            "radial-gradient(280px circle at var(--gx, 50%) var(--gy, 50%), rgba(254,76,0,0.45), rgba(254,76,0,0.12) 40%, transparent 70%)",
+        }}
+      />
 
       {/* Scanner */}
       <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden pointer-events-none">
