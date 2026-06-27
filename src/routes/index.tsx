@@ -390,17 +390,17 @@ function Metrics() {
 /* ---------- Testimonials (sticky stack) ---------- */
 function Testimonials() {
   const list = [
-    { q: "Antes eu perdia fim de semana revisando planilha. Hoje recebo um relatório que realmente entendo.", n: "Camila R.", r: "Estúdio de design" },
-    { q: "Profissionalizou meu financeiro sem eu precisar contratar ninguém.", n: "Lucas M.", r: "E-commerce de moda" },
-    { q: "Atendimento rápido, direto no WhatsApp. Isso fez toda diferença.", n: "Andréa P.", r: "Clínica odontológica" },
+    { q: "Está em crescimento e precisa de organização financeira real, não só planilha.", n: "Perfil 01", r: "Empresa em expansão" },
+    { q: "Quer previsibilidade e controle do caixa sem precisar montar um time financeiro interno.", n: "Perfil 02", r: "PME enxuta" },
+    { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="depoimentos" className="bg-black py-32 md:py-48 relative">
+    <section id="para-quem" className="bg-black py-32 md:py-48 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-20">
-          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — DEPOIMENTOS</p>
+          <p className="text-xs font-mono tracking-[0.3em] text-[#fe4c00] mb-8">// 03 — PARA QUEM É A FINCORE</p>
           <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tighter text-white">
-            Empreendedores que confiam o financeiro a nós.
+            Para empresas que querem o financeiro funcionando todo dia.
           </h2>
         </div>
         <div className="space-y-6">
