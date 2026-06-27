@@ -568,34 +568,28 @@ function Process() {
     { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
-    <section id="como-funciona" className="py-32 md:py-48 bg-[#09090b] border-y border-white/5">
-      <div className="site-container site-grid items-start">
-        {/* Title block */}
-        <div className="col-span-4 md:col-span-12 mb-2 md:mb-4">
-          <div className="site-grid">
+    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] border-y border-white/5">
+      <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
+        {/* Title block — flat 12-col header, no nested grid */}
+        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
+          // 04 — COMO FUNCIONA
+        </p>
+        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
+          Quatro passos para{" "}
+          <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
+        </h2>
 
-            <p className="col-span-4 md:col-span-3 text-xs font-mono tracking-[0.3em] text-[#fe4c00]">
-              // 04 — COMO FUNCIONA
-            </p>
-            <h2 className="col-span-4 md:col-span-9 font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] tracking-tight text-white leading-[0.95] [text-wrap:balance]">
-              Quatro passos para
-              <br />
-              <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
-            </h2>
-          </div>
-        </div>
-
-        {/* Media — sticky on desktop only */}
-        <div className="col-span-4 md:col-span-5 lg:sticky lg:top-32">
+        {/* Media — sticky only at xl */}
+        <div className="col-span-4 md:col-span-12 lg:col-span-5 xl:sticky xl:top-32">
           <ProcessMedia />
         </div>
 
         {/* Steps */}
-        <ul className="col-span-4 md:col-span-7 lg:col-span-6 lg:col-start-7 space-y-5 md:space-y-6">
+        <ul className="col-span-4 md:col-span-12 lg:col-span-7 xl:col-span-6 xl:col-start-7 space-y-4 sm:space-y-5">
           {steps.map((s) => (
             <li
               key={s.n}
-              className="glass-card rounded-2xl p-5 sm:p-6 md:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
             >
               <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
               <div className="min-w-0">
@@ -609,6 +603,7 @@ function Process() {
     </section>
   );
 }
+
 
 
 /* ---------- Final CTA ---------- */
