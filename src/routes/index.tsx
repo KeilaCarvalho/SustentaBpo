@@ -226,7 +226,7 @@ function Hero() {
           <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="display-xxl">
+          <h1 className="display-xxl max-w-2xl">
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-1">O financeiro</span>
             </span>
@@ -236,7 +236,7 @@ function Hero() {
               </span>
             </span>
           </h1>
-          <div className="overflow-hidden mt-6 sm:mt-8 max-w-xl">
+          <div className="overflow-hidden mt-6 sm:mt-8 max-w-md">
             <p className="reveal-mask delay-3 body-lg text-white/70">
               A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa — organizados em sistema,
