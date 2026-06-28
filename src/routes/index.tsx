@@ -105,6 +105,7 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       <a href="#main-content" className="skip-to-content">Pular para o conteúdo</a>
       <Nav />
+      <SectionNav />
       <main id="main-content">
         <Hero />
         <Marquee />
@@ -473,7 +474,7 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
+    <section id="limites" className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
       <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
           <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
@@ -523,7 +524,7 @@ function Metrics() {
     { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
-    <section className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+    <section id="resultados" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative site-container">
