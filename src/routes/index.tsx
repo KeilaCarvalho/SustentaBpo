@@ -124,7 +124,7 @@ function Landing() {
 /* ---------- Nav ---------- */
 function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/5">
+    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#141414]/40 border-b border-white/5">
       <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
         <a href="#top" className="flex items-center gap-2 sm:gap-3 min-w-0">
           <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00] shrink-0" />
@@ -158,7 +158,7 @@ function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative min-h-[100svh] w-full overflow-hidden bg-black"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-[#141414]"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       {/* Video layer (parallax) */}
@@ -339,7 +339,7 @@ function WhatIs() {
     { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
-    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-black relative overflow-hidden">
+    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
       <div id="fazemos" className="relative site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
@@ -395,7 +395,7 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section className="py-24 sm:py-32 lg:py-44 bg-black relative">
+    <section className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
       <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
           <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
@@ -476,7 +476,7 @@ function Testimonials() {
     { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="para-quem" className="bg-black py-24 sm:py-32 lg:py-44 relative">
+    <section id="para-quem" className="bg-[#141414] py-24 sm:py-32 lg:py-44 relative">
       <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
           <p className="eyebrow mb-5 sm:mb-6">
@@ -610,7 +610,7 @@ function FinalCTA() {
     <section
       id="agendar"
       ref={ref}
-      className="relative bg-black text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
+      className="relative bg-[#141414] text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       <img
@@ -666,7 +666,7 @@ function FinalCTA() {
 /* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-black text-white/60 py-20 border-t border-white/5">
+    <footer className="bg-[#141414] text-white/60 py-20 border-t border-white/5">
       <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
