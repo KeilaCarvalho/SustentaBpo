@@ -22,9 +22,9 @@
 }
 
 :root {
-  --background: #0a0a0a;
+  --background: #141414;
   --foreground: #ffffff;
-  --surface: #111111;
+  --surface: #1a1a1a;
   --muted: #18181b;
   --muted-foreground: #a1a1aa;
   --primary: #fe4c00;
@@ -40,7 +40,7 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #000;
+    background-color: #141414;
   }
   body {
     background-color: var(--color-background);
@@ -100,7 +100,7 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #000;
+    background: #141414;
   }
   ::-webkit-scrollbar-thumb {
     background: #fe4c00;
@@ -208,7 +208,7 @@
   }
 
   .glass-card {
-    background-color: rgba(10, 10, 10, 0.65);
+    background-color: rgba(20, 20, 20, 0.65);
     backdrop-filter: blur(60px);
     border: 1px solid rgba(24, 24, 27, 0.8);
   }
