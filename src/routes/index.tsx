@@ -215,14 +215,14 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-center text-white"
-
+        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-start text-white"
         style={{
+          rowGap: "clamp(2.5rem, 5vw, 5rem)",
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="col-span-4 md:col-span-12 lg:col-span-7 overflow-visible">
+        <div className="col-span-4 md:col-span-12 lg:col-span-10 overflow-visible">
           <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
@@ -260,37 +260,38 @@ function Hero() {
           </div>
         </div>
 
-        {/* Floating glass cards w/ parallax */}
-        <div
-          className="col-span-4 md:col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-4 items-end"
-          style={{
-            transform:
-              "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
-          }}
-        >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
-            <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Conta Azul
-            </div>
-            <p className="mt-2 text-white">Conciliação · em dia</p>
-            <p className="text-white/60">Atualizado: hoje</p>
+      </div>
+
+      {/* Floating glass cards w/ parallax — absolute so they don’t break the text grid */}
+      <div
+        className="hidden lg:flex absolute top-1/2 right-[4rem] 2xl:right-[6rem] -translate-y-1/2 z-10 flex-col gap-4 items-end"
+        style={{
+          transform:
+            "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
+        }}
+      >
+        <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
+          <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+            Conta Azul
           </div>
-          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] max-w-[300px] w-full">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
-            <p className="mt-2 text-base font-medium flex items-center gap-2">
-              <Icon name="lucide:trending-up" className="text-lg" />
-              Fluxo de caixa atualizado
-            </p>
+          <p className="mt-2 text-white">Conciliação · em dia</p>
+          <p className="text-white/60">Atualizado: hoje</p>
+        </div>
+        <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] max-w-[300px] w-full">
+          <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
+          <p className="mt-2 text-base font-medium flex items-center gap-2">
+            <Icon name="lucide:trending-up" className="text-lg" />
+            Fluxo de caixa atualizado
+          </p>
+        </div>
+        <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
+          <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center shrink-0">
+            <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
           </div>
-          <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center shrink-0">
-              <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
-            </div>
-            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
-              Operação ativa
-              <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
-            </div>
+          <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
+            Operação ativa
+            <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
           </div>
         </div>
       </div>
