@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A FINCORE assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária dentro do Conta Azul.",
+          "A FINCORE assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
       },
       { property: "og:title", content: "FINCORE — BPO Financeiro com rotina diária" },
       {
@@ -266,7 +266,7 @@ function Hero() {
           <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Conta Azul
+              Sistema
             </div>
             <p className="mt-2 text-white">Conciliação · em dia</p>
             <p className="text-white/60">Atualizado: hoje</p>
@@ -310,7 +310,7 @@ function Marquee() {
     "Rotina Estruturada",
     "Organização em Sistema",
     "Acompanhamento Contínuo",
-    "Conta Azul",
+    "Execução Contínua",
   ];
   const row = [...items, ...items];
   return (
@@ -332,7 +332,7 @@ function Marquee() {
 /* ---------- WhatIs ---------- */
 function WhatIs() {
   const services = [
-    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Controle e execução, com agendamentos e baixas no Conta Azul." },
+    { icon: "lucide:arrow-up-right", label: "Contas a Pagar", desc: "Controle e execução, com agendamentos e baixas." },
     { icon: "lucide:arrow-down-left", label: "Contas a Receber", desc: "Lançamentos, acompanhamento e organização dos recebimentos." },
     { icon: "lucide:git-compare-arrows", label: "Conciliação Bancária", desc: "Conferência contínua dos extratos contra o sistema." },
     { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
@@ -359,7 +359,7 @@ function WhatIs() {
           A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
-          contínua dentro do Conta Azul.
+          contínua em sistema.
         </p>
 
         {/* Row 3 — Cards full width with progressive grid */}
@@ -519,7 +519,7 @@ function Metrics() {
     { v: "Diário", l: "Contas a pagar e a receber organizadas" },
     { v: "Contínuo", l: "Conciliação bancária acompanhada" },
     { v: "Atualizado", l: "Fluxo de caixa todos os dias" },
-    { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
+    { v: "Em sistema", l: "Rotina estruturada em sistema" },
   ];
   return (
     <section id="resultados" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
@@ -751,8 +751,7 @@ function Footer() {
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-2xl">
-            BPO Financeiro com rotina diária, organização em sistema e execução contínua dentro
-            do Conta Azul.
+            BPO Financeiro com rotina diária, organização em sistema e execução contínua.
           </p>
         </div>
         <div>
