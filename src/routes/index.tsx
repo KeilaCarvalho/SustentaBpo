@@ -242,7 +242,7 @@ function Hero() {
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-8 sm:mt-10 reveal-mask delay-4">
+          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex justify-center lg:justify-start">
             <a
               href={WHATSAPP}
               target="_blank"
