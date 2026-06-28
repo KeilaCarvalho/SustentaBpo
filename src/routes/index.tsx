@@ -488,11 +488,11 @@ function Testimonials() {
             funcionando todo dia.
           </h2>
         </div>
-        <div className="col-span-4 md:col-span-12 lg:col-span-6 lg:col-start-7 space-y-4 sm:space-y-5">
+        <div className="col-span-4 md:col-span-12 lg:col-span-6 lg:col-start-7 space-y-3 sm:space-y-4">
           {list.map((t) => (
             <figure
               key={t.n}
-              className="glass-card rounded-3xl p-6 sm:p-8 lg:p-10"
+              className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8"
             >
               <span className="block font-display text-5xl text-[#fe4c00] leading-none italic mb-3">"</span>
               <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
