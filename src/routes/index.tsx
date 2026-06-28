@@ -105,6 +105,7 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       <a href="#main-content" className="skip-to-content">Pular para o conteúdo</a>
       <Nav />
+      <SectionNav />
       <main id="main-content">
         <Hero />
         <Marquee />
@@ -387,6 +388,84 @@ function WhatIs() {
 
 
 
+/* ---------- Section Nav (sticky side dots) ---------- */
+function SectionNav() {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    const sections = [
+      { id: "top", label: "Início" },
+      { id: "sobre", label: "Sobre" },
+      { id: "limites", label: "Limites" },
+      { id: "resultados", label: "Resultados" },
+      { id: "para-quem", label: "Para quem" },
+      { id: "como-funciona", label: "Como funciona" },
+      { id: "agendar", label: "Contato" },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const items = [
+    { id: "top", label: "Início" },
+    { id: "sobre", label: "Sobre" },
+    { id: "limites", label: "Limites" },
+    { id: "resultados", label: "Resultados" },
+    { id: "para-quem", label: "Para quem" },
+    { id: "como-funciona", label: "Como funciona" },
+    { id: "agendar", label: "Contato" },
+  ];
+
+  return (
+    <nav
+      aria-label="Seções da página"
+      className="fixed right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-end gap-5"
+    >
+      {items.map((item) => {
+        const isActive = active === item.id;
+        return (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="group flex items-center gap-3 focus-visible:outline-none"
+          >
+            <span
+              className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-all duration-300 ${
+                isActive
+                  ? "text-[#fe4c00] translate-x-0 opacity-100"
+                  : "text-white/50 translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+              }`}
+            >
+              {item.label}
+            </span>
+            <span
+              className={`block rounded-full transition-all duration-300 shrink-0 ${
+                isActive
+                  ? "w-3 h-3 bg-[#fe4c00] shadow-[0_0_12px_rgba(254,76,0,0.6)]"
+                  : "w-2 h-2 bg-white/30 group-hover:bg-white/60"
+              }`}
+            />
+          </a>
+        );
+      })}
+    </nav>
+  );
+}
+
 /* ---------- Values ---------- */
 function Values() {
   const items = [
@@ -395,7 +474,7 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
+    <section id="limites" className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
       <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
           <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
@@ -445,7 +524,7 @@ function Metrics() {
     { v: "Em sistema", l: "Rotina estruturada no Conta Azul" },
   ];
   return (
-    <section className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+    <section id="resultados" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative site-container">
