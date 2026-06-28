@@ -242,21 +242,15 @@ function Hero() {
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 reveal-mask delay-4">
+          <div className="mt-8 sm:mt-10 reveal-mask delay-4">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
-            </a>
-            <a
-              href={CALENDAR_URL}
-              className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white/80 px-6 sm:px-8 py-4 sm:py-5 rounded-full text-sm font-medium inline-flex items-center justify-center transition-all duration-300 w-full sm:w-auto"
-            >
-              Agendar uma Reunião
             </a>
           </div>
         </div>
