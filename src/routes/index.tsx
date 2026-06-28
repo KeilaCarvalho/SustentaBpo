@@ -215,14 +215,14 @@ function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-center text-white"
-
+        className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-start text-white"
         style={{
+          rowGap: "clamp(2.5rem, 5vw, 5rem)",
           transform:
             "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
         }}
       >
-        <div className="col-span-4 md:col-span-12 lg:col-span-7 overflow-visible">
+        <div className="col-span-4 md:col-span-12 lg:col-span-10 overflow-visible">
           <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
