@@ -26,7 +26,8 @@ export const Route = createFileRoute("/")({
 
 const BRAND = "FINCORE";
 const WHATSAPP =
-  "https://wa.me/5511999999999?text=Quero%20meu%20Diagn%C3%B3stico%20Financeiro%20Gratuito";
+  "https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista";
+const CALENDAR_URL = "mailto:contato@fincore.com.br?subject=Reuni%C3%A3o%20com%20a%20FINCORE";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
@@ -140,11 +141,12 @@ function Nav() {
         </ul>
 
         <a
-          href="#agendar"
-          className="bg-[#fe4c00] hover:bg-[#cc0000] text-white text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
+          href={WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
         >
-          <span className="hidden sm:inline">Diagnóstico Gratuito</span>
-          <span className="sm:hidden">Diagnóstico</span>
+          Falar com Especialista
         </a>
       </div>
     </nav>
@@ -242,17 +244,19 @@ function Hero() {
           </div>
           <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 reveal-mask delay-4">
             <a
-              href="#agendar"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
-              Diagnóstico Financeiro Gratuito
+              Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
-              href="#fazemos"
-              className="text-sm text-white/80 hover:text-[#fe4c00] transition-colors px-2 py-3 sm:py-4"
+              href={CALENDAR_URL}
+              className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white/80 px-6 sm:px-8 py-4 sm:py-5 rounded-full text-sm font-medium inline-flex items-center justify-center transition-all duration-300 w-full sm:w-auto"
             >
-              Conhecer a operação →
+              Agendar uma Reunião
             </a>
           </div>
         </div>
@@ -622,7 +626,7 @@ function ProcessMedia() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
       <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-        Diagnóstico · gratuito · sem compromisso
+        Reunião · sem compromisso
       </div>
       <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
         <p className="font-display text-2xl text-white max-w-xs leading-tight">
@@ -709,7 +713,7 @@ function FinalCTA() {
       <div className="relative site-container max-w-5xl text-center">
         <p className="eyebrow mb-6 sm:mb-8">// POSICIONAMENTO</p>
         <h2 className="display-xl">
-          Agende um diagnóstico <span className="text-[#fe4c00]">gratuito.</span>
+          Pronto para simplificar <span className="text-[#fe4c00]">sua empresa?</span>
         </h2>
         <p className="mt-8 sm:mt-10 display-md text-white/80 max-w-2xl mx-auto">
           A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
@@ -724,16 +728,16 @@ function FinalCTA() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
-            Diagnóstico Financeiro Gratuito
+            Simplificar Minha Empresa
           </a>
           <a
-            href="mailto:contato@fincore.com.br"
-            className="border border-white/30 hover:border-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+            href={CALENDAR_URL}
+            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto text-center inline-flex items-center justify-center"
           >
-            Enviar e-mail
+            Agendar uma Reunião
           </a>
         </div>
       </div>
@@ -764,7 +768,7 @@ function Footer() {
             <li><a href="#fazemos" className="hover:text-[#fe4c00]">O que fazemos</a></li>
             <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como funciona</a></li>
             <li><a href="#para-quem" className="hover:text-[#fe4c00]">Para quem é</a></li>
-            <li><a href="#agendar" className="hover:text-[#fe4c00]">Diagnóstico</a></li>
+            <li><a href="#agendar" className="hover:text-[#fe4c00]">Contato</a></li>
           </ul>
         </div>
         <div>
