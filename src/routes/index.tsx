@@ -705,17 +705,12 @@ function FinalCTA() {
         }}
       />
       <div className="relative site-container max-w-5xl text-center">
-        <p className="eyebrow mb-6 sm:mb-8">{"\n"}</p>
+        <p className="eyebrow text-[#fe4c00] mb-6 sm:mb-8">// PRÓXIMO PASSO</p>
         <h2 className="display-xl">
-          Pronto para simplificar <span className="text-[#fe4c00]">sua empresa?</span>
+          Seu financeiro pode rodar assim <span className="text-[#fe4c00]">todos os dias.</span>
         </h2>
-        <p className="mt-8 sm:mt-10 display-md text-white/80 max-w-2xl mx-auto">
-          A FINCORE não é apenas um BPO financeiro. É a estrutura que garante que o financeiro
-          da empresa funcione <span className="text-[#fe4c00]">todos os dias</span> com consistência.
-        </p>
-        <p className="mt-6 body-lg text-white/70 max-w-2xl mx-auto">
-          Entenda como sua operação financeira pode funcionar com mais organização,
-          previsibilidade e controle.
+        <p className="mt-8 sm:mt-10 body-lg text-white/80 max-w-2xl mx-auto">
+          Cada mês sem rotina financeira é decisão tomada sem dado atualizado, conciliação atrasada e dinheiro que você só descobre que faltou depois. Isso tem custo e ele só cresce enquanto ninguém assume a operação.
         </p>
         <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
           <a
@@ -725,13 +720,13 @@ function FinalCTA() {
             className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
-            Simplificar Minha Empresa
+            Falar com Especialista
           </a>
           <a
-            href={CALENDAR_URL}
+            href="#como-funciona"
             className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto text-center inline-flex items-center justify-center"
           >
-            Agendar uma Reunião
+            Ver como funciona
           </a>
         </div>
       </div>
