@@ -705,7 +705,7 @@ function FinalCTA() {
         }}
       />
       <div className="relative site-container max-w-5xl text-center">
-        <p className="eyebrow mb-6 sm:mb-8">// POSICIONAMENTO</p>
+        <p className="eyebrow mb-6 sm:mb-8">{"\n"}</p>
         <h2 className="display-xl">
           Pronto para simplificar <span className="text-[#fe4c00]">sua empresa?</span>
         </h2>
