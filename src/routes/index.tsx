@@ -208,10 +208,6 @@ function Hero() {
         }}
       />
 
-      {/* Scanner */}
-      <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden pointer-events-none">
-        <div className="scanner-bar" />
-      </div>
 
       {/* Content */}
       <div
