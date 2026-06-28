@@ -227,11 +227,11 @@ function Hero() {
           </p>
           <h1 className="display-xxl">
             <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-1">O financeiro</span>
+              <span className="block reveal-mask delay-1">O financeiro da sua empresa não deveria depender</span>
             </span>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-2">
-                não deveria depender <em className="italic text-[#fe4c00]">do seu tempo.</em>
+                <em className="italic text-[#fe4c00]">do seu tempo.</em>
               </span>
             </span>
           </h1>
