@@ -704,15 +704,15 @@ function FinalCTA() {
             "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
         }}
       />
-      <div className="relative site-container max-w-5xl text-center">
+      <div className="relative site-container max-w-5xl">
         <p className="eyebrow text-[#fe4c00] mb-6 sm:mb-8">// PRÓXIMO PASSO</p>
-        <h2 className="display-xl">
+        <h2 className="display-xl max-w-4xl">
           Seu financeiro pode rodar assim <span className="text-[#fe4c00]">todos os dias.</span>
         </h2>
-        <p className="mt-8 sm:mt-10 body-lg text-white/80 max-w-2xl mx-auto">
+        <p className="mt-8 sm:mt-10 body-lg text-white/80 max-w-2xl">
           Cada mês sem rotina financeira é decisão tomada sem dado atualizado, conciliação atrasada e dinheiro que você só descobre que faltou depois. Isso tem custo e ele só cresce enquanto ninguém assume a operação.
         </p>
-        <div className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
+        <div className="mt-10 sm:mt-12 flex flex-wrap gap-3 sm:gap-4">
           <a
             href={WHATSAPP}
             target="_blank"
@@ -724,7 +724,7 @@ function FinalCTA() {
           </a>
           <a
             href="#como-funciona"
-            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto text-center inline-flex items-center justify-center"
+            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center"
           >
             Ver como funciona
           </a>
