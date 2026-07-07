@@ -261,7 +261,7 @@ function Hero() {
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex justify-center">
+          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex flex-wrap justify-center gap-3 sm:gap-4">
             <a
               href={WHATSAPP}
               target="_blank"
@@ -270,6 +270,13 @@ function Hero() {
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
+            </a>
+            <a
+              href={ORCAMENTO_URL}
+              className="group border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+            >
+              Solicitar Orçamento
+              <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
