@@ -7,27 +7,27 @@ import heroVideo from "@/assets/hero-bg3.mp4.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FINCORE — BPO Financeiro com rotina diária" },
+      { title: "Sustenta BPO — BPO Financeiro com rotina diária" },
       {
         name: "description",
         content:
-          "A FINCORE assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
+          "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
       },
-      { property: "og:title", content: "FINCORE — BPO Financeiro com rotina diária" },
+      { property: "og:title", content: "Sustenta BPO — BPO Financeiro com rotina diária" },
       {
         property: "og:description",
         content:
-          "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A FINCORE executa.",
+          "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A Sustenta BPO executa.",
       },
     ],
   }),
   component: Landing,
 });
 
-const BRAND = "FINCORE";
+const BRAND = "Sustenta BPO";
 const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista";
-const CALENDAR_URL = "mailto:contato@fincore.com.br?subject=Reuni%C3%A3o%20com%20a%20FINCORE";
+const CALENDAR_URL = "mailto:contato@sustenta-bpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
@@ -237,7 +237,7 @@ function Hero() {
           </h1>
           <div className="overflow-hidden mt-6 sm:mt-8">
             <p className="reveal-mask delay-3 body-lg text-white/70">
-              A FINCORE assume a operação financeira completa da sua empresa: contas a pagar,
+              A Sustenta BPO assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa organizados em sistema,
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
@@ -345,7 +345,7 @@ function WhatIs() {
         {/* Row 1 — Eyebrow above, headline left-aligned */}
         <div className="col-span-4 md:col-span-12 lg:col-span-10">
           <p className="eyebrow mb-4 sm:mb-5">
-            // 01 — SOBRE A FINCORE
+            // 01 — SOBRE A Sustenta BPO
           </p>
           <h2 className="display-xl text-white text-left">
             Operação financeira{" "}
@@ -356,7 +356,7 @@ function WhatIs() {
 
         {/* Row 2 — Description left-aligned under headline */}
         <p className="col-span-4 md:col-span-10 lg:col-span-9 body-lg text-white/65 max-w-3xl">
-          A FINCORE nasce da experiência prática no financeiro de empresas reais. Assumimos
+          A Sustenta BPO nasce da experiência prática no financeiro de empresas reais. Assumimos
           a operação para que o empresário não precise lidar com o dia a dia operacional
           apenas acompanhar e aprovar. Trabalhamos com processos definidos e execução
           contínua em sistema.
@@ -557,7 +557,7 @@ function Testimonials() {
       <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
           <p className="eyebrow mb-5 sm:mb-6">
-            // 03 — PARA QUEM É A FINCORE
+            // 03 — PARA QUEM É A Sustenta BPO
           </p>
           <h2 className="display-xl text-white">
             Para empresas que querem o{" "}
@@ -763,7 +763,7 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li className="break-all">contato@fincore.com.br</li>
+            <li className="break-all">contato@sustenta-bpo.com.br</li>
             <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
           </ul>
         </div>
