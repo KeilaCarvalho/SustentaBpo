@@ -666,7 +666,7 @@ function Process() {
   const steps = [
     { n: "01", t: "Diagnóstico", d: "Entendemos como a operação financeira funciona hoje e o nível de organização existente." },
     { n: "02", t: "Implantação", d: "Organizamos sistema, processos e rotina financeira dentro da operação." },
-    { n: "03", t: "Execução diária", d: "Assumimos a operação financeira com rotina estruturada e acompanhamento contínuo." },
+    { n: "03", t: "Execução diária", d: "Assumimos a operação financeira com execução diária e acompanhamento contínuo." },
     { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
