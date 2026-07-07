@@ -38,6 +38,7 @@ const BRAND = "Sustenta BPO";
 const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista";
 const CALENDAR_URL = "mailto:contato@sustentabpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
+const ORCAMENTO_URL = "mailto:contato@sustentabpo.com.br?subject=Or%C3%A7amento%20Sustenta%20BPO&body=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20BPO%20Financeiro.%0A%0AEmpresa%3A%20%0ANome%3A%20%0ATelefone%3A%20%0AServi%C3%A7o%20de%20interesse%3A%20";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
