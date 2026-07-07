@@ -151,14 +151,22 @@ function Nav() {
           <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
         </ul>
 
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
-        >
-          Falar com Especialista
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a
+            href={ORCAMENTO_URL}
+            className="hidden sm:inline-flex border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+          >
+            Solicitar Orçamento
+          </a>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+          >
+            Falar com Especialista
+          </a>
+        </div>
       </div>
     </nav>
   );
