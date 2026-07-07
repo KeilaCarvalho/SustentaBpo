@@ -749,10 +749,11 @@ function FinalCTA() {
             Falar com Especialista
           </a>
           <a
-            href="#como-funciona"
-            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center"
+            href={ORCAMENTO_URL}
+            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
           >
-            Ver como funciona
+            <Icon name="lucide:mail" className="text-lg" />
+            Solicitar Orçamento
           </a>
         </div>
       </div>
@@ -789,7 +790,8 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li className="break-all">contato@sustentabpo.com.br</li>
+            <li><a href={ORCAMENTO_URL} className="hover:text-[#fe4c00]">Solicitar Orçamento</a></li>
+            <li><a href="mailto:contato@sustentabpo.com.br" className="hover:text-[#fe4c00] break-all">contato@sustentabpo.com.br</a></li>
           </ul>
         </div>
       </div>
