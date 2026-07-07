@@ -4,6 +4,8 @@ import caseImg from "@/assets/case-meeting.jpg";
 import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
 import heroVideo from "@/assets/hero-bg3.mp4.asset.json";
 
+const BASE_URL = "https://craft-your-finance.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -19,6 +21,14 @@ export const Route = createFileRoute("/")({
         content:
           "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A Sustenta BPO executa.",
       },
+      { property: "og:url", content: BASE_URL },
+      { property: "og:image", content: `${BASE_URL}/og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: `${BASE_URL}/og-image.jpg` },
+    ],
+    links: [
+      { rel: "canonical", href: BASE_URL },
     ],
   }),
   component: Landing,

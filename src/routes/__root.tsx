@@ -83,12 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Terceirização das rotinas financeiras para micro e pequenos empreendedores: contas a pagar, a receber, conciliação bancária e fluxo de caixa.",
       },
-      { property: "og:title", content: "Sustenta BPO — Seu financeiro, sob controle" },
-      {
-        property: "og:description",
-        content:
-          "Terceirizamos as rotinas financeiras do seu negócio com clareza, segurança e relatórios que você realmente entende.",
-      },
+      { property: "og:site_name", content: "Sustenta BPO" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
