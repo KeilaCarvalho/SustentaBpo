@@ -101,6 +101,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         src: "https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js",
         defer: true,
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Sustenta BPO",
+          url: "https://craft-your-finance.lovable.app",
+          description:
+            "Terceirização das rotinas financeiras para micro e pequenos empreendedores: contas a pagar, a receber, conciliação bancária e fluxo de caixa.",
+          sameAs: [],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -111,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
