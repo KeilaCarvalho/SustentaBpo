@@ -804,14 +804,14 @@ function QuoteForm() {
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="servico" className={labelCls}>Serviço de interesse*</label>
-              <select id="servico" name="servico" required className={inputCls}>
-                <option value="">Selecione…</option>
-                <option>BPO Financeiro completo</option>
-                <option>Contas a pagar / a receber</option>
-                <option>Conciliação bancária</option>
-                <option>Fluxo de caixa e relatórios</option>
-                <option>Diagnóstico / consultoria</option>
-                <option>Outro</option>
+              <select id="servico" name="servico" required className={`${inputCls} [&>option]:bg-[#141414] [&>option]:text-white`}>
+                <option value="" disabled>Selecione…</option>
+                <option value="BPO Financeiro completo">BPO Financeiro completo</option>
+                <option value="Contas a pagar / a receber">Contas a pagar / a receber</option>
+                <option value="Conciliação bancária">Conciliação bancária</option>
+                <option value="Fluxo de caixa e relatórios">Fluxo de caixa e relatórios</option>
+                <option value="Diagnóstico / consultoria">Diagnóstico / consultoria</option>
+                <option value="Outro">Outro</option>
               </select>
             </div>
             <div className="sm:col-span-2">
