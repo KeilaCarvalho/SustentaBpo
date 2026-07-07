@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
 const BRAND = "Sustenta BPO";
 const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista";
-const CALENDAR_URL = "mailto:contato@sustenta-bpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
+const CALENDAR_URL = "mailto:contato@sustentabpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
@@ -773,8 +773,7 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li className="break-all">contato@sustenta-bpo.com.br</li>
-            <li className="text-xs font-mono">CNPJ 00.000.000/0001-00</li>
+            <li className="break-all">contato@sustentabpo.com.br</li>
           </ul>
         </div>
       </div>
