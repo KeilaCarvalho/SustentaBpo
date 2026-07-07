@@ -38,6 +38,7 @@ const BRAND = "Sustenta BPO";
 const WHATSAPP =
   "https://wa.me/5511999999999?text=Quero%20falar%20com%20um%20especialista";
 const CALENDAR_URL = "mailto:contato@sustentabpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
+const ORCAMENTO_URL = "mailto:contato@sustentabpo.com.br?subject=Or%C3%A7amento%20Sustenta%20BPO&body=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20BPO%20Financeiro.%0A%0AEmpresa%3A%20%0ANome%3A%20%0ATelefone%3A%20%0AServi%C3%A7o%20de%20interesse%3A%20";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <iconify-icon icon={name} className={className} />;
@@ -150,14 +151,22 @@ function Nav() {
           <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
         </ul>
 
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap shrink-0"
-        >
-          Falar com Especialista
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a
+            href={ORCAMENTO_URL}
+            className="hidden sm:inline-flex border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+          >
+            Solicitar Orçamento
+          </a>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+          >
+            Falar com Especialista
+          </a>
+        </div>
       </div>
     </nav>
   );
@@ -252,7 +261,7 @@ function Hero() {
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex justify-center">
+          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex flex-wrap justify-center gap-3 sm:gap-4">
             <a
               href={WHATSAPP}
               target="_blank"
@@ -261,6 +270,13 @@ function Hero() {
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
+            </a>
+            <a
+              href={ORCAMENTO_URL}
+              className="group border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+            >
+              Solicitar Orçamento
+              <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
         </div>
@@ -733,10 +749,11 @@ function FinalCTA() {
             Falar com Especialista
           </a>
           <a
-            href="#como-funciona"
-            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center"
+            href={ORCAMENTO_URL}
+            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
           >
-            Ver como funciona
+            <Icon name="lucide:mail" className="text-lg" />
+            Solicitar Orçamento
           </a>
         </div>
       </div>
@@ -773,7 +790,8 @@ function Footer() {
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li className="break-all">contato@sustentabpo.com.br</li>
+            <li><a href={ORCAMENTO_URL} className="hover:text-[#fe4c00]">Solicitar Orçamento</a></li>
+            <li><a href="mailto:contato@sustentabpo.com.br" className="hover:text-[#fe4c00] break-all">contato@sustentabpo.com.br</a></li>
           </ul>
         </div>
       </div>
