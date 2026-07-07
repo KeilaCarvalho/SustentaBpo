@@ -802,9 +802,14 @@ function QuoteForm() {
               <label htmlFor="telefone" className={labelCls}>Telefone / WhatsApp*</label>
               <input id="telefone" name="telefone" type="tel" required maxLength={30} className={inputCls} placeholder="(11) 99999-9999" />
             </div>
-            <div className="sm:col-span-2">
+            <div className="sm:col-span-2 min-w-0">
               <label htmlFor="servico" className={labelCls}>Serviço de interesse*</label>
-              <select id="servico" name="servico" required className={`${inputCls} [&>option]:bg-[#141414] [&>option]:text-white`}>
+              <select
+                id="servico"
+                name="servico"
+                required
+                className={`${inputCls} [&>option]:bg-[#141414] [&>option]:text-white max-w-full truncate`}
+              >
                 <option value="" disabled>Selecione…</option>
                 <option value="BPO Financeiro completo">BPO Financeiro completo</option>
                 <option value="Contas a pagar / a receber">Contas a pagar / a receber</option>
