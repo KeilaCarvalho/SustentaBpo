@@ -709,6 +709,151 @@ function Process() {
 
 
 /* ---------- Final CTA ---------- */
+function QuoteForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // honeypot
+    if ((fd.get("botcheck") as string)?.length) {
+      setStatus("ok");
+      form.reset();
+      return;
+    }
+
+    fd.append("access_key", WEB3FORMS_KEY);
+    fd.append("subject", `Novo pedido de orçamento — ${fd.get("nome") || "site"}`);
+    fd.append("from_name", "Site Sustenta BPO");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setStatus("ok");
+        form.reset();
+      } else {
+        setStatus("error");
+        setErrorMsg(data.message || "Não foi possível enviar. Tente novamente.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMsg("Erro de conexão. Tente novamente em instantes.");
+    }
+  }
+
+  const inputCls =
+    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#fe4c00] transition-colors";
+  const labelCls = "block text-xs font-mono uppercase tracking-[0.2em] text-white/50 mb-2";
+
+  return (
+    <section id="orcamento" className="py-24 sm:py-32 lg:py-44 bg-[#141414] border-y border-white/5 relative overflow-hidden">
+      <div className="site-container max-w-3xl">
+        <p className="eyebrow text-[#fe4c00] mb-6 sm:mb-8">// SOLICITAR ORÇAMENTO</p>
+        <h2 className="display-xl">
+          Conte pra gente o que <span className="text-[#fe4c00]">seu financeiro precisa.</span>
+        </h2>
+        <p className="mt-6 body-lg text-white/70">
+          Preencha o formulário abaixo. Respondemos em até 1 dia útil com uma proposta sob medida.
+        </p>
+
+        {status === "ok" ? (
+          <div className="mt-10 rounded-2xl border border-[#fe4c00]/40 bg-[#fe4c00]/5 p-8">
+            <div className="flex items-center gap-3 mb-3">
+              <Icon name="lucide:check-circle-2" className="text-2xl text-[#fe4c00]" />
+              <h3 className="text-xl font-semibold text-white">Pedido enviado!</h3>
+            </div>
+            <p className="text-white/70">
+              Recebemos sua solicitação. Nossa equipe entrará em contato pelo e-mail informado em até 1 dia útil.
+            </p>
+            <button
+              onClick={() => setStatus("idle")}
+              className="mt-6 text-sm text-[#fe4c00] hover:underline"
+            >
+              Enviar outro pedido
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {/* honeypot */}
+            <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
+            <div className="sm:col-span-1">
+              <label htmlFor="nome" className={labelCls}>Nome*</label>
+              <input id="nome" name="nome" type="text" required maxLength={100} className={inputCls} placeholder="Seu nome completo" />
+            </div>
+            <div className="sm:col-span-1">
+              <label htmlFor="empresa" className={labelCls}>Empresa</label>
+              <input id="empresa" name="empresa" type="text" maxLength={100} className={inputCls} placeholder="Nome da empresa" />
+            </div>
+            <div className="sm:col-span-1">
+              <label htmlFor="email" className={labelCls}>E-mail*</label>
+              <input id="email" name="email" type="email" required maxLength={150} className={inputCls} placeholder="voce@empresa.com" />
+            </div>
+            <div className="sm:col-span-1">
+              <label htmlFor="telefone" className={labelCls}>Telefone / WhatsApp*</label>
+              <input id="telefone" name="telefone" type="tel" required maxLength={30} className={inputCls} placeholder="(11) 99999-9999" />
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="servico" className={labelCls}>Serviço de interesse*</label>
+              <select id="servico" name="servico" required className={inputCls}>
+                <option value="">Selecione…</option>
+                <option>BPO Financeiro completo</option>
+                <option>Contas a pagar / a receber</option>
+                <option>Conciliação bancária</option>
+                <option>Fluxo de caixa e relatórios</option>
+                <option>Diagnóstico / consultoria</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="mensagem" className={labelCls}>Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows={4} maxLength={1000} className={inputCls} placeholder="Descreva brevemente sua operação, número de lançamentos por mês, sistema usado, etc." />
+            </div>
+
+            {status === "error" && (
+              <div className="sm:col-span-2 text-sm text-red-400 bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-3">
+                {errorMsg}
+              </div>
+            )}
+
+            <div className="sm:col-span-2 mt-2">
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {status === "sending" ? (
+                  <>
+                    <Icon name="lucide:loader-2" className="text-lg animate-spin" />
+                    Enviando…
+                  </>
+                ) : (
+                  <>
+                    <Icon name="lucide:send" className="text-lg" />
+                    Enviar pedido de orçamento
+                  </>
+                )}
+              </button>
+              <p className="mt-4 text-xs text-white/40">
+                Ao enviar, você concorda em ser contatado sobre sua solicitação.
+              </p>
+            </div>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   const ref = useMouseParallax();
   return (
