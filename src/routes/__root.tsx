@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BPO Financeiro — Seu financeiro, sob controle" },
+      { title: "Sustenta BPO — Seu financeiro, sob controle" },
       {
         name: "description",
         content:
           "Terceirização das rotinas financeiras para micro e pequenos empreendedores: contas a pagar, a receber, conciliação bancária e fluxo de caixa.",
       },
-      { property: "og:title", content: "BPO Financeiro — Seu financeiro, sob controle" },
+      { property: "og:title", content: "Sustenta BPO — Seu financeiro, sob controle" },
       {
         property: "og:description",
         content:
