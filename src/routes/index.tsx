@@ -127,6 +127,7 @@ function Landing() {
         <Metrics />
         <Testimonials />
         <Process />
+        <QuoteForm />
         <FinalCTA />
       </main>
       <Footer />
