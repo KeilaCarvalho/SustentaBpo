@@ -143,7 +143,7 @@ function Nav() {
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#141414]/40 border-b border-white/5">
       <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
         <a href="#top" className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full block shadow-[0_0_20px_#fe4c00] shrink-0" />
+          <img src={logoRefined} alt="Sustenta BPO" className="h-8 sm:h-10 w-auto shrink-0" />
           <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white truncate">{BRAND}</span>
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
