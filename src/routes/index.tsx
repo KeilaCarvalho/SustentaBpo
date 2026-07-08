@@ -235,6 +235,24 @@ function Hero() {
         }}
       />
 
+      {/* Left-side readability scrim — keeps sides bright, darkens only behind text */}
+      <div
+        className="absolute inset-0 pointer-events-none hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.15) 55%, transparent 70%)",
+        }}
+      />
+      {/* Mobile scrim: soft top-to-bottom for legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
+
+
 
       {/* Content */}
       <div
@@ -249,7 +267,7 @@ function Hero() {
           <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="display-xxl">
+          <h1 className="display-xxl" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-1">O financeiro da sua empresa não deveria depender</span>
             </span>
@@ -260,7 +278,8 @@ function Hero() {
             </span>
           </h1>
           <div className="overflow-hidden mt-6 sm:mt-8">
-            <p className="reveal-mask delay-3 body-lg text-white/70">
+            <p className="reveal-mask delay-3 body-lg text-white/85" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
+
               A Sustenta BPO assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa organizados em sistema,
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
@@ -278,7 +297,7 @@ function Hero() {
             </a>
             <a
               href={ORCAMENTO_URL}
-              className="group border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group backdrop-blur-sm bg-black/30 border border-white/50 hover:bg-[#fe4c00] hover:border-[#fe4c00] hover:text-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
               Solicitar Orçamento
               <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
