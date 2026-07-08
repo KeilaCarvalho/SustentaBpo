@@ -285,24 +285,25 @@ function Hero() {
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
             </p>
           </div>
-          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href={ORCAMENTO_URL}
-              className="group backdrop-blur-sm bg-black/30 border border-white/50 hover:bg-[#fe4c00] hover:border-[#fe4c00] hover:text-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group backdrop-blur-sm bg-black/40 border border-white/60 hover:bg-[#fe4c00] hover:border-[#fe4c00] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Solicitar Orçamento
               <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
+
         </div>
 
         {/* Floating glass cards w/ parallax */}
