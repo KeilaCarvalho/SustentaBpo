@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
 import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
 import heroVideo from "@/assets/hero-bg3.mp4.asset.json";
+import logoRefined from "@/assets/logo-refined.png";
 
 const BASE_URL = "https://craft-your-finance.lovable.app";
 
