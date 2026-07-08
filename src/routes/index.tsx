@@ -206,14 +206,15 @@ function Hero() {
       </div>
 
       {/* Gradient + vignette + grid overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/90" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)",
+            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)",
         }}
       />
+
 
       <div className="absolute inset-0 grid-lines opacity-15 pointer-events-none" />
 
