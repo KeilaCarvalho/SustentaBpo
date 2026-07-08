@@ -267,7 +267,7 @@ function Hero() {
           <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="display-xxl">
+          <h1 className="display-xxl" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-1">O financeiro da sua empresa não deveria depender</span>
             </span>
@@ -278,7 +278,8 @@ function Hero() {
             </span>
           </h1>
           <div className="overflow-hidden mt-6 sm:mt-8">
-            <p className="reveal-mask delay-3 body-lg text-white/70">
+            <p className="reveal-mask delay-3 body-lg text-white/85" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
+
               A Sustenta BPO assume a operação financeira completa da sua empresa: contas a pagar,
               contas a receber, conciliação bancária e fluxo de caixa organizados em sistema,
               com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
