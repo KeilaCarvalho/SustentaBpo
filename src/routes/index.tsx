@@ -922,7 +922,7 @@ function Footer() {
       <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 bg-[#fe4c00] rounded-full shadow-[0_0_20px_#fe4c00]" />
+            <img src={logoRefined} alt="Sustenta BPO" className="h-10 w-auto" />
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-2xl">
