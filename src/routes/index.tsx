@@ -235,6 +235,24 @@ function Hero() {
         }}
       />
 
+      {/* Left-side readability scrim — keeps sides bright, darkens only behind text */}
+      <div
+        className="absolute inset-0 pointer-events-none hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.15) 55%, transparent 70%)",
+        }}
+      />
+      {/* Mobile scrim: soft top-to-bottom for legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
+
+
 
       {/* Content */}
       <div
