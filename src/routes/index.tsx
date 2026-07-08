@@ -142,9 +142,9 @@ function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#141414]/40 border-b border-white/5">
       <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
-        <a href="#top" className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <img src={logoRefined} alt="Sustenta BPO" className="h-8 sm:h-10 w-auto shrink-0" />
-          <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white truncate">{BRAND}</span>
+        <a href="#top" className="flex items-center gap-3 min-w-0">
+          <img src={logoRefined} alt="Sustenta BPO" className="h-10 sm:h-12 w-auto shrink-0" />
+          <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white truncate">{BRAND}</span>
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
           <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
@@ -922,7 +922,7 @@ function Footer() {
       <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logoRefined} alt="Sustenta BPO" className="h-10 w-auto" />
+            <img src={logoRefined} alt="Sustenta BPO" className="h-11 w-auto shrink-0" />
             <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-2xl">
