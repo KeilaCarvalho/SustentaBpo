@@ -9,17 +9,17 @@ const BASE_URL = "https://craft-your-finance.lovable.app";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sustenta BPO — BPO Financeiro com rotina diária" },
+      { title: "Sustenta BPO | Gestão Financeira Estratégica" },
       {
         name: "description",
         content:
           "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
       },
-      { property: "og:title", content: "Sustenta BPO — BPO Financeiro com rotina diária" },
+      { property: "og:title", content: "Sustenta BPO | Gestão Financeira Estratégica" },
       {
         property: "og:description",
         content:
-          "O financeiro da sua empresa não deveria depender do seu tempo. Você acompanha, aprova e decide. A Sustenta BPO executa.",
+          "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
       },
       { property: "og:url", content: BASE_URL },
       { property: "og:image", content: `${BASE_URL}/og-image.jpg` },

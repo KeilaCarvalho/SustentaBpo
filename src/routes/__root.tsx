@@ -77,15 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sustenta BPO — Seu financeiro, sob controle" },
+      { title: "Sustenta BPO | Gestão Financeira Estratégica" },
       {
         name: "description",
         content:
-          "Terceirização das rotinas financeiras para micro e pequenos empreendedores: contas a pagar, a receber, conciliação bancária e fluxo de caixa.",
+          "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária.",
       },
       { property: "og:site_name", content: "Sustenta BPO" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Sustenta BPO | Gestão Financeira Estratégica" },
+      { name: "twitter:title", content: "Sustenta BPO | Gestão Financeira Estratégica" },
+      { property: "og:description", content: "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária." },
+      { name: "twitter:description", content: "A Sustenta BPO assume a operação financeira completa: contas a pagar, a receber, conciliação bancária e fluxo de caixa, com rotina diária." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2c86ef9f-c053-4c38-bf94-257d681d3ac0/id-preview-4bff24e8--c51dd819-780b-4ae2-bc9a-69807587e8fd.lovable.app-1783390919424.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2c86ef9f-c053-4c38-bf94-257d681d3ac0/id-preview-4bff24e8--c51dd819-780b-4ae2-bc9a-69807587e8fd.lovable.app-1783390919424.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
