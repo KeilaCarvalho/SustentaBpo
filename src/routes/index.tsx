@@ -297,7 +297,7 @@ function Hero() {
             </a>
             <a
               href={ORCAMENTO_URL}
-              className="group border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
+              className="group backdrop-blur-sm bg-black/30 border border-white/50 hover:bg-[#fe4c00] hover:border-[#fe4c00] hover:text-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300"
             >
               Solicitar Orçamento
               <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
