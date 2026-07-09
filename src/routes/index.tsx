@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
 
 const BRAND = "Sustenta BPO";
 const WHATSAPP =
-  "https://wa.me/5548996849120?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Sustenta%20BPO.";
+  "https://wa.me/556282651121?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Sustenta%20BPO.";
 const CALENDAR_URL = "mailto:contato@sustentabpo.com.br?subject=Reuni%C3%A3o%20com%20a%20Sustenta BPO";
 const ORCAMENTO_URL = "#orcamento";
 const WEB3FORMS_KEY = "46724494-dfa9-4a14-8ba4-029f5185b6a2";
