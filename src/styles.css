@@ -69,7 +69,7 @@
     outline: 2px solid #C9A35B;
     outline-offset: 3px;
     border-radius: 2px;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(201,163,91, 0.45);
+    box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.9), 0 0 0 6px rgba(201,163,91, 0.45);
     transition: box-shadow 0.12s ease-out;
   }
   /* Skip link for keyboard users */
