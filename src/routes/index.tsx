@@ -554,15 +554,15 @@ function Values() {
               className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#C9A35B] hover:border-[#C9A35B] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <Icon name={it.icon} className="text-4xl text-[#C9A35B] group-hover:text-black transition-colors" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
+                <Icon name={it.icon} className="text-4xl text-[#C9A35B] group-hover:text-[#111827] transition-colors" />
+                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-[#111827]/60">
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-8 font-display text-xl sm:text-2xl text-white group-hover:text-black transition-colors leading-tight">
+              <h3 className="mt-8 font-display text-xl sm:text-2xl text-white group-hover:text-[#111827] transition-colors leading-tight">
                 {it.title}
               </h3>
-              <p className="mt-3 text-sm text-white/50 group-hover:text-black/70 leading-relaxed transition-colors">
+              <p className="mt-3 text-sm text-white/50 group-hover:text-[#111827]/70 leading-relaxed transition-colors">
                 {it.desc}
               </p>
             </div>
