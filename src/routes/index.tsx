@@ -204,7 +204,7 @@ function Hero() {
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{
-            filter: "sepia(35%) saturate(130%) hue-rotate(355deg) brightness(0.62) contrast(1.15)",
+            filter: "sepia(55%) saturate(165%) hue-rotate(348deg) brightness(0.66) contrast(1.12)",
           }}
         />
       </div>
