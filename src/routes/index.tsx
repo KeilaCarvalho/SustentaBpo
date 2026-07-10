@@ -704,7 +704,7 @@ function Process() {
     { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
-    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] border-y border-white/5">
+    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#111827] border-y border-white/5">
       <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         {/* Title block — flat 12-col header, no nested grid */}
         <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
