@@ -584,7 +584,7 @@ function Metrics() {
     { v: "Em sistema", l: "Rotina estruturada em sistema" },
   ];
   return (
-    <section id="resultados" className="py-24 sm:py-32 lg:py-44 bg-[#09090b] text-white border-y border-white/5 relative overflow-hidden">
+    <section id="resultados" className="py-24 sm:py-32 lg:py-44 bg-[#111827] text-white border-y border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-[700px] h-[700px] glow-orange pointer-events-none" />
       <div className="relative site-container">
