@@ -929,14 +929,14 @@ function FinalCTA() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#C9A35B] hover:bg-white hover:text-black text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
+            className="bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Falar com Especialista
           </a>
           <a
             href={ORCAMENTO_URL}
-            className="border border-white/30 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
+            className="border border-[#C9A35B]/50 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
           >
             <Icon name="lucide:mail" className="text-lg" />
             Solicitar Orçamento
