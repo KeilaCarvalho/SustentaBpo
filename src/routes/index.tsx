@@ -591,7 +591,7 @@ function Metrics() {
         <p className="eyebrow mb-12 lg:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 lg:gap-x-10">
           {stats.map((s) => (
-            <div key={s.l} className="group min-w-0 border-t border-white/10 pt-6 sm:pt-8">
+            <div key={s.l} className="group min-w-0 border-t border-[#C9A35B]/20 pt-6 sm:pt-8">
               <p className="display-lg text-[#C9A35B]">
                 {s.v}
               </p>
