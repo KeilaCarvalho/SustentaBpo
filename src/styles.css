@@ -22,12 +22,12 @@
 }
 
 :root {
-  --background: #141414;
+  --background: #111827;
   --foreground: #ffffff;
   --surface: #1a1a1a;
   --muted: #18181b;
   --muted-foreground: #a1a1aa;
-  --primary: #fe4c00;
+  --primary: #C9A35B;
   --primary-foreground: #ffffff;
   --primary-hover: #cc0000;
   --border: #18181b;
@@ -40,7 +40,7 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #141414;
+    background-color: #111827;
   }
   body {
     background-color: var(--color-background);
@@ -49,7 +49,7 @@
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background-color: #fe4c00;
+    background-color: #C9A35B;
     color: #ffffff;
   }
 
@@ -66,10 +66,10 @@
   textarea:focus-visible,
   summary:focus-visible,
   [tabindex]:not([tabindex="-1"]):focus-visible {
-    outline: 2px solid #fe4c00;
+    outline: 2px solid #C9A35B;
     outline-offset: 3px;
     border-radius: 2px;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(254, 76, 0, 0.45);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(201,163,91, 0.45);
     transition: box-shadow 0.12s ease-out;
   }
   /* Skip link for keyboard users */
@@ -79,7 +79,7 @@
     left: 50%;
     transform: translate(-50%, -120%);
     z-index: 100;
-    background: #fe4c00;
+    background: #C9A35B;
     color: #ffffff;
     padding: 0.75rem 1.25rem;
     font-family: var(--font-mono);
@@ -100,10 +100,10 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #141414;
+    background: #111827;
   }
   ::-webkit-scrollbar-thumb {
-    background: #fe4c00;
+    background: #C9A35B;
   }
   @media (prefers-reduced-motion: reduce) {
     .marquee-track,
@@ -205,7 +205,7 @@
     font-size: clamp(0.625rem, 0.75vw, 0.75rem);
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #fe4c00;
+    color: #C9A35B;
   }
 
   .glass-card {
@@ -215,7 +215,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
   .glow-orange {
-    background: radial-gradient(circle at center, rgba(254, 76, 0, 0.35), transparent 60%);
+    background: radial-gradient(circle at center, rgba(201,163,91, 0.35), transparent 60%);
   }
   .reveal-mask {
     clip-path: inset(0 0 100% 0);
@@ -245,7 +245,7 @@
     position: absolute;
     inset-inline: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #fe4c00, transparent);
+    background: linear-gradient(90deg, transparent, #C9A35B, transparent);
     animation: scan 3.5s ease-in-out infinite;
   }
   .grid-lines {
