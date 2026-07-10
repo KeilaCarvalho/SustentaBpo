@@ -204,25 +204,25 @@ function Hero() {
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{
-            filter: "sepia(35%) saturate(130%) hue-rotate(355deg) brightness(0.62) contrast(1.15)",
+            filter: "sepia(70%) saturate(180%) hue-rotate(345deg) brightness(0.72) contrast(1.08)",
           }}
         />
       </div>
 
       {/* Gradient + vignette + grid overlays — navy/gold keyed */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/80 via-[#111827]/60 to-[#111827]/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/70 via-[#111827]/50 to-[#111827]/90" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 35%, rgba(17,24,39,0.85) 100%)",
+            "radial-gradient(ellipse at center, transparent 35%, rgba(17,24,39,0.8) 100%)",
         }}
       />
       <div
-        className="absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"
+        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay"
         style={{
           background:
-            "linear-gradient(135deg, rgba(201,163,91,0.25) 0%, transparent 45%, rgba(201,163,91,0.15) 100%)",
+            "linear-gradient(135deg, rgba(201,163,91,0.35) 0%, transparent 45%, rgba(201,163,91,0.2) 100%)",
         }}
       />
 
