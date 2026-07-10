@@ -256,6 +256,58 @@
     color: #C9A35B;
   }
 
+  /* Micro labels / tags derived from typography tokens */
+  .text-micro {
+    font-size: var(--text-xs);
+    line-height: var(--leading-relaxed);
+  }
+  .text-label {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+  }
+  .text-nav {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+  .text-button {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+  @media (min-width: 640px) {
+    .text-button { font-size: var(--text-base); }
+  }
+  .text-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  .text-stat {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    line-height: var(--leading-tight);
+  }
+  .text-quote {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-normal);
+  }
+  @media (min-width: 640px) {
+    .text-quote { font-size: var(--text-xl); }
+  }
+  @media (min-width: 1024px) {
+    .text-quote { font-size: var(--text-2xl); }
+  }
+
+  /* Section spacing derived from spacing tokens */
+  .section-padding {
+    padding-block: var(--space-fluid-md);
+  }
+  .section-gap {
+    gap: var(--space-fluid-sm);
+  }
+
   .glass-card {
     background-color: rgba(17, 24, 39, 0.95);
     backdrop-filter: blur(60px);
