@@ -661,7 +661,7 @@ function ProcessMedia() {
   }, [hover]);
   return (
     <div
-      className="relative group overflow-hidden rounded-3xl border border-white/10 h-[360px] sm:h-[460px] md:h-[560px]"
+      className="relative group overflow-hidden rounded-3xl border border-[#C9A35B]/20 h-[360px] sm:h-[460px] md:h-[560px]"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
