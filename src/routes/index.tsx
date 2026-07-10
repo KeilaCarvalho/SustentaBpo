@@ -187,7 +187,7 @@ function Hero() {
       className="relative min-h-[100svh] w-full overflow-hidden bg-[#111827]"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
-      {/* Video layer (parallax) */}
+      {/* Video layer (parallax) — tinted to match navy/gold palette */}
       <div
         className="absolute inset-0 transition-transform duration-300 ease-out"
         style={{
@@ -203,16 +203,26 @@ function Hero() {
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
+          style={{
+            filter: "sepia(35%) saturate(130%) hue-rotate(355deg) brightness(0.62) contrast(1.15)",
+          }}
         />
       </div>
 
-      {/* Gradient + vignette + grid overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/90" />
+      {/* Gradient + vignette + grid overlays — navy/gold keyed */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/80 via-[#111827]/60 to-[#111827]/95" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)",
+            "radial-gradient(ellipse at center, transparent 35%, rgba(17,24,39,0.85) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30 mix-blend-overlay"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(201,163,91,0.25) 0%, transparent 45%, rgba(201,163,91,0.15) 100%)",
         }}
       />
 
