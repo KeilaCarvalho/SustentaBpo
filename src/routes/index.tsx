@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
 import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
 import heroVideo from "@/assets/hero-bg3.mp4.asset.json";
-import logoRefined from "@/assets/logo-refined.png";
+import logoAsset from "@/assets/sustenta-logo.jpeg.asset.json";
+const logoRefined = logoAsset.url;
 
 const BASE_URL = "https://craft-your-finance.lovable.app";
 
@@ -140,7 +141,7 @@ function Landing() {
 /* ---------- Nav ---------- */
 function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#141414]/40 border-b border-white/5">
+    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#111827]/40 border-b border-white/5">
       <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
         <a href="#top" className="flex items-center gap-3 min-w-0">
           <img src={logoRefined} alt="Sustenta BPO" className="h-10 sm:h-12 w-auto shrink-0" />
@@ -157,7 +158,7 @@ function Nav() {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={ORCAMENTO_URL}
-            className="hidden sm:inline-flex border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex border border-white/30 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Solicitar Orçamento
           </a>
@@ -165,7 +166,7 @@ function Nav() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="bg-[#C9A35B] hover:bg-white hover:text-black text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Falar com Especialista
           </a>
@@ -183,7 +184,7 @@ function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative min-h-[100svh] w-full overflow-hidden bg-[#141414]"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-[#111827]"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       {/* Video layer (parallax) */}
@@ -223,7 +224,7 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-60 transition-opacity"
         style={{
           background:
-            "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(254,76,0,0.18), transparent 60%)",
+            "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(201,163,91,0.18), transparent 60%)",
         }}
       />
       <div
@@ -231,7 +232,7 @@ function Hero() {
         style={{
           opacity: "calc(var(--gi, 0) * 0.55)",
           background:
-            "radial-gradient(280px circle at var(--gx, 50%) var(--gy, 50%), rgba(254,76,0,0.45), rgba(254,76,0,0.12) 40%, transparent 70%)",
+            "radial-gradient(280px circle at var(--gx, 50%) var(--gy, 50%), rgba(201,163,91,0.45), rgba(201,163,91,0.12) 40%, transparent 70%)",
         }}
       />
 
@@ -273,7 +274,7 @@ function Hero() {
             </span>
             <span className="block overflow-hidden">
               <span className="block reveal-mask delay-2">
-                <em className="italic text-[#fe4c00]">do seu tempo.</em>
+                <em className="italic text-[#C9A35B]">do seu tempo.</em>
               </span>
             </span>
           </h1>
@@ -290,14 +291,14 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-[#fe4c00] hover:bg-white hover:text-black text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              className="group bg-[#C9A35B] hover:bg-white hover:text-black text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href={ORCAMENTO_URL}
-              className="group backdrop-blur-sm bg-black/40 border border-white/60 hover:bg-[#fe4c00] hover:border-[#fe4c00] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              className="group backdrop-blur-sm bg-black/40 border border-white/60 hover:bg-[#C9A35B] hover:border-[#C9A35B] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Solicitar Orçamento
               <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
@@ -322,7 +323,7 @@ function Hero() {
             <p className="mt-2 text-white">Conciliação · em dia</p>
             <p className="text-white/60">Atualizado: hoje</p>
           </div>
-          <div className="rounded-2xl bg-[#fe4c00] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(254,76,0,0.6)] max-w-[300px] w-full">
+          <div className="rounded-2xl bg-[#C9A35B] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(201,163,91,0.6)] max-w-[300px] w-full">
             <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
@@ -330,8 +331,8 @@ function Hero() {
             </p>
           </div>
           <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center shrink-0">
-              <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
+            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#C9A35B] flex items-center justify-center shrink-0">
+              <span className="w-2 h-2 bg-[#C9A35B] rounded-full" />
             </div>
             <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
               Operação ativa
@@ -365,7 +366,7 @@ function Marquee() {
   ];
   const row = [...items, ...items];
   return (
-    <div className="bg-[#fe4c00] border-y border-[#fe4c00] py-6 overflow-hidden">
+    <div className="bg-[#C9A35B] border-y border-[#C9A35B] py-6 overflow-hidden">
       <div className="marquee">
         <div className="marquee-track font-display text-2xl md:text-4xl font-bold text-black uppercase tracking-tight">
           {row.map((t, i) => (
@@ -389,7 +390,7 @@ function WhatIs() {
     { icon: "lucide:bar-chart-3", label: "Fluxo de Caixa Diário", desc: "Caixa atualizado todos os dias, com informação organizada para decisão." },
   ];
   return (
-    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative overflow-hidden">
+    <section id="sobre" className="py-24 sm:py-32 lg:py-44 bg-[#111827] relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
       <div className="absolute -top-40 right-0 w-[600px] h-[600px] glow-orange pointer-events-none" />
       <div id="fazemos" className="relative site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
@@ -400,7 +401,7 @@ function WhatIs() {
           </p>
           <h2 className="display-xl text-white text-left">
             Operação financeira{" "}
-            <em className="italic text-[#fe4c00]">que funciona</em>{" "}
+            <em className="italic text-[#C9A35B]">que funciona</em>{" "}
             todos os dias.
           </h2>
         </div>
@@ -418,10 +419,10 @@ function WhatIs() {
           {services.map((s, i) => (
             <div
               key={s.label}
-              className="glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#fe4c00]/50 transition-all duration-500 hover:-translate-y-1"
+              className="glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#C9A35B]/50 transition-all duration-500 hover:-translate-y-1"
             >
               <div className="flex items-baseline justify-between">
-                <Icon name={s.icon} className="text-3xl text-[#fe4c00]" />
+                <Icon name={s.icon} className="text-3xl text-[#C9A35B]" />
                 <span className="font-mono text-[10px] tracking-[0.3em] text-white/30">0{i + 1}</span>
               </div>
               <p className="mt-8 font-display text-2xl text-white leading-tight">{s.label}</p>
@@ -495,7 +496,7 @@ function SectionNav() {
             <span
               className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-all duration-300 ${
                 isActive
-                  ? "text-[#fe4c00] translate-x-0 opacity-100"
+                  ? "text-[#C9A35B] translate-x-0 opacity-100"
                   : "text-white/50 translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
               }`}
             >
@@ -504,7 +505,7 @@ function SectionNav() {
             <span
               className={`block rounded-full transition-all duration-300 shrink-0 ${
                 isActive
-                  ? "w-3 h-3 bg-[#fe4c00] shadow-[0_0_12px_rgba(254,76,0,0.6)]"
+                  ? "w-3 h-3 bg-[#C9A35B] shadow-[0_0_12px_rgba(201,163,91,0.6)]"
                   : "w-2 h-2 bg-white/30 group-hover:bg-white/60"
               }`}
             />
@@ -523,7 +524,7 @@ function Values() {
     { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
   ];
   return (
-    <section id="limites" className="py-24 sm:py-32 lg:py-44 bg-[#141414] relative">
+    <section id="limites" className="py-24 sm:py-32 lg:py-44 bg-[#111827] relative">
       <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
           <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
@@ -531,7 +532,7 @@ function Values() {
           </p>
           <h2 className="display-xl text-white xl:text-right">
             Transparência sobre os{" "}
-            <em className="italic text-[#fe4c00]">nossos limites.</em>
+            <em className="italic text-[#C9A35B]">nossos limites.</em>
           </h2>
         </div>
 
@@ -540,10 +541,10 @@ function Values() {
           {items.map((it, i) => (
             <div
               key={it.title}
-              className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#fe4c00] hover:border-[#fe4c00] transition-all duration-500"
+              className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#C9A35B] hover:border-[#C9A35B] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <Icon name={it.icon} className="text-4xl text-[#fe4c00] group-hover:text-black transition-colors" />
+                <Icon name={it.icon} className="text-4xl text-[#C9A35B] group-hover:text-black transition-colors" />
                 <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-black/60">
                   0{i + 1}
                 </span>
@@ -581,7 +582,7 @@ function Metrics() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 lg:gap-x-10">
           {stats.map((s) => (
             <div key={s.l} className="group min-w-0 border-t border-white/10 pt-6 sm:pt-8">
-              <p className="display-lg text-[#fe4c00]">
+              <p className="display-lg text-[#C9A35B]">
                 {s.v}
               </p>
               <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50 leading-relaxed">
@@ -604,7 +605,7 @@ function Testimonials() {
     { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
   ];
   return (
-    <section id="para-quem" className="bg-[#141414] py-24 sm:py-32 lg:py-44 relative">
+    <section id="para-quem" className="bg-[#111827] py-24 sm:py-32 lg:py-44 relative">
       <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
           <p className="eyebrow mb-5 sm:mb-6">
@@ -612,7 +613,7 @@ function Testimonials() {
           </p>
           <h2 className="display-xl text-white">
             Para empresas que querem o{" "}
-            <em className="italic text-[#fe4c00]">financeiro</em>{" "}
+            <em className="italic text-[#C9A35B]">financeiro</em>{" "}
             funcionando todo dia.
           </h2>
         </div>
@@ -622,7 +623,7 @@ function Testimonials() {
               key={t.n}
               className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8"
             >
-              <span className="block font-display text-5xl text-[#fe4c00] leading-none italic mb-3">"</span>
+              <span className="block font-display text-5xl text-[#C9A35B] leading-none italic mb-3">"</span>
               <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
@@ -677,8 +678,8 @@ function ProcessMedia() {
         <p className="font-display text-2xl text-white max-w-xs leading-tight">
           Entendemos como sua operação financeira funciona hoje.
         </p>
-        <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#fe4c00] flex items-center justify-center">
-          <span className="w-2 h-2 bg-[#fe4c00] rounded-full" />
+        <span className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#C9A35B] flex items-center justify-center">
+          <span className="w-2 h-2 bg-[#C9A35B] rounded-full" />
         </span>
       </div>
     </div>
@@ -701,7 +702,7 @@ function Process() {
         </p>
         <h2 className="col-span-4 md:col-span-8 display-xl text-white">
           Quatro passos para{" "}
-          <em className="italic text-[#fe4c00]">estruturar</em> a rotina.
+          <em className="italic text-[#C9A35B]">estruturar</em> a rotina.
         </h2>
 
         {/* Media — sticky only at xl */}
@@ -714,9 +715,9 @@ function Process() {
           {steps.map((s) => (
             <li
               key={s.n}
-              className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#fe4c00]/50 transition-colors"
+              className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#C9A35B]/50 transition-colors"
             >
-              <span className="font-mono text-sm text-[#fe4c00] pt-2">{s.n}</span>
+              <span className="font-mono text-sm text-[#C9A35B] pt-2">{s.n}</span>
               <div className="min-w-0">
                 <h3 className="font-display text-xl sm:text-2xl text-white leading-tight">{s.t}</h3>
                 <p className="mt-2 text-sm text-white/60 leading-relaxed">{s.d}</p>
@@ -774,24 +775,24 @@ function QuoteForm() {
   }
 
   const inputCls =
-    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#fe4c00] transition-colors";
+    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#C9A35B] transition-colors";
   const labelCls = "block text-xs font-mono uppercase tracking-[0.2em] text-white/50 mb-2";
 
   return (
-    <section id="orcamento" className="py-24 sm:py-32 lg:py-44 bg-[#141414] border-y border-white/5 relative overflow-hidden">
+    <section id="orcamento" className="py-24 sm:py-32 lg:py-44 bg-[#111827] border-y border-white/5 relative overflow-hidden">
       <div className="site-container max-w-3xl">
-        <p className="eyebrow text-[#fe4c00] mb-6 sm:mb-8">// SOLICITAR ORÇAMENTO</p>
+        <p className="eyebrow text-[#C9A35B] mb-6 sm:mb-8">// SOLICITAR ORÇAMENTO</p>
         <h2 className="display-xl">
-          Conte pra gente o que <span className="text-[#fe4c00]">seu financeiro precisa.</span>
+          Conte pra gente o que <span className="text-[#C9A35B]">seu financeiro precisa.</span>
         </h2>
         <p className="mt-6 body-lg text-white/70">
           Preencha o formulário abaixo. Respondemos em até 1 dia útil com uma proposta sob medida.
         </p>
 
         {status === "ok" ? (
-          <div className="mt-10 rounded-2xl border border-[#fe4c00]/40 bg-[#fe4c00]/5 p-8">
+          <div className="mt-10 rounded-2xl border border-[#C9A35B]/40 bg-[#C9A35B]/5 p-8">
             <div className="flex items-center gap-3 mb-3">
-              <Icon name="lucide:check-circle-2" className="text-2xl text-[#fe4c00]" />
+              <Icon name="lucide:check-circle-2" className="text-2xl text-[#C9A35B]" />
               <h3 className="text-xl font-semibold text-white">Pedido enviado!</h3>
             </div>
             <p className="text-white/70">
@@ -799,7 +800,7 @@ function QuoteForm() {
             </p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-6 text-sm text-[#fe4c00] hover:underline"
+              className="mt-6 text-sm text-[#C9A35B] hover:underline"
             >
               Enviar outro pedido
             </button>
@@ -831,7 +832,7 @@ function QuoteForm() {
                 id="servico"
                 name="servico"
                 required
-                className={`${inputCls} [&>option]:bg-[#141414] [&>option]:text-white max-w-full truncate`}
+                className={`${inputCls} [&>option]:bg-[#111827] [&>option]:text-white max-w-full truncate`}
               >
                 <option value="" disabled>Selecione…</option>
                 <option value="BPO Financeiro completo">BPO Financeiro completo</option>
@@ -857,7 +858,7 @@ function QuoteForm() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+                className="bg-[#C9A35B] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? (
                   <>
@@ -888,7 +889,7 @@ function FinalCTA() {
     <section
       id="agendar"
       ref={ref}
-      className="relative bg-[#141414] text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
+      className="relative bg-[#111827] text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       <img
@@ -902,13 +903,13 @@ function FinalCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(254,76,0,0.35), transparent 60%)",
+            "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(201,163,91,0.35), transparent 60%)",
         }}
       />
       <div className="relative site-container max-w-5xl">
-        <p className="eyebrow text-[#fe4c00] mb-6 sm:mb-8">// PRÓXIMO PASSO</p>
+        <p className="eyebrow text-[#C9A35B] mb-6 sm:mb-8">// PRÓXIMO PASSO</p>
         <h2 className="display-xl max-w-4xl">
-          Seu financeiro pode rodar assim <span className="text-[#fe4c00]">todos os dias.</span>
+          Seu financeiro pode rodar assim <span className="text-[#C9A35B]">todos os dias.</span>
         </h2>
         <p className="mt-8 sm:mt-10 body-lg text-white/80 max-w-2xl">
           Cada mês sem rotina financeira é decisão tomada sem dado atualizado, conciliação atrasada e dinheiro que você só descobre que faltou depois. Isso tem custo e ele só cresce enquanto ninguém assume a operação.
@@ -918,14 +919,14 @@ function FinalCTA() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#fe4c00] hover:bg-white hover:text-black text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
+            className="bg-[#C9A35B] hover:bg-white hover:text-black text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Falar com Especialista
           </a>
           <a
             href={ORCAMENTO_URL}
-            className="border border-white/30 hover:border-[#fe4c00] hover:text-[#fe4c00] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
+            className="border border-white/30 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
           >
             <Icon name="lucide:mail" className="text-lg" />
             Solicitar Orçamento
@@ -940,7 +941,7 @@ function FinalCTA() {
 /* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-[#141414] text-white/60 py-20 border-t border-white/5">
+    <footer className="bg-[#111827] text-white/60 py-20 border-t border-white/5">
       <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
@@ -954,19 +955,19 @@ function Footer() {
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
           <ul className="space-y-2 text-sm">
-            <li><a href="#sobre" className="hover:text-[#fe4c00]">Sobre</a></li>
-            <li><a href="#fazemos" className="hover:text-[#fe4c00]">O que fazemos</a></li>
-            <li><a href="#como-funciona" className="hover:text-[#fe4c00]">Como funciona</a></li>
-            <li><a href="#para-quem" className="hover:text-[#fe4c00]">Para quem é</a></li>
-            <li><a href="#agendar" className="hover:text-[#fe4c00]">Contato</a></li>
+            <li><a href="#sobre" className="hover:text-[#C9A35B]">Sobre</a></li>
+            <li><a href="#fazemos" className="hover:text-[#C9A35B]">O que fazemos</a></li>
+            <li><a href="#como-funciona" className="hover:text-[#C9A35B]">Como funciona</a></li>
+            <li><a href="#para-quem" className="hover:text-[#C9A35B]">Para quem é</a></li>
+            <li><a href="#agendar" className="hover:text-[#C9A35B]">Contato</a></li>
           </ul>
         </div>
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
-            <li><a href={WHATSAPP} className="hover:text-[#fe4c00]">WhatsApp</a></li>
-            <li><a href={ORCAMENTO_URL} className="hover:text-[#fe4c00]">Solicitar Orçamento</a></li>
-            <li><a href="mailto:contato@sustentabpo.com.br" className="hover:text-[#fe4c00] break-all">contato@sustentabpo.com.br</a></li>
+            <li><a href={WHATSAPP} className="hover:text-[#C9A35B]">WhatsApp</a></li>
+            <li><a href={ORCAMENTO_URL} className="hover:text-[#C9A35B]">Solicitar Orçamento</a></li>
+            <li><a href="mailto:contato@sustentabpo.com.br" className="hover:text-[#C9A35B] break-all">contato@sustentabpo.com.br</a></li>
           </ul>
         </div>
       </div>
