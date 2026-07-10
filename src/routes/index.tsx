@@ -516,7 +516,7 @@ function SectionNav() {
               className={`block rounded-full transition-all duration-300 shrink-0 ${
                 isActive
                   ? "w-3 h-3 bg-[#C9A35B] shadow-[0_0_12px_rgba(201,163,91,0.6)]"
-                  : "w-2 h-2 bg-white/30 group-hover:bg-white/60"
+                  : "w-2 h-2 bg-[#C9A35B]/30 group-hover:bg-[#C9A35B]/60"
               }`}
             />
           </a>
@@ -785,7 +785,7 @@ function QuoteForm() {
   }
 
   const inputCls =
-    "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#C9A35B] transition-colors";
+    "w-full bg-[#C9A35B]/5 border border-[#C9A35B]/20 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#C9A35B] transition-colors";
   const labelCls = "block text-xs font-mono uppercase tracking-[0.2em] text-white/50 mb-2";
 
   return (
