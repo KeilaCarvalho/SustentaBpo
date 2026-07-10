@@ -868,7 +868,7 @@ function QuoteForm() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="bg-[#C9A35B] hover:bg-white hover:text-black text-white px-10 py-5 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+                className="bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white px-10 py-5 rounded-full text-base font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-3 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? (
                   <>
