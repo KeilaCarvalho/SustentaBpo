@@ -637,7 +637,7 @@ function Testimonials() {
               <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
+              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#C9A35B]/20 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-white">{t.n}</span>
                 <span className="text-white/50">· {t.r}</span>
               </figcaption>
