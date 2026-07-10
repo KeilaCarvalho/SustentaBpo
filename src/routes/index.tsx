@@ -908,7 +908,7 @@ function FinalCTA() {
         className="absolute inset-0 w-full h-full object-cover opacity-40"
         style={{ transform: "translate3d(calc(var(--mx) * -30px), calc(var(--my) * -30px), 0) scale(1.1)" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/80 via-[#111827]/50 to-[#111827]" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
