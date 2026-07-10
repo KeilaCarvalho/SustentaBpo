@@ -433,7 +433,7 @@ function WhatIs() {
             >
               <div className="flex items-baseline justify-between">
                 <Icon name={s.icon} className="text-3xl text-[#C9A35B]" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/30">0{i + 1}</span>
+                <span className="font-mono text-[10px] tracking-[0.3em] text-[#C9A35B]/40">0{i + 1}</span>
               </div>
               <p className="mt-8 font-display text-2xl text-white leading-tight">{s.label}</p>
               <p className="mt-2 text-sm text-white/50 leading-relaxed">{s.desc}</p>
