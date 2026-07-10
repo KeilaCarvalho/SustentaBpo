@@ -32,6 +32,54 @@
   --primary-hover: #111827;
   --border: #111827;
   --glass: rgba(17, 24, 39, 0.5);
+
+  /* Tipografia */
+  --text-2xs: clamp(0.625rem, 0.7vw, 0.75rem);
+  --text-xs: clamp(0.6875rem, 0.8vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.9vw, 0.9375rem);
+  --text-base: clamp(0.9375rem, 1vw, 1rem);
+  --text-md: clamp(1rem, 1.15vw, 1.125rem);
+  --text-lg: clamp(1.0625rem, 1.25vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 2vw, 1.75rem);
+  --text-2xl: clamp(1.5rem, 3vw, 2.25rem);
+  --text-3xl: clamp(1.75rem, 4vw, 3rem);
+  --text-4xl: clamp(2rem, 5vw, 4rem);
+  --text-5xl: clamp(2.5rem, 6vw, 6rem);
+
+  --leading-tight: 1;
+  --leading-snug: 1.05;
+  --leading-normal: 1.15;
+  --leading-relaxed: 1.5;
+  --leading-loose: 1.65;
+
+  --tracking-tight: -0.03em;
+  --tracking-normal: -0.015em;
+  --tracking-wide: 0.08em;
+  --tracking-widest: 0.3em;
+
+  /* Espaçamento */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-fluid-sm: clamp(1.5rem, 4vw, 3rem);
+  --space-fluid-md: clamp(2.5rem, 5vw, 5rem);
+  --space-fluid-lg: clamp(4rem, 8vw, 8rem);
+  --space-fluid-xl: clamp(5rem, 10vw, 11rem);
+
+  --container-padding: var(--space-5);
+  --grid-gap-x: var(--space-4);
+  --grid-gap-y: var(--space-10);
 }
 
 @layer base {
@@ -120,30 +168,30 @@
     width: 100%;
     max-width: 120rem; /* 1920px */
     margin-inline: auto;
-    padding-inline: 1.25rem; /* 20px */
+    padding-inline: var(--container-padding);
   }
   @media (min-width: 640px) {
-    .site-container { padding-inline: 1.5rem; }
+    .site-container { --container-padding: var(--space-6); }
   }
   @media (min-width: 1024px) {
-    .site-container { padding-inline: 2.5rem; }
+    .site-container { --container-padding: var(--space-10); }
   }
   @media (min-width: 1440px) {
-    .site-container { padding-inline: 4rem; }
+    .site-container { --container-padding: var(--space-16); }
   }
   .site-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 1rem;
-    row-gap: 2.5rem;
+    column-gap: var(--grid-gap-x);
+    row-gap: var(--grid-gap-y);
   }
   @media (min-width: 640px) {
-    .site-grid { column-gap: 1.5rem; }
+    .site-grid { --grid-gap-x: var(--space-6); }
   }
   @media (min-width: 768px) {
     .site-grid {
       grid-template-columns: repeat(12, minmax(0, 1fr));
-      row-gap: 3rem;
+      --grid-gap-y: var(--space-12);
     }
   }
 
@@ -153,8 +201,8 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1;
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-tight);
   }
   .font-display em, .font-display .italic {
     font-style: italic;
@@ -163,49 +211,101 @@
   .display-xxl {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2rem, 6vw, 6rem);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    font-size: var(--text-5xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
     text-wrap: balance;
   }
   .display-xl {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2rem, 6vw, 6rem);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    font-size: var(--text-5xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
     text-wrap: balance;
   }
   .display-lg {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(1.75rem, 4.5vw, 4.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
+    font-size: var(--text-4xl);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
     text-wrap: balance;
   }
   .display-md {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(1.375rem, 2.4vw, 2.25rem);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-size: var(--text-2xl);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
   }
   .body-lg {
-    font-size: clamp(0.9375rem, 1.1vw, 1.125rem);
-    line-height: 1.6;
+    font-size: var(--text-md);
+    line-height: var(--leading-loose);
   }
 
   .body-md {
-    font-size: clamp(0.9375rem, 1vw, 1rem);
-    line-height: 1.65;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
   }
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: clamp(0.625rem, 0.75vw, 0.75rem);
-    letter-spacing: 0.3em;
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     color: #C9A35B;
+  }
+
+  /* Micro labels / tags derived from typography tokens */
+  .text-micro {
+    font-size: var(--text-xs);
+    line-height: var(--leading-relaxed);
+  }
+  .text-label {
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+  }
+  .text-nav {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+  .text-button {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+  @media (min-width: 640px) {
+    .text-button { font-size: var(--text-base); }
+  }
+  .text-card-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  .text-stat {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    line-height: var(--leading-tight);
+  }
+  .text-quote {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-normal);
+  }
+  @media (min-width: 640px) {
+    .text-quote { font-size: var(--text-xl); }
+  }
+  @media (min-width: 1024px) {
+    .text-quote { font-size: var(--text-2xl); }
+  }
+
+  /* Section spacing derived from spacing tokens */
+  .section-padding {
+    padding-block: var(--space-fluid-md);
+  }
+  .section-gap {
+    gap: var(--space-fluid-sm);
   }
 
   .glass-card {

@@ -301,14 +301,14 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              className="group bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-button font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
             <a
               href={ORCAMENTO_URL}
-              className="group backdrop-blur-sm bg-[#111827]/40 border border-[#C9A35B]/50 hover:bg-[#C9A35B] hover:border-[#C9A35B] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+              className="group backdrop-blur-sm bg-[#111827]/40 border border-[#C9A35B]/50 hover:bg-[#C9A35B] hover:border-[#C9A35B] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-button font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
             >
               Solicitar Orçamento
               <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
@@ -325,7 +325,7 @@ function Hero() {
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
           }}
         >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-[11px] text-white/80 max-w-[260px] w-full">
+          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-label text-white/80 max-w-[260px] w-full">
             <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 bg-[#C9A35B] rounded-full animate-pulse" />
               Sistema
@@ -334,7 +334,7 @@ function Hero() {
             <p className="text-white/60">Atualizado: hoje</p>
           </div>
           <div className="rounded-2xl bg-[#C9A35B] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(201,163,91,0.6)] max-w-[300px] w-full">
-            <p className="text-[10px] font-mono uppercase tracking-widest opacity-80">// Rotina</p>
+            <p className="text-micro font-mono uppercase tracking-widest opacity-80">// Rotina</p>
             <p className="mt-2 text-base font-medium flex items-center gap-2">
               <Icon name="lucide:trending-up" className="text-lg" />
               Fluxo de caixa atualizado
@@ -344,7 +344,7 @@ function Hero() {
             <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#C9A35B] flex items-center justify-center shrink-0">
               <span className="w-2 h-2 bg-[#C9A35B] rounded-full" />
             </div>
-            <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest min-w-0">
+            <div className="font-mono text-micro text-white/60 uppercase tracking-widest min-w-0">
               Operação ativa
               <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
             </div>
@@ -354,7 +354,7 @@ function Hero() {
 
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-[10px] uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-micro uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
         <span>Scroll</span>
         <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
@@ -433,9 +433,9 @@ function WhatIs() {
             >
               <div className="flex items-baseline justify-between">
                 <Icon name={s.icon} className="text-3xl text-[#C9A35B]" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-[#C9A35B]/40">0{i + 1}</span>
+                <span className="font-mono text-micro tracking-[0.3em] text-[#C9A35B]/40">0{i + 1}</span>
               </div>
-              <p className="mt-8 font-display text-2xl text-white leading-tight">{s.label}</p>
+              <p className="mt-8 text-card-title text-white">{s.label}</p>
               <p className="mt-2 text-sm text-white/50 leading-relaxed">{s.desc}</p>
             </div>
           ))}
@@ -504,7 +504,7 @@ function SectionNav() {
             className="group flex items-center gap-3 focus-visible:outline-none"
           >
             <span
-              className={`text-[10px] font-mono uppercase tracking-[0.2em] transition-all duration-300 ${
+              className={`text-micro font-mono uppercase tracking-[0.2em] transition-all duration-300 ${
                 isActive
                   ? "text-[#C9A35B] translate-x-0 opacity-100"
                   : "text-white/50 translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
@@ -555,7 +555,7 @@ function Values() {
             >
               <div className="flex items-center justify-between">
                 <Icon name={it.icon} className="text-4xl text-[#C9A35B] group-hover:text-[#111827] transition-colors" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 group-hover:text-[#111827]/60">
+                <span className="font-mono text-micro tracking-[0.3em] text-white/40 group-hover:text-[#111827]/60">
                   0{i + 1}
                 </span>
               </div>
@@ -633,11 +633,11 @@ function Testimonials() {
               key={t.n}
               className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8"
             >
-              <span className="block font-display text-5xl text-[#C9A35B] leading-none italic mb-3">"</span>
-              <blockquote className="font-display text-lg sm:text-xl lg:text-2xl text-white tracking-tight leading-snug">
+              <span className="block text-stat text-[#C9A35B] italic mb-3">"</span>
+              <blockquote className="text-quote text-white">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#C9A35B]/20 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
+              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#C9A35B]/20 font-mono text-micro sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-white">{t.n}</span>
                 <span className="text-white/50">· {t.r}</span>
               </figcaption>
@@ -681,7 +681,7 @@ function ProcessMedia() {
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-100 scale-105" : "opacity-0"}`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/30 to-transparent" />
-      <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
+      <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-micro uppercase tracking-[0.2em] text-white">
         Reunião · sem compromisso
       </div>
       <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
