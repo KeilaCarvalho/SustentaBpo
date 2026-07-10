@@ -680,7 +680,7 @@ function ProcessMedia() {
         preload="auto"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${hover ? "opacity-100 scale-105" : "opacity-0"}`}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/30 to-transparent" />
       <div className="absolute top-6 left-6 glass-card rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
         Reunião · sem compromisso
       </div>
