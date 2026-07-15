@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   --color-background: var(--background);
