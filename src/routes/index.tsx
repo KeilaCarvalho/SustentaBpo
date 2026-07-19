@@ -317,7 +317,7 @@ function Hero() {
 
         </div>
 
-        {/* Floating glass cards w/ parallax */}
+        {/* Dashboard-style financial cards */}
         <div
           className="col-span-4 md:col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-4 items-end"
           style={{
@@ -325,28 +325,76 @@ function Hero() {
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
           }}
         >
-          <div className="glass-card rounded-2xl px-5 py-4 font-mono text-label text-white/80 max-w-[260px] w-full">
-            <div className="flex items-center gap-2 text-white/50 uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 bg-[#C9A35B] rounded-full animate-pulse" />
-              Sistema
+          {/* Card 1 — Fluxo de Caixa */}
+          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Fluxo de Caixa</p>
+              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
             </div>
-            <p className="mt-2 text-white">Conciliação · em dia</p>
-            <p className="text-white/60">Atualizado: hoje</p>
-          </div>
-          <div className="rounded-2xl bg-[#C9A35B] text-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(201,163,91,0.6)] max-w-[300px] w-full">
-            <p className="text-micro font-mono uppercase tracking-widest opacity-80">// Rotina</p>
-            <p className="mt-2 text-base font-medium flex items-center gap-2">
-              <Icon name="lucide:trending-up" className="text-lg" />
-              Fluxo de caixa atualizado
+            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Saldo projetado</p>
+            <div className="mt-1 flex items-end justify-between gap-3">
+              <p className="text-2xl font-semibold text-white tracking-tight">R$ 1.248.750</p>
+              <svg viewBox="0 0 80 32" className="w-16 h-8 shrink-0" fill="none">
+                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4" stroke="#C9A35B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4 L78 32 L2 32 Z" fill="url(#g1)" opacity="0.35" />
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#C9A35B" />
+                    <stop offset="100%" stopColor="#C9A35B" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <p className="mt-2 text-[11px] text-[#C9A35B] flex items-center gap-1">
+              <Icon name="lucide:trending-up" className="text-xs" />
+              12,5% vs mês anterior
             </p>
           </div>
-          <div className="glass-card rounded-2xl p-4 flex items-center gap-3 max-w-[260px] w-full">
-            <div className="pinwheel w-10 h-10 rounded-full border border-dashed border-[#C9A35B] flex items-center justify-center shrink-0">
-              <span className="w-2 h-2 bg-[#C9A35B] rounded-full" />
+
+          {/* Card 2 — Contas a Pagar */}
+          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Contas a Pagar</p>
+              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
             </div>
-            <div className="font-mono text-micro text-white/60 uppercase tracking-widest min-w-0">
-              Operação ativa
-              <p className="text-white/90 normal-case tracking-normal text-xs">Execução diária</p>
+            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Próximos 7 dias</p>
+            <div className="mt-1 flex items-center justify-between gap-3">
+              <div>
+                <p className="text-2xl font-semibold text-white tracking-tight">R$ 245.680</p>
+                <p className="mt-1 text-[11px] text-white/55">do total mensal</p>
+              </div>
+              <div className="relative w-14 h-14 shrink-0">
+                <svg viewBox="0 0 36 36" className="w-14 h-14 -rotate-90">
+                  <circle cx="18" cy="18" r="15.5" stroke="rgba(255,255,255,0.08)" strokeWidth="3" fill="none" />
+                  <circle cx="18" cy="18" r="15.5" stroke="#C9A35B" strokeWidth="3" fill="none" strokeDasharray="97.4" strokeDashoffset="66.2" strokeLinecap="round" />
+                </svg>
+                <span className="absolute inset-0 flex items-center justify-center text-[11px] font-semibold text-[#C9A35B]">32%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 — Indicadores */}
+          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Indicadores</p>
+              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
+            </div>
+            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Margem Operacional</p>
+            <div className="mt-1 flex items-end justify-between gap-3">
+              <div>
+                <p className="text-2xl font-semibold text-white tracking-tight">18,6%</p>
+                <p className="mt-1 text-[11px] text-[#C9A35B] flex items-center gap-1">
+                  <Icon name="lucide:trending-up" className="text-xs" />
+                  2,7 p.p.
+                </p>
+              </div>
+              <div className="flex items-end gap-1 h-10">
+                <span className="w-2 h-3 rounded-sm bg-[#C9A35B]/40" />
+                <span className="w-2 h-5 rounded-sm bg-[#C9A35B]/60" />
+                <span className="w-2 h-4 rounded-sm bg-[#C9A35B]/50" />
+                <span className="w-2 h-7 rounded-sm bg-[#C9A35B]/80" />
+                <span className="w-2 h-9 rounded-sm bg-[#C9A35B]" />
+              </div>
             </div>
           </div>
         </div>
