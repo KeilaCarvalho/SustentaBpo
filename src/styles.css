@@ -389,3 +389,8 @@
   90% { opacity: 1; }
   100% { top: 100%; opacity: 0; }
 }
+@keyframes aurora-drift {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.05); }
+  50%  { transform: translate3d(2%, 3%, 0) scale(1.15); }
+  100% { transform: translate3d(3%, -3%, 0) scale(1.08); }
+}
