@@ -201,11 +201,15 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: var(--tracking-normal);
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    letter-spacing: var(--tracking-tight);
     line-height: var(--leading-tight);
   }
   .font-display em, .font-display .italic {
     font-style: italic;
+    font-family: "Instrument Serif", var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
   /* Fluid typography scale — scales smoothly 320 → 1440+ */
   .display-xxl {
