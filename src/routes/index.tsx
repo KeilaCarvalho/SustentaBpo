@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
 import heroEntrepreneur from "@/assets/hero-entrepreneur.jpg";
 import heroVideo from "@/assets/hero-bg3.mp4.asset.json";
-import logoAsset from "@/assets/sustenta-logo.jpeg.asset.json";
+import logoAsset from "@/assets/sustenta-logo-gold.png.asset.json";
 const logoRefined = logoAsset.url;
 
 const BASE_URL = "https://craft-your-finance.lovable.app";
