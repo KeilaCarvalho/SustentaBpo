@@ -202,49 +202,28 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover opacity-45"
           style={{
-            filter: "sepia(70%) saturate(180%) hue-rotate(345deg) brightness(0.72) contrast(1.08)",
+            filter: "grayscale(60%) brightness(0.55) contrast(1.05) hue-rotate(200deg)",
           }}
         />
       </div>
 
-      {/* Gradient + vignette + grid overlays — navy/gold keyed */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/70 via-[#111827]/50 to-[#111827]/90" />
+      {/* Aurora — slow animated gradient conveying fluxo */}
+      <div className="absolute inset-0 pointer-events-none aurora" />
+
+      {/* Base scrim */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/75 via-[#111827]/55 to-[#111827]/95" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 35%, rgba(17,24,39,0.8) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(201,163,91,0.35) 0%, transparent 45%, rgba(201,163,91,0.2) 100%)",
+            "radial-gradient(ellipse at center, transparent 45%, rgba(17,24,39,0.7) 100%)",
         }}
       />
 
+      <div className="absolute inset-0 grid-lines opacity-[0.06] pointer-events-none" />
 
-      <div className="absolute inset-0 grid-lines opacity-15 pointer-events-none" />
-
-      {/* Radial glow following mouse */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-60 transition-opacity"
-        style={{
-          background:
-            "radial-gradient(600px circle at calc(50% + var(--mx) * 300px) calc(50% + var(--my) * 300px), rgba(201,163,91,0.18), transparent 60%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none mix-blend-screen transition-opacity duration-500 ease-out"
-        style={{
-          opacity: "calc(var(--gi, 0) * 0.55)",
-          background:
-            "radial-gradient(280px circle at var(--gx, 50%) var(--gy, 50%), rgba(201,163,91,0.45), rgba(201,163,91,0.12) 40%, transparent 70%)",
-        }}
-      />
 
       {/* Left-side readability scrim — keeps sides bright, darkens only behind text */}
       <div
