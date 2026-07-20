@@ -202,45 +202,46 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-45"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
           style={{
-            filter: "grayscale(60%) brightness(0.55) contrast(1.05) hue-rotate(200deg)",
+            filter: "grayscale(30%) brightness(0.85) contrast(1.05) hue-rotate(200deg)",
           }}
         />
       </div>
 
       {/* Aurora — slow animated gradient conveying fluxo */}
-      <div className="absolute inset-0 pointer-events-none aurora" />
+      <div className="absolute inset-0 pointer-events-none aurora opacity-70" />
 
-      {/* Base scrim */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/75 via-[#111827]/55 to-[#111827]/95" />
+      {/* Base scrim — lighter, keeps video visible */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/45 via-[#111827]/25 to-[#111827]/80" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(17,24,39,0.7) 100%)",
+            "radial-gradient(ellipse at center, transparent 55%, rgba(17,24,39,0.55) 100%)",
         }}
       />
 
-      <div className="absolute inset-0 grid-lines opacity-[0.06] pointer-events-none" />
+      <div className="absolute inset-0 grid-lines opacity-[0.04] pointer-events-none" />
 
 
-      {/* Left-side readability scrim — keeps sides bright, darkens only behind text */}
+      {/* Left-side readability scrim — only behind text */}
       <div
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "linear-gradient(to right, rgba(17,24,39,0.75) 0%, rgba(17,24,39,0.55) 30%, rgba(17,24,39,0.15) 55%, transparent 70%)",
+            "linear-gradient(to right, rgba(17,24,39,0.55) 0%, rgba(17,24,39,0.35) 30%, rgba(17,24,39,0.05) 55%, transparent 70%)",
         }}
       />
-      {/* Mobile scrim: soft top-to-bottom for legibility */}
+      {/* Mobile scrim */}
       <div
         className="absolute inset-0 pointer-events-none md:hidden"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(17,24,39,0.55) 0%, rgba(17,24,39,0.25) 40%, rgba(17,24,39,0.65) 100%)",
+            "linear-gradient(to bottom, rgba(17,24,39,0.4) 0%, rgba(17,24,39,0.15) 40%, rgba(17,24,39,0.55) 100%)",
         }}
       />
+
 
 
 
