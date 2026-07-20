@@ -141,24 +141,24 @@ function Landing() {
 /* ---------- Nav ---------- */
 function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#111827]/40 border-b border-white/5">
-      <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
+    <nav className="fixed top-0 inset-x-0 z-50 pt-3 sm:pt-4 md:pt-5 px-4 sm:px-6 lg:px-8 pointer-events-none">
+      <div className="pointer-events-auto max-w-[90rem] mx-auto h-14 md:h-16 flex items-center justify-between gap-3 px-4 sm:px-6 rounded-full bg-[#111827]/85 backdrop-blur-xl border border-[#F5F5F5]/10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.45)]">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src={logoRefined} alt="Sustenta BPO" className="h-10 sm:h-12 w-auto shrink-0" />
-          <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white truncate">{BRAND}</span>
+          <img src={logoRefined} alt="Sustenta BPO" className="h-9 sm:h-10 w-auto shrink-0" />
+          <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#F5F5F5] truncate">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
-          <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
-          <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
-          <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
-          <li><a href="#para-quem" className="hover:text-white transition-colors">Para quem é</a></li>
-          <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-[#F5F5F5]/75 font-medium">
+          <li><a href="#sobre" className="hover:text-[#F5F5F5] transition-colors">Sobre</a></li>
+          <li><a href="#fazemos" className="hover:text-[#F5F5F5] transition-colors">O que fazemos</a></li>
+          <li><a href="#como-funciona" className="hover:text-[#F5F5F5] transition-colors">Como funciona</a></li>
+          <li><a href="#para-quem" className="hover:text-[#F5F5F5] transition-colors">Para quem é</a></li>
+          <li><a href="#agendar" className="hover:text-[#F5F5F5] transition-colors">Contato</a></li>
         </ul>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={ORCAMENTO_URL}
-            className="hidden sm:inline-flex border border-[#C9A35B]/50 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex border border-[#F5F5F5]/25 hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-sm px-4 lg:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Solicitar Orçamento
           </a>
@@ -166,7 +166,7 @@ function Nav() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Falar com Especialista
           </a>
