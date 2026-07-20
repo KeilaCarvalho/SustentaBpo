@@ -304,18 +304,18 @@ function Hero() {
               "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
           }}
         >
-          {/* Card 1 — Fluxo de Caixa */}
-          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+          {/* Card 1 — Fluxo de Caixa (gold as single accent) */}
+          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-white/[0.06] p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Fluxo de Caixa</p>
-              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
+              <p className="text-[11px] font-medium text-[#7A7A7A] uppercase tracking-[0.14em]">Fluxo de Caixa</p>
+              <Icon name="lucide:more-horizontal" className="text-white/30 text-sm" />
             </div>
-            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Saldo projetado</p>
+            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-white/40">Saldo projetado</p>
             <div className="mt-1 flex items-end justify-between gap-3">
-              <p className="text-2xl font-semibold text-white tracking-tight">R$ 1.248.750</p>
+              <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 1.248.750</p>
               <svg viewBox="0 0 80 32" className="w-16 h-8 shrink-0" fill="none">
-                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4" stroke="#C9A35B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4 L78 32 L2 32 Z" fill="url(#g1)" opacity="0.35" />
+                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4" stroke="#C9A35B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4 L78 32 L2 32 Z" fill="url(#g1)" opacity="0.25" />
                 <defs>
                   <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#C9A35B" />
@@ -324,58 +324,34 @@ function Hero() {
                 </defs>
               </svg>
             </div>
-            <p className="mt-2 text-[11px] text-[#C9A35B] flex items-center gap-1">
-              <Icon name="lucide:trending-up" className="text-xs" />
+            <p className="mt-3 text-[11px] text-[#7A7A7A] flex items-center gap-1.5">
+              <Icon name="lucide:trending-up" className="text-xs text-[#C9A35B]" />
               12,5% vs mês anterior
             </p>
           </div>
 
           {/* Card 2 — Contas a Pagar */}
-          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
+          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-white/[0.06] p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Contas a Pagar</p>
-              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
+              <p className="text-[11px] font-medium text-[#7A7A7A] uppercase tracking-[0.14em]">Contas a Pagar</p>
+              <Icon name="lucide:more-horizontal" className="text-white/30 text-sm" />
             </div>
-            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Próximos 7 dias</p>
+            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-white/40">Próximos 7 dias</p>
             <div className="mt-1 flex items-center justify-between gap-3">
               <div>
-                <p className="text-2xl font-semibold text-white tracking-tight">R$ 245.680</p>
-                <p className="mt-1 text-[11px] text-white/55">do total mensal</p>
+                <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 245.680</p>
+                <p className="mt-1 text-[11px] text-[#7A7A7A]">do total mensal</p>
               </div>
               <div className="relative w-14 h-14 shrink-0">
                 <svg viewBox="0 0 36 36" className="w-14 h-14 -rotate-90">
-                  <circle cx="18" cy="18" r="15.5" stroke="rgba(255,255,255,0.08)" strokeWidth="3" fill="none" />
-                  <circle cx="18" cy="18" r="15.5" stroke="#C9A35B" strokeWidth="3" fill="none" strokeDasharray="97.4" strokeDashoffset="66.2" strokeLinecap="round" />
+                  <circle cx="18" cy="18" r="15.5" stroke="rgba(255,255,255,0.08)" strokeWidth="2" fill="none" />
+                  <circle cx="18" cy="18" r="15.5" stroke="#C9A35B" strokeWidth="2" fill="none" strokeDasharray="97.4" strokeDashoffset="66.2" strokeLinecap="round" />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[11px] font-semibold text-[#C9A35B]">32%</span>
+                <span className="absolute inset-0 flex items-center justify-center text-[11px] font-medium text-[#F5F5F5]">32%</span>
               </div>
             </div>
           </div>
 
-          {/* Card 3 — Indicadores */}
-          <div className="rounded-2xl bg-[#0b1220]/85 backdrop-blur-md border border-[#C9A35B]/20 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
-            <div className="flex items-center justify-between">
-              <p className="text-xs font-medium text-white/70 uppercase tracking-wide">Indicadores</p>
-              <Icon name="lucide:more-horizontal" className="text-white/40 text-sm" />
-            </div>
-            <p className="mt-3 text-[10px] font-mono uppercase tracking-widest text-white/45">Margem Operacional</p>
-            <div className="mt-1 flex items-end justify-between gap-3">
-              <div>
-                <p className="text-2xl font-semibold text-white tracking-tight">18,6%</p>
-                <p className="mt-1 text-[11px] text-[#C9A35B] flex items-center gap-1">
-                  <Icon name="lucide:trending-up" className="text-xs" />
-                  2,7 p.p.
-                </p>
-              </div>
-              <div className="flex items-end gap-1 h-10">
-                <span className="w-2 h-3 rounded-sm bg-[#C9A35B]/40" />
-                <span className="w-2 h-5 rounded-sm bg-[#C9A35B]/60" />
-                <span className="w-2 h-4 rounded-sm bg-[#C9A35B]/50" />
-                <span className="w-2 h-7 rounded-sm bg-[#C9A35B]/80" />
-                <span className="w-2 h-9 rounded-sm bg-[#C9A35B]" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
