@@ -33,6 +33,24 @@
   --border: #111827;
   --glass: rgba(17, 24, 39, 0.5);
 
+  /* Brand color triplets — use with rgb(var(--ice-rgb) / <alpha>) */
+  --ice: #F5F5F5;
+  --ice-rgb: 245 245 245;
+  --gold-rgb: 201 163 91;
+  --navy-rgb: 17 24 39;
+
+  /* Semantic border tokens (opacity tiers) */
+  --border-ice-subtle: rgb(var(--ice-rgb) / 0.10);
+  --border-ice-strong: rgb(var(--ice-rgb) / 0.25);
+  --border-gold-soft: rgb(var(--gold-rgb) / 0.20);
+  --border-gold: rgb(var(--gold-rgb) / 0.50);
+
+  /* Semantic shadow tokens */
+  --shadow-float: 0 12px 40px -12px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-gold-glow: 0 0 12px rgb(var(--gold-rgb) / 0.6);
+  --shadow-inset-hairline: inset 0 1px 0 rgb(var(--gold-rgb) / 0.04);
+
   /* Tipografia */
   --text-2xs: clamp(0.625rem, 0.7vw, 0.75rem);
   --text-xs: clamp(0.6875rem, 0.8vw, 0.8125rem);
@@ -322,12 +340,24 @@
   .glass-card {
     background-color: rgba(17, 24, 39, 0.95);
     backdrop-filter: blur(60px);
-    border: 1px solid rgba(201, 163, 91, 0.15);
-    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.4), inset 0 1px 0 rgba(201, 163, 91, 0.04);
+    border: 1px solid var(--border-gold-soft);
+    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.4), var(--shadow-inset-hairline);
   }
   .glow-orange {
-    background: radial-gradient(circle at center, rgba(201,163,91, 0.35), transparent 60%);
+    background: radial-gradient(circle at center, rgb(var(--gold-rgb) / 0.35), transparent 60%);
   }
+
+  /* Standardized border utilities — ice + gold tiers */
+  .border-ice-subtle { border-color: var(--border-ice-subtle); }
+  .border-ice-strong { border-color: var(--border-ice-strong); }
+  .border-gold-soft { border-color: var(--border-gold-soft); }
+  .border-gold { border-color: var(--border-gold); }
+  .divider-ice { border-top: 1px solid var(--border-ice-subtle); }
+
+  /* Standardized shadow utilities */
+  .shadow-float { box-shadow: var(--shadow-float); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
+  .shadow-gold-glow { box-shadow: var(--shadow-gold-glow); }
   .reveal-mask {
     clip-path: inset(0 0 100% 0);
     animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
