@@ -141,24 +141,24 @@ function Landing() {
 /* ---------- Nav ---------- */
 function Nav() {
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#111827]/40 border-b border-white/5">
-      <div className="site-container h-16 md:h-20 lg:h-24 flex items-center justify-between gap-3">
+    <nav className="fixed top-0 inset-x-0 z-50 pt-3 sm:pt-4 md:pt-5 px-4 sm:px-6 lg:px-8 pointer-events-none">
+      <div className="pointer-events-auto max-w-[90rem] mx-auto h-14 md:h-16 flex items-center justify-between gap-3 px-4 sm:px-6 rounded-full bg-[#111827]/85 backdrop-blur-xl border border-[#F5F5F5]/10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.45)]">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src={logoRefined} alt="Sustenta BPO" className="h-10 sm:h-12 w-auto shrink-0" />
-          <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white truncate">{BRAND}</span>
+          <img src={logoRefined} alt="Sustenta BPO" className="h-9 sm:h-10 w-auto shrink-0" />
+          <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#F5F5F5] truncate">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/75 font-medium">
-          <li><a href="#sobre" className="hover:text-white transition-colors">Sobre</a></li>
-          <li><a href="#fazemos" className="hover:text-white transition-colors">O que fazemos</a></li>
-          <li><a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a></li>
-          <li><a href="#para-quem" className="hover:text-white transition-colors">Para quem é</a></li>
-          <li><a href="#agendar" className="hover:text-white transition-colors">Contato</a></li>
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-[#F5F5F5]/75 font-medium">
+          <li><a href="#sobre" className="hover:text-[#F5F5F5] transition-colors">Sobre</a></li>
+          <li><a href="#fazemos" className="hover:text-[#F5F5F5] transition-colors">O que fazemos</a></li>
+          <li><a href="#como-funciona" className="hover:text-[#F5F5F5] transition-colors">Como funciona</a></li>
+          <li><a href="#para-quem" className="hover:text-[#F5F5F5] transition-colors">Para quem é</a></li>
+          <li><a href="#agendar" className="hover:text-[#F5F5F5] transition-colors">Contato</a></li>
         </ul>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={ORCAMENTO_URL}
-            className="hidden sm:inline-flex border border-[#C9A35B]/50 hover:border-[#C9A35B] hover:text-[#C9A35B] text-white text-sm px-4 lg:px-5 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex border border-[#F5F5F5]/25 hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-sm px-4 lg:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Solicitar Orçamento
           </a>
@@ -166,7 +166,7 @@ function Nav() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#C9A35B] hover:bg-[#111827] hover:text-[#C9A35B] text-white text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Falar com Especialista
           </a>
@@ -306,12 +306,12 @@ function Hero() {
           }}
         >
           {/* Card 1 — Fluxo de Caixa (gold as single accent) */}
-          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-white/[0.06] p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
+          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-[#F5F5F5]/8 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
             <div className="flex items-center justify-between">
-              <p className="text-[11px] font-medium text-[#7A7A7A] uppercase tracking-[0.14em]">Fluxo de Caixa</p>
-              <Icon name="lucide:more-horizontal" className="text-white/30 text-sm" />
+              <p className="text-[11px] font-medium text-[#F5F5F5]/90 uppercase tracking-[0.14em]">Fluxo de Caixa</p>
+              <Icon name="lucide:more-horizontal" className="text-[#F5F5F5]/30 text-sm" />
             </div>
-            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-white/40">Saldo projetado</p>
+            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Saldo projetado</p>
             <div className="mt-1 flex items-end justify-between gap-3">
               <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 1.248.750</p>
               <svg viewBox="0 0 80 32" className="w-16 h-8 shrink-0" fill="none">
@@ -325,27 +325,27 @@ function Hero() {
                 </defs>
               </svg>
             </div>
-            <p className="mt-3 text-[11px] text-[#7A7A7A] flex items-center gap-1.5">
+            <p className="mt-3 text-[11px] text-[#F5F5F5]/60 flex items-center gap-1.5">
               <Icon name="lucide:trending-up" className="text-xs text-[#C9A35B]" />
               12,5% vs mês anterior
             </p>
           </div>
 
           {/* Card 2 — Contas a Pagar */}
-          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-white/[0.06] p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
+          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-[#F5F5F5]/8 p-5 max-w-[300px] w-full shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
             <div className="flex items-center justify-between">
-              <p className="text-[11px] font-medium text-[#7A7A7A] uppercase tracking-[0.14em]">Contas a Pagar</p>
-              <Icon name="lucide:more-horizontal" className="text-white/30 text-sm" />
+              <p className="text-[11px] font-medium text-[#F5F5F5]/90 uppercase tracking-[0.14em]">Contas a Pagar</p>
+              <Icon name="lucide:more-horizontal" className="text-[#F5F5F5]/30 text-sm" />
             </div>
-            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-white/40">Próximos 7 dias</p>
+            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Próximos 7 dias</p>
             <div className="mt-1 flex items-center justify-between gap-3">
               <div>
                 <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 245.680</p>
-                <p className="mt-1 text-[11px] text-[#7A7A7A]">do total mensal</p>
+                <p className="mt-1 text-[11px] text-[#F5F5F5]/60">do total mensal</p>
               </div>
               <div className="relative w-14 h-14 shrink-0">
                 <svg viewBox="0 0 36 36" className="w-14 h-14 -rotate-90">
-                  <circle cx="18" cy="18" r="15.5" stroke="rgba(255,255,255,0.08)" strokeWidth="2" fill="none" />
+                  <circle cx="18" cy="18" r="15.5" stroke="rgba(245,245,245,0.08)" strokeWidth="2" fill="none" />
                   <circle cx="18" cy="18" r="15.5" stroke="#C9A35B" strokeWidth="2" fill="none" strokeDasharray="97.4" strokeDashoffset="66.2" strokeLinecap="round" />
                 </svg>
                 <span className="absolute inset-0 flex items-center justify-center text-[11px] font-medium text-[#F5F5F5]">32%</span>
@@ -436,11 +436,11 @@ function WhatIs() {
               className="glass-card rounded-3xl p-6 sm:p-7 group hover:border-[#C9A35B]/50 transition-all duration-500 hover:-translate-y-1"
             >
               <div className="flex items-baseline justify-between">
-                <Icon name={s.icon} className="text-3xl text-[#C9A35B]" />
-                <span className="font-mono text-micro tracking-[0.3em] text-[#C9A35B]/40">0{i + 1}</span>
+                <Icon name={s.icon} className="text-3xl text-[#F5F5F5]" />
+                <span className="font-mono text-micro tracking-[0.3em] text-[#F5F5F5]/30">0{i + 1}</span>
               </div>
-              <p className="mt-8 text-card-title text-white">{s.label}</p>
-              <p className="mt-2 text-sm text-white/50 leading-relaxed">{s.desc}</p>
+              <p className="mt-8 text-card-title text-[#F5F5F5]">{s.label}</p>
+              <p className="mt-2 text-sm text-[#F5F5F5]/50 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -558,15 +558,15 @@ function Values() {
               className="glass-card rounded-3xl p-7 sm:p-8 lg:p-10 group hover:bg-[#C9A35B] hover:border-[#C9A35B] transition-all duration-500"
             >
               <div className="flex items-center justify-between">
-                <Icon name={it.icon} className="text-4xl text-[#C9A35B] group-hover:text-[#111827] transition-colors" />
-                <span className="font-mono text-micro tracking-[0.3em] text-white/40 group-hover:text-[#111827]/60">
+                <Icon name={it.icon} className="text-4xl text-[#F5F5F5] group-hover:text-[#111827] transition-colors" />
+                <span className="font-mono text-micro tracking-[0.3em] text-[#F5F5F5]/40 group-hover:text-[#111827]/60">
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-8 font-display text-xl sm:text-2xl text-white group-hover:text-[#111827] transition-colors leading-tight">
+              <h3 className="mt-8 font-display text-xl sm:text-2xl text-[#F5F5F5] group-hover:text-[#111827] transition-colors leading-tight">
                 {it.title}
               </h3>
-              <p className="mt-3 text-sm text-white/50 group-hover:text-[#111827]/70 leading-relaxed transition-colors">
+              <p className="mt-3 text-sm text-[#F5F5F5]/50 group-hover:text-[#111827]/70 leading-relaxed transition-colors">
                 {it.desc}
               </p>
             </div>
@@ -595,11 +595,11 @@ function Metrics() {
         <p className="eyebrow mb-12 lg:mb-16">// O QUE VOCÊ ENXERGA NA PRÁTICA</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 lg:gap-x-10">
           {stats.map((s) => (
-            <div key={s.l} className="group min-w-0 border-t border-[#C9A35B]/20 pt-6 sm:pt-8">
-              <p className="display-lg text-[#C9A35B]">
+            <div key={s.l} className="group min-w-0 border-t border-[#F5F5F5]/10 pt-6 sm:pt-8">
+              <p className="display-lg text-[#F5F5F5]">
                 {s.v}
               </p>
-              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-white/50 leading-relaxed">
+              <p className="mt-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5]/50 leading-relaxed">
                 {s.l}
               </p>
             </div>
@@ -637,13 +637,13 @@ function Testimonials() {
               key={t.n}
               className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8"
             >
-              <span className="block text-stat text-[#C9A35B] italic mb-3">"</span>
-              <blockquote className="text-quote text-white">
+              <span className="block text-stat text-[#F5F5F5]/80 italic mb-3">"</span>
+              <blockquote className="text-quote text-[#F5F5F5]">
                 {t.q}
               </blockquote>
-              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#C9A35B]/20 font-mono text-micro sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="text-white">{t.n}</span>
-                <span className="text-white/50">· {t.r}</span>
+              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#F5F5F5]/10 font-mono text-micro sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-[#F5F5F5]">{t.n}</span>
+                <span className="text-[#F5F5F5]/50">· {t.r}</span>
               </figcaption>
             </figure>
           ))}
@@ -731,10 +731,10 @@ function Process() {
               key={s.n}
               className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-[#C9A35B]/50 transition-colors"
             >
-              <span className="font-mono text-sm text-[#C9A35B] pt-2">{s.n}</span>
+              <span className="font-mono text-sm text-[#F5F5F5]/70 pt-2">{s.n}</span>
               <div className="min-w-0">
-                <h3 className="font-display text-xl sm:text-2xl text-white leading-tight">{s.t}</h3>
-                <p className="mt-2 text-sm text-white/60 leading-relaxed">{s.d}</p>
+                <h3 className="font-display text-xl sm:text-2xl text-[#F5F5F5] leading-tight">{s.t}</h3>
+                <p className="mt-2 text-sm text-[#F5F5F5]/60 leading-relaxed">{s.d}</p>
               </div>
             </li>
           ))}
@@ -789,8 +789,8 @@ function QuoteForm() {
   }
 
   const inputCls =
-    "w-full bg-[#C9A35B]/5 border border-[#C9A35B]/20 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#C9A35B] transition-colors";
-  const labelCls = "block text-xs font-mono uppercase tracking-[0.2em] text-white/50 mb-2";
+    "w-full bg-[#C9A35B]/5 border border-[#F5F5F5]/10 rounded-xl px-4 py-3 text-[#F5F5F5] placeholder-[#F5F5F5]/30 focus:outline-none focus:border-[#C9A35B] transition-colors";
+  const labelCls = "block text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5]/60 mb-2";
 
   return (
     <section id="orcamento" className="py-24 sm:py-32 lg:py-44 bg-[#111827] border-y border-white/5 relative overflow-hidden">
@@ -955,19 +955,19 @@ function FinalCTA() {
 /* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-[#111827] text-white/60 py-20 border-t border-white/5">
+    <footer className="bg-[#111827] text-[#F5F5F5]/60 py-20 border-t border-[#F5F5F5]/8">
       <div className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="sm:col-span-2">
           <div className="flex items-center gap-3">
             <img src={logoRefined} alt="Sustenta BPO" className="h-11 w-auto shrink-0" />
-            <span className="font-display text-xl font-bold tracking-tight text-white">{BRAND}</span>
+            <span className="font-display text-xl font-bold tracking-tight text-[#F5F5F5]">{BRAND}</span>
           </div>
           <p className="mt-4 text-sm max-w-2xl">
             BPO Financeiro com rotina diária, organização em sistema e execução contínua.
           </p>
         </div>
         <div>
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Navegar</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5]/40 mb-4">Navegar</p>
           <ul className="space-y-2 text-sm">
             <li><a href="#sobre" className="hover:text-[#C9A35B]">Sobre</a></li>
             <li><a href="#fazemos" className="hover:text-[#C9A35B]">O que fazemos</a></li>
@@ -977,7 +977,7 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">Contato</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5]/40 mb-4">Contato</p>
           <ul className="space-y-2 text-sm">
             <li><a href={WHATSAPP} className="hover:text-[#C9A35B]">WhatsApp</a></li>
             <li><a href={ORCAMENTO_URL} className="hover:text-[#C9A35B]">Solicitar Orçamento</a></li>
@@ -985,7 +985,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="site-container mt-12 sm:mt-16 pt-6 border-t border-white/5 text-xs font-mono text-white/40 flex flex-col sm:flex-row gap-3 sm:justify-between">
+      <div className="site-container mt-12 sm:mt-16 pt-6 border-t border-[#F5F5F5]/8 text-xs font-mono text-[#F5F5F5]/40 flex flex-col sm:flex-row gap-3 sm:justify-between">
         <span>© {new Date().getFullYear()} {BRAND}</span>
         <span>// SISTEMA OPERACIONAL</span>
       </div>
