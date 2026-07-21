@@ -271,10 +271,10 @@
   }
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: var(--text-2xs);
+    font-size: var(--text-sm);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: #7A7A7A;
+    color: #F5F5F5;
   }
   .eyebrow-gold { color: #C9A35B; }
   .aurora {
