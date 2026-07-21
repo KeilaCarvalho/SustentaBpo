@@ -139,7 +139,29 @@ function Landing() {
 
 
 /* ---------- Nav ---------- */
+const NAV_LINKS = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#fazemos", label: "O que fazemos" },
+  { href: "#como-funciona", label: "Como funciona" },
+  { href: "#para-quem", label: "Para quem é" },
+  { href: "#agendar", label: "Contato" },
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
     <nav className="fixed top-0 inset-x-0 z-50 pt-3 sm:pt-4 md:pt-5 px-4 sm:px-6 lg:px-8 pointer-events-none">
       <div className="pointer-events-auto max-w-[90rem] mx-auto h-14 md:h-16 flex items-center justify-between gap-3 px-4 sm:px-6 rounded-full bg-[#111827]/85 backdrop-blur-xl border border-ice-subtle shadow-float">
@@ -148,11 +170,9 @@ function Nav() {
           <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#F5F5F5] truncate">{BRAND}</span>
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-[#F5F5F5]/75 font-medium">
-          <li><a href="#sobre" className="hover:text-[#F5F5F5] transition-colors">Sobre</a></li>
-          <li><a href="#fazemos" className="hover:text-[#F5F5F5] transition-colors">O que fazemos</a></li>
-          <li><a href="#como-funciona" className="hover:text-[#F5F5F5] transition-colors">Como funciona</a></li>
-          <li><a href="#para-quem" className="hover:text-[#F5F5F5] transition-colors">Para quem é</a></li>
-          <li><a href="#agendar" className="hover:text-[#F5F5F5] transition-colors">Contato</a></li>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}><a href={l.href} className="hover:text-[#F5F5F5] transition-colors">{l.label}</a></li>
+          ))}
         </ul>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -166,15 +186,93 @@ function Nav() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
+          >
+            Falar com Especialista
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            aria-controls="mobile-drawer"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-ice-strong text-[#F5F5F5] hover:border-[#C9A35B] hover:text-[#C9A35B] transition-colors"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {open ? (
+                <><line x1="6" y1="6" x2="18" y2="18" /><line x1="6" y1="18" x2="18" y2="6" /></>
+              ) : (
+                <><line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="17" x2="21" y2="17" /></>
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile drawer */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 pointer-events-auto transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        aria-hidden={!open}
+        onClick={() => setOpen(false)}
+      >
+        <div className="absolute inset-0 bg-[#111827]/70 backdrop-blur-sm" />
+      </div>
+      <aside
+        id="mobile-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu de navegação"
+        className={`md:hidden fixed top-0 right-0 z-50 h-full w-[82%] max-w-sm bg-[#111827] border-l border-ice-subtle shadow-lift pointer-events-auto transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <div className="flex items-center justify-between px-5 h-16 border-b border-ice-subtle">
+          <span className="font-display text-lg text-[#F5F5F5]">{BRAND}</span>
+          <button
+            type="button"
+            aria-label="Fechar menu"
+            onClick={() => setOpen(false)}
+            className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-ice-strong text-[#F5F5F5] hover:border-[#C9A35B] hover:text-[#C9A35B]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <line x1="6" y1="6" x2="18" y2="18" /><line x1="6" y1="18" x2="18" y2="6" />
+            </svg>
+          </button>
+        </div>
+        <ul className="flex flex-col px-5 py-6 gap-1 text-[#F5F5F5]">
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 text-lg font-display border-b border-ice-subtle hover:text-[#C9A35B] transition-colors"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="px-5 pt-4 flex flex-col gap-3">
+          <a
+            href={ORCAMENTO_URL}
+            onClick={() => setOpen(false)}
+            className="text-center border border-ice-strong hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-sm px-5 py-3 rounded-full font-medium transition-colors"
+          >
+            Solicitar Orçamento
+          </a>
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="text-center bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-5 py-3 rounded-full font-medium transition-colors"
           >
             Falar com Especialista
           </a>
         </div>
-      </div>
+      </aside>
     </nav>
   );
 }
+
 
 
 /* ---------- Hero with mouse parallax + video bg ---------- */
