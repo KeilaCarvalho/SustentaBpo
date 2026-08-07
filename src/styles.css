@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-card-title: "Abril Fatface", ui-serif, Georgia, serif;
+  --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-card-title: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   --color-background: var(--background);
@@ -219,20 +219,20 @@
   }
   .font-display {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: var(--tracking-tight);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: var(--leading-tight);
   }
   .font-display em, .font-display .italic {
     font-style: italic;
-    font-family: "Instrument Serif", var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
   /* Fluid typography scale — scales smoothly 320 → 1440+ */
   .display-xxl {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 800;
     font-size: var(--text-5xl);
     line-height: var(--leading-tight);
     letter-spacing: -0.035em;
@@ -240,7 +240,7 @@
   }
   .display-xl {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 700;
     font-size: var(--text-5xl);
     line-height: var(--leading-tight);
     letter-spacing: -0.035em;
@@ -248,7 +248,7 @@
   }
   .display-lg {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 700;
     font-size: var(--text-4xl);
     line-height: var(--leading-snug);
     letter-spacing: -0.03em;
@@ -256,7 +256,7 @@
   }
   .display-md {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 600;
     font-size: var(--text-2xl);
     line-height: var(--leading-normal);
     letter-spacing: var(--tracking-normal);
@@ -308,7 +308,7 @@
   }
   .text-card-title {
     font-family: var(--font-card-title);
-    font-size: var(--text-2xl);
+    font-weight: 700;
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-normal);
   }
