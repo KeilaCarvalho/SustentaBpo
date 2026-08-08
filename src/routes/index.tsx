@@ -300,9 +300,9 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
           style={{
-            filter: "grayscale(30%) brightness(0.85) contrast(1.05) hue-rotate(200deg)",
+            filter: "grayscale(20%) brightness(1.05) contrast(1.1) hue-rotate(200deg) saturate(1.1)",
           }}
         />
       </div>
