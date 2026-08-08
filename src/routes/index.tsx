@@ -1,3 +1,4 @@
+// vai colocar um video de fundo ?
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
