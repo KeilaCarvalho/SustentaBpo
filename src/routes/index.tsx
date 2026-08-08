@@ -178,7 +178,7 @@ function Nav() {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={ORCAMENTO_URL}
-            className="hidden sm:inline-flex border border-ice-strong hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-sm px-4 lg:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex border border-ice-strong hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-base px-5 lg:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Solicitar Orçamento
           </a>
