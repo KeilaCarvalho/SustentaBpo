@@ -302,7 +302,7 @@ function Hero() {
         }}
       >
         <video
-          src="https://assets.mixkit.co/videos/preview/mixkit-data-center-server-room-with-blue-lights-22703-large.mp4"
+          src="https://assets.mixkit.co/videos/preview/mixkit-business-charts-on-a-tablet-screen-42589-large.mp4"
           autoPlay
           muted
           loop
