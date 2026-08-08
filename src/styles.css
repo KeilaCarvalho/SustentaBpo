@@ -279,11 +279,11 @@
   }
   .eyebrow-gold { color: #C9A35B; }
   .aurora {
-    background: radial-gradient(65% 55% at 25% 35%, rgba(201,163,91,0.18) 0%, transparent 60%),
-                radial-gradient(55% 45% at 75% 65%, rgba(245,245,245,0.08) 0%, transparent 60%),
-                radial-gradient(45% 45% at 55% 25%, rgba(201,163,91,0.12) 0%, transparent 60%);
-    filter: blur(40px);
-    animation: aurora-drift 18s ease-in-out infinite alternate;
+    background: radial-gradient(65% 55% at 25% 35%, rgba(201,163,91,0.25) 0%, transparent 60%),
+                radial-gradient(55% 45% at 75% 65%, rgba(245,245,245,0.12) 0%, transparent 60%),
+                radial-gradient(45% 45% at 55% 25%, rgba(201,163,91,0.18) 0%, transparent 60%);
+    filter: blur(60px);
+    animation: aurora-drift 24s ease-in-out infinite alternate;
   }
 
   /* Micro labels / tags derived from typography tokens */

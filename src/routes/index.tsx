@@ -285,12 +285,20 @@ function Hero() {
       className="relative min-h-[100svh] w-full overflow-hidden bg-[#111827]"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
-      {/* Video layer (parallax) — tinted to match navy/gold palette */}
+      {/* Data Visualization Background — "Fluxo de Dados" layer */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div className="absolute inset-0 grid-lines opacity-40" />
+        <div className="absolute top-0 left-[15%] w-[1px] h-full bg-gradient-to-b from-transparent via-[#C9A35B]/30 to-transparent" />
+        <div className="absolute top-0 right-[25%] w-[1px] h-full bg-gradient-to-b from-transparent via-[#C9A35B]/20 to-transparent" />
+        <div className="absolute top-[30%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A35B]/10 to-transparent" />
+      </div>
+
+      {/* Video layer (parallax) — tinted and blurred for a sophisticated "glassy" depth */}
       <div
         className="absolute inset-0 transition-transform duration-300 ease-out"
         style={{
           transform:
-            "translate3d(calc(var(--mx) * -20px), calc(var(--my) * -20px), 0) scale(1.08)",
+            "translate3d(calc(var(--mx) * -15px), calc(var(--my) * -15px), 0) scale(1.05)",
         }}
       >
         <video
@@ -300,27 +308,33 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          className="absolute inset-0 w-full h-full object-cover opacity-75 grayscale-[40%] blur-[2px]"
           style={{
-            filter: "grayscale(20%) brightness(1.05) contrast(1.1) hue-rotate(200deg) saturate(1.1)",
+            filter: "brightness(0.9) contrast(1.2) hue-rotate(200deg) saturate(0.8)",
           }}
         />
       </div>
 
-      {/* Aurora — slow animated gradient conveying fluxo */}
-      <div className="absolute inset-0 pointer-events-none aurora opacity-70" />
+      {/* Aurora — redesigned for a more "liquid" financial feel */}
+      <div className="absolute inset-0 pointer-events-none aurora opacity-80" />
 
-      {/* Base scrim — lighter, keeps video visible */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/30 via-[#111827]/15 to-[#111827]/75" />
+      {/* Multi-layered scrims for depth and legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/60 via-transparent to-[#111827]/90" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 65%, rgba(17,24,39,0.45) 100%)",
+            "radial-gradient(circle at 30% 50%, rgba(201,163,91,0.08) 0%, transparent 60%)",
         }}
       />
+      <div className="absolute inset-0 backdrop-blur-[1px] pointer-events-none" />
 
-      <div className="absolute inset-0 grid-lines opacity-[0.04] pointer-events-none" />
+      {/* Floating particles/points representing "financial nodes" */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[20%] left-[10%] w-1.5 h-1.5 rounded-full bg-[#C9A35B] opacity-40 blur-[1px] animate-pulse" />
+        <div className="absolute top-[60%] left-[40%] w-2 h-2 rounded-full bg-[#F5F5F5] opacity-20 blur-[2px] animate-pulse [animation-delay:1s]" />
+        <div className="absolute top-[40%] right-[15%] w-1.5 h-1.5 rounded-full bg-[#C9A35B] opacity-30 blur-[1px] animate-pulse [animation-delay:2s]" />
+      </div>
 
 
       {/* Left-side readability scrim — only behind text */}
