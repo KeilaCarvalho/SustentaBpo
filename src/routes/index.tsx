@@ -300,9 +300,9 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
           style={{
-            filter: "grayscale(30%) brightness(0.85) contrast(1.05) hue-rotate(200deg)",
+            filter: "grayscale(20%) brightness(1.05) contrast(1.1) hue-rotate(200deg) saturate(1.1)",
           }}
         />
       </div>
@@ -311,12 +311,12 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none aurora opacity-70" />
 
       {/* Base scrim — lighter, keeps video visible */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/45 via-[#111827]/25 to-[#111827]/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/30 via-[#111827]/15 to-[#111827]/75" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 55%, rgba(17,24,39,0.55) 100%)",
+            "radial-gradient(ellipse at center, transparent 65%, rgba(17,24,39,0.45) 100%)",
         }}
       />
 
