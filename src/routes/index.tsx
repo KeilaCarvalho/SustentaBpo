@@ -302,15 +302,15 @@ function Hero() {
         }}
       >
         <video
-          src={heroVideo.url}
+          src="https://assets.mixkit.co/videos/preview/mixkit-business-charts-on-a-tablet-screen-42589-large.mp4"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-75 grayscale-[40%] blur-[2px]"
+          className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[20%] blur-[1px]"
           style={{
-            filter: "brightness(0.9) contrast(1.2) hue-rotate(200deg) saturate(0.8)",
+            filter: "brightness(0.8) contrast(1.1) saturate(0.9)",
           }}
         />
       </div>
