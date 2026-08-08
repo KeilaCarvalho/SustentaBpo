@@ -311,12 +311,12 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none aurora opacity-70" />
 
       {/* Base scrim — lighter, keeps video visible */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/45 via-[#111827]/25 to-[#111827]/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/30 via-[#111827]/15 to-[#111827]/75" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 55%, rgba(17,24,39,0.55) 100%)",
+            "radial-gradient(ellipse at center, transparent 65%, rgba(17,24,39,0.45) 100%)",
         }}
       />
 
