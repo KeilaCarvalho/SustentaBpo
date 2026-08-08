@@ -164,12 +164,12 @@ function Nav() {
 
   return (
     <nav className="fixed top-0 inset-x-0 z-50 pt-3 sm:pt-4 md:pt-5 px-4 sm:px-6 lg:px-8 pointer-events-none">
-      <div className="pointer-events-auto max-w-[90rem] mx-auto h-14 md:h-16 flex items-center justify-between gap-3 px-4 sm:px-6 rounded-full bg-[#111827]/85 backdrop-blur-xl border border-ice-subtle shadow-float">
+      <div className="pointer-events-auto max-w-[90rem] mx-auto h-16 md:h-20 flex items-center justify-between gap-3 px-6 sm:px-8 rounded-full bg-[#111827]/85 backdrop-blur-xl border border-ice-subtle shadow-float">
         <a href="#top" className="flex items-center gap-3 min-w-0">
-          <img src={logoRefined} alt="Sustenta BPO" className="h-9 sm:h-10 w-auto shrink-0" />
+          <img src={logoRefined} alt="Sustenta BPO" className="h-10 sm:h-12 w-auto shrink-0" />
           <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#F5F5F5] truncate">{BRAND}</span>
         </a>
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-[#F5F5F5]/75 font-medium">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-10 text-base text-[#F5F5F5]/75 font-medium">
           {NAV_LINKS.map((l) => (
             <li key={l.href}><a href={l.href} className="hover:text-[#F5F5F5] transition-colors">{l.label}</a></li>
           ))}
@@ -186,7 +186,7 @@ function Nav() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-medium transition-colors whitespace-nowrap"
+            className="hidden sm:inline-flex bg-[#C9A35B] hover:bg-[#F5F5F5] hover:text-[#111827] text-white text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
           >
             Falar com Especialista
           </a>
