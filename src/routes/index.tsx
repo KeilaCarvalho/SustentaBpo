@@ -820,37 +820,45 @@ function Process() {
     { n: "04", t: "Acompanhamento", d: "Mantemos o financeiro atualizado e alinhado com o gestor da empresa." },
   ];
   return (
-    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#111827] border-y border-white/5">
-      <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
-        {/* Title block — flat 12-col header, no nested grid */}
-        <p className="col-span-4 md:col-span-4 eyebrow md:pt-4">
-          // 04 — COMO FUNCIONA
-        </p>
-        <h2 className="col-span-4 md:col-span-8 display-xl text-white">
-          Quatro passos para{" "}
-          <em className="italic text-[#C9A35B]">estruturar</em> a rotina.
-        </h2>
-
-        {/* Media — sticky only at xl */}
-        <div className="col-span-4 md:col-span-12 lg:col-span-5 xl:sticky xl:top-32">
-          <ProcessMedia />
+    <section id="como-funciona" className="py-24 sm:py-32 lg:py-44 bg-[#F5F5F5] text-[#111827]">
+      <div className="site-container">
+        <div className="max-w-4xl mb-16 lg:mb-24">
+          <p className="eyebrow text-[#C9A35B] mb-5">// 04 — COMO FUNCIONA</p>
+          <h2 className="display-xl text-[#111827]">
+            Um caminho simples, com acolhimento do primeiro contato ao <em className="italic text-[#C9A35B]">pós-procedimento.</em>
+          </h2>
         </div>
 
-        {/* Steps */}
-        <ul className="col-span-4 md:col-span-12 lg:col-span-7 xl:col-span-6 xl:col-start-7 space-y-4 sm:space-y-5">
-          {steps.map((s) => (
-            <li
-              key={s.n}
-              className="glass-card rounded-2xl p-5 sm:p-6 lg:p-8 grid grid-cols-[auto_1fr] gap-4 sm:gap-6 hover:border-gold transition-colors"
-            >
-              <span className="font-mono text-sm text-[#F5F5F5]/70 pt-2">{s.n}</span>
-              <div className="min-w-0">
-                <h3 className="font-display text-xl sm:text-2xl text-[#F5F5F5] leading-tight">{s.t}</h3>
-                <p className="mt-2 text-sm text-[#F5F5F5]/60 leading-relaxed">{s.d}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="lg:col-span-5 xl:col-span-4">
+            <ProcessMedia />
+          </div>
+
+          <div className="lg:col-span-7 xl:col-span-7 xl:col-start-6">
+            <div className="relative space-y-16 sm:space-y-20">
+              {/* Vertical line connector */}
+              <div className="absolute left-[1.375rem] top-8 bottom-8 w-[1px] bg-[#111827]/10" />
+
+              {steps.map((s, idx) => (
+                <div key={s.n} className="relative pl-16 group">
+                  {/* Step Number Circle */}
+                  <div className="absolute left-0 top-0 w-11 h-11 rounded-full bg-gradient-to-br from-[#C9A35B] to-[#B08A45] text-white flex items-center justify-center font-display text-lg shadow-lg z-10">
+                    {idx + 1}
+                  </div>
+                  
+                  <div className="pt-1">
+                    <h3 className="font-display text-2xl sm:text-3xl text-[#111827] leading-tight mb-4 group-hover:text-[#C9A35B] transition-colors">
+                      {s.t}
+                    </h3>
+                    <p className="text-md sm:text-lg text-[#111827]/70 leading-relaxed max-w-xl">
+                      {s.d}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
