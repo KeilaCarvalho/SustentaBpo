@@ -425,7 +425,7 @@ function Hero() {
             </div>
             <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Saldo projetado</p>
             <div className="mt-1 flex items-end justify-between gap-3">
-              <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 1.248.750</p>
+              <p className="font-display text-2xl text-[#F5F5F5] tracking-tight">R$ 1.248.750</p>
               <svg viewBox="0 0 80 32" className="w-16 h-8 shrink-0" fill="none">
                 <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4" stroke="#C9A35B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4 L78 32 L2 32 Z" fill="url(#g1)" opacity="0.25" />
@@ -452,7 +452,7 @@ function Hero() {
             <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Próximos 7 dias</p>
             <div className="mt-1 flex items-center justify-between gap-3">
               <div>
-                <p className="font-display text-3xl text-[#F5F5F5] tracking-tight">R$ 245.680</p>
+                <p className="font-display text-2xl text-[#F5F5F5] tracking-tight">R$ 245.680</p>
                 <p className="mt-1 text-[11px] text-[#F5F5F5]/60">do total mensal</p>
               </div>
               <div className="relative w-14 h-14 shrink-0">
