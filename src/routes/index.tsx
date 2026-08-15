@@ -1,4 +1,4 @@
-// cade o video?
+// qual a melhor de te pedir para criar um video para o fundo da primeira pagina desse site de uma forma clara e que vc use toda sua criatividadr?  diigite como eu poderia te pedir iss
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
