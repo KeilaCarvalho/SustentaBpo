@@ -1,4 +1,4 @@
-// qual a melhor de te pedir para criar um video para o fundo da primeira pagina desse site de uma forma clara e que vc use toda sua criatividadr?  diigite como eu poderia te pedir iss
+// Generate a clear video brief template that I can paste to request the hero background video, including style, duration, framing, and aspect ratio.
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
