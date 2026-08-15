@@ -1,4 +1,4 @@
-// coloque um video de fundo da primeira pagina
+// cade o video?
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
