@@ -1,4 +1,4 @@
-// Generate a clear video brief template that I can paste to request the hero background video, including style, duration, framing, and aspect ratio.
+// fale comigo em portugues
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import caseImg from "@/assets/case-meeting.jpg";
