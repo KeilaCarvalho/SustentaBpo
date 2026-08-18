@@ -8,7 +8,8 @@
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Libre Baskerville", serif;
   --font-card-title: "Libre Baskerville", serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  /* "mono" aqui é apenas o estilo de rótulo (caixa alta + tracking), usando a mesma sans do site */
+  --font-mono: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
