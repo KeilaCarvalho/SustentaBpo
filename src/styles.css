@@ -116,6 +116,30 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+  /* Todo e qualquer título usa a serifada (Libre Baskerville) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+  /* Todo e qualquer texto normal usa a sans (IBM Plex Sans) */
+  p, li, span, a, label, input, select, textarea, button, small, td, th, dd, dt, figcaption, blockquote {
+    font-family: var(--font-sans);
+  }
+  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
+  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+  .font-display, .font-display span, .font-display em,
+  .display-xxl, .display-xxl span, .display-xxl em,
+  .display-xl, .display-xl span, .display-xl em,
+  .display-lg, .display-lg span, .display-lg em,
+  .display-md, .display-md span, .display-md em,
+  .text-card-title, .text-card-title span,
+  .text-quote, .text-quote span, .text-quote em {
+    font-family: var(--font-display);
+  }
+  /* Rótulos/eyebrows continuam na sans */
+  .eyebrow, .eyebrow span, .font-mono, .font-mono span, .text-label {
+    font-family: var(--font-sans);
+  }
+
   ::selection {
     background-color: #C9A35B;
     color: #ffffff;
