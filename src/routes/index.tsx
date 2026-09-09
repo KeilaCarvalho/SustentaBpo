@@ -121,10 +121,8 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       <a href="#main-content" className="skip-to-content">Pular para o conteúdo</a>
       <Nav />
-      <SectionNav />
       <main id="main-content">
         <Hero />
-        <Marquee />
         <WhatIs />
         <Values />
         <Metrics />
@@ -177,12 +175,6 @@ function Nav() {
         </ul>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <a
-            href={ORCAMENTO_URL}
-            className="hidden sm:inline-flex border border-ice-strong hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-base px-5 lg:px-6 py-2.5 sm:py-3 rounded-full font-medium transition-colors whitespace-nowrap"
-          >
-            Solicitar Orçamento
-          </a>
           <a
             href={WHATSAPP}
             target="_blank"
@@ -253,13 +245,6 @@ function Nav() {
         </ul>
         <div className="px-5 pt-4 flex flex-col gap-3">
           <a
-            href={ORCAMENTO_URL}
-            onClick={() => setOpen(false)}
-            className="text-center border border-ice-strong hover:border-[#C9A35B] hover:text-[#C9A35B] text-[#F5F5F5] text-sm px-5 py-3 rounded-full font-medium transition-colors"
-          >
-            Solicitar Orçamento
-          </a>
-          <a
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
@@ -276,18 +261,16 @@ function Nav() {
 
 
 
-/* ---------- Hero with mouse parallax + video bg ---------- */
+/* ---------- Hero ---------- */
 function Hero() {
-  const ref = useMouseParallax();
   return (
     <section
       id="top"
-      ref={ref}
       className="relative min-h-[100svh] w-full overflow-hidden bg-[#111827]"
-      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
+      <img src={heroEntrepreneur} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
       {/* Data Visualization Background — "Fluxo de Dados" layer */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
+      <div className="absolute inset-0 pointer-events-none opacity-20 hidden">
         <div className="absolute inset-0 grid-lines opacity-40" />
         <div className="absolute top-0 left-[15%] w-[1px] h-full bg-gradient-to-b from-transparent via-[#C9A35B]/30 to-transparent" />
         <div className="absolute top-0 right-[25%] w-[1px] h-full bg-gradient-to-b from-transparent via-[#C9A35B]/20 to-transparent" />
@@ -309,7 +292,7 @@ function Hero() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[20%] blur-[1px]"
+          className="hidden"
           style={{
             filter: "brightness(0.8) contrast(1.1) saturate(0.9)",
           }}
@@ -317,7 +300,7 @@ function Hero() {
       </div>
 
       {/* Aurora — redesigned for a more "liquid" financial feel */}
-      <div className="absolute inset-0 pointer-events-none aurora opacity-80" />
+      <div className="absolute inset-0 pointer-events-none aurora opacity-80 hidden" />
 
       {/* Multi-layered scrims for depth and legibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/60 via-transparent to-[#111827]/90" />
@@ -331,7 +314,7 @@ function Hero() {
       <div className="absolute inset-0 backdrop-blur-[1px] pointer-events-none" />
 
       {/* Floating particles/points representing "financial nodes" */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden">
         <div className="absolute top-[20%] left-[10%] w-1.5 h-1.5 rounded-full bg-[#C9A35B] opacity-40 blur-[1px] animate-pulse" />
         <div className="absolute top-[60%] left-[40%] w-2 h-2 rounded-full bg-[#F5F5F5] opacity-20 blur-[2px] animate-pulse [animation-delay:1s]" />
         <div className="absolute top-[40%] right-[15%] w-1.5 h-1.5 rounded-full bg-[#C9A35B] opacity-30 blur-[1px] animate-pulse [animation-delay:2s]" />
@@ -361,35 +344,18 @@ function Hero() {
       {/* Content */}
       <div
         className="relative z-10 min-h-[100svh] site-container pt-28 sm:pt-36 lg:pt-44 pb-20 site-grid items-center text-white"
-
-        style={{
-          transform:
-            "translate3d(calc(var(--mx) * 8px), calc(var(--my) * 8px), 0)",
-        }}
       >
         <div className="col-span-4 md:col-span-12 lg:col-span-7 overflow-visible">
-          <p className="eyebrow mb-5 sm:mb-6 reveal-mask">
+          <p className="eyebrow mb-5 sm:mb-6">
             // BPO FINANCEIRO · OPERAÇÃO DIÁRIA
           </p>
-          <h1 className="display-xxl" style={{ textShadow: "0 2px 24px rgba(17,24,39,0.55)" }}>
-            <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-1">O financeiro da sua empresa não deveria depender</span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="block reveal-mask delay-2">
-                <em className="italic text-[#C9A35B]">do seu tempo.</em>
-              </span>
-            </span>
+          <h1 className="display-xxl">
+            O financeiro da sua empresa não deveria depender <em className="italic text-[#C9A35B]">do seu tempo.</em>
           </h1>
-          <div className="overflow-hidden mt-6 sm:mt-8">
-            <p className="reveal-mask delay-3 body-lg text-white/85" style={{ textShadow: "0 1px 12px rgba(17,24,39,0.6)" }}>
-
-              A Sustenta BPO assume a operação financeira completa da sua empresa: contas a pagar,
-              contas a receber, conciliação bancária e fluxo de caixa organizados em sistema,
-              com rotina e execução diária. Você acompanha. Aprova. Decide. Nós executamos.
-            </p>
-          </div>
-          <div className="mt-8 sm:mt-10 reveal-mask delay-4 flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
+          <p className="mt-6 sm:mt-8 body-lg text-white/85 max-w-3xl">
+            Assumimos contas a pagar, contas a receber, conciliação bancária e fluxo de caixa. Você acompanha os números, aprova as decisões e volta a focar no crescimento da empresa.
+          </p>
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap justify-start gap-3 sm:gap-4">
             <a
               href={WHATSAPP}
               target="_blank"
@@ -399,112 +365,13 @@ function Hero() {
               Falar com Especialista
               <Icon name="lucide:arrow-up-right" className="text-base group-hover:rotate-45 transition-transform" />
             </a>
-            <a
-              href={ORCAMENTO_URL}
-              className="group backdrop-blur-sm bg-[#111827]/40 border border-gold hover:bg-[#C9A35B] hover:border-[#C9A35B] hover:text-white text-white px-6 sm:px-10 py-3.5 sm:py-5 rounded-full text-button font-medium inline-flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
-            >
-              Solicitar Orçamento
-              <Icon name="lucide:mail" className="text-base group-hover:-translate-y-0.5 transition-transform" />
-            </a>
+            <a href="#como-funciona" className="px-6 sm:px-8 py-3.5 sm:py-5 text-button font-medium text-white hover:text-[#C9A35B] transition-colors w-full sm:w-auto text-center">Entenda como funciona</a>
           </div>
 
         </div>
 
-        {/* Dashboard-style financial cards */}
-        <div
-          className="col-span-4 md:col-span-12 lg:col-span-5 hidden lg:flex flex-col gap-4 items-end"
-          style={{
-            transform:
-              "translate3d(calc(var(--mx) * -24px), calc(var(--my) * -24px), 0)",
-          }}
-        >
-          {/* Card 1 — Fluxo de Caixa (gold as single accent) */}
-          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-ice-subtle p-5 max-w-[300px] w-full shadow-lift">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] font-medium text-[#F5F5F5]/90 uppercase tracking-[0.14em]">Fluxo de Caixa</p>
-              <Icon name="lucide:more-horizontal" className="text-[#F5F5F5]/30 text-sm" />
-            </div>
-            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Saldo projetado</p>
-            <div className="mt-1 flex items-end justify-between gap-3">
-              <p className="font-display text-2xl text-[#F5F5F5] tracking-tight">R$ 1.248.750</p>
-              <svg viewBox="0 0 80 32" className="w-16 h-8 shrink-0" fill="none">
-                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4" stroke="#C9A35B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M2 26 L14 20 L26 22 L38 14 L50 16 L62 8 L78 4 L78 32 L2 32 Z" fill="url(#g1)" opacity="0.25" />
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#C9A35B" />
-                    <stop offset="100%" stopColor="#C9A35B" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <p className="mt-3 text-[11px] text-[#F5F5F5]/60 flex items-center gap-1.5">
-              <Icon name="lucide:trending-up" className="text-xs text-[#C9A35B]" />
-              12,5% vs mês anterior
-            </p>
-          </div>
-
-          {/* Card 2 — Contas a Pagar */}
-          <div className="rounded-2xl bg-[#0b1220]/80 backdrop-blur-md border border-ice-subtle p-5 max-w-[300px] w-full shadow-lift">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] font-medium text-[#F5F5F5]/90 uppercase tracking-[0.14em]">Contas a Pagar</p>
-              <Icon name="lucide:more-horizontal" className="text-[#F5F5F5]/30 text-sm" />
-            </div>
-            <p className="mt-4 text-[10px] font-mono uppercase tracking-widest text-[#F5F5F5]/40">Próximos 7 dias</p>
-            <div className="mt-1 flex items-center justify-between gap-3">
-              <div>
-                <p className="font-display text-2xl text-[#F5F5F5] tracking-tight">R$ 245.680</p>
-                <p className="mt-1 text-[11px] text-[#F5F5F5]/60">do total mensal</p>
-              </div>
-              <div className="relative w-14 h-14 shrink-0">
-                <svg viewBox="0 0 36 36" className="w-14 h-14 -rotate-90">
-                  <circle cx="18" cy="18" r="15.5" stroke="rgba(245,245,245,0.08)" strokeWidth="2" fill="none" />
-                  <circle cx="18" cy="18" r="15.5" stroke="#C9A35B" strokeWidth="2" fill="none" strokeDasharray="97.4" strokeDashoffset="66.2" strokeLinecap="round" />
-                </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[11px] font-medium text-[#F5F5F5]">32%</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 font-mono text-micro uppercase tracking-widest hidden md:flex flex-col items-center gap-2">
-        <span>Scroll</span>
-        <span className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
-  );
-}
-
-/* ---------- Marquee ---------- */
-function Marquee() {
-  const items = [
-    "Contas a Pagar",
-    "Contas a Receber",
-    "Conciliação Bancária",
-    "Fluxo de Caixa Diário",
-    "Rotina Estruturada",
-    "Organização em Sistema",
-    "Acompanhamento Contínuo",
-    "Execução Contínua",
-  ];
-  const row = [...items, ...items];
-  return (
-    <div className="bg-[#C9A35B] border-y border-[#C9A35B] py-6 overflow-hidden">
-      <div className="marquee">
-        <div className="marquee-track font-display text-2xl md:text-4xl font-bold text-[#111827] uppercase tracking-tight">
-          {row.map((t, i) => (
-            <span key={i} className="flex items-center gap-16">
-              {t}
-              <span className="text-[#111827]/60">✦</span>
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -646,20 +513,20 @@ function SectionNav() {
 /* ---------- Values ---------- */
 function Values() {
   const items = [
-    { icon: "lucide:x", title: "Não substituímos a decisão", desc: "A decisão estratégica continua sendo do empresário. Nós damos a base organizada para ela acontecer." },
-    { icon: "lucide:x", title: "Não somos consultoria isolada", desc: "Não atuamos como consultoria estratégica desconectada da rotina. Nosso trabalho é a operação diária." },
-    { icon: "lucide:x", title: "Não prometemos fora da realidade", desc: "Sem promessas mágicas. Trabalhamos com processo, consistência e organização mínima do cliente." },
+    { icon: "lucide:eye", title: "Você mantém o controle", desc: "As decisões continuam com você. A Sustenta organiza as informações para que você decida com clareza." },
+    { icon: "lucide:repeat-2", title: "Rotina que acontece", desc: "O trabalho não termina em um diagnóstico: a operação financeira é acompanhada todos os dias." },
+    { icon: "lucide:shield-check", title: "Processo com transparência", desc: "Escopo, rotina e responsabilidades definidos desde o início, sem promessas irreais." },
   ];
   return (
     <section id="limites" className="py-24 sm:py-32 lg:py-44 bg-[#111827] relative">
       <div className="site-container site-grid" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 xl:col-start-4 xl:col-span-9">
           <p className="eyebrow mb-5 sm:mb-6 xl:text-right">
-            // 02 — O QUE NÃO FAZEMOS
+            // 02 — COMO TRABALHAMOS
           </p>
           <h2 className="display-xl text-white xl:text-right">
-            Transparência sobre os{" "}
-            <em className="italic text-[#C9A35B]">nossos limites.</em>
+            Seu financeiro organizado, com{" "}
+            <em className="italic text-[#C9A35B]">você no controle.</em>
           </h2>
         </div>
 
@@ -724,19 +591,19 @@ function Metrics() {
 }
 
 
-/* ---------- Testimonials (sticky stack) ---------- */
+/* ---------- Ideal customer profiles ---------- */
 function Testimonials() {
   const list = [
-    { q: "Está em crescimento e precisa de organização financeira real, não só planilha.", n: "Perfil 01", r: "Empresa em expansão" },
-    { q: "Quer previsibilidade e controle do caixa sem precisar montar um time financeiro interno.", n: "Perfil 02", r: "PME enxuta" },
-    { q: "Precisa tirar o peso da operação financeira do dia a dia e profissionalizar a rotina.", n: "Perfil 03", r: "Gestor sobrecarregado" },
+    { q: "Sua empresa está crescendo e a rotina financeira já não cabe em planilhas e improvisos.", n: "Empresa em expansão" },
+    { q: "Você quer previsibilidade de caixa sem precisar contratar e gerir um time financeiro interno.", n: "Empresa enxuta" },
+    { q: "A operação financeira ocupa tempo demais da liderança e precisa de um processo confiável.", n: "Gestor sobrecarregado" },
   ];
   return (
     <section id="para-quem" className="bg-[#111827] py-24 sm:py-32 lg:py-44 relative">
       <div className="site-container site-grid items-start" style={{ rowGap: "clamp(2.5rem, 5vw, 5rem)" }}>
         <div className="col-span-4 md:col-span-12 lg:col-span-5 lg:sticky lg:top-32">
           <p className="eyebrow mb-5 sm:mb-6">
-            // 03 — PARA QUEM É A Sustenta BPO
+            // 03 — PARA QUEM É A SUSTENTA BPO
           </p>
           <h2 className="display-xl text-white">
             Para empresas que querem o{" "}
@@ -746,19 +613,15 @@ function Testimonials() {
         </div>
         <div className="col-span-4 md:col-span-12 lg:col-span-6 lg:col-start-7 space-y-3 sm:space-y-4">
           {list.map((t) => (
-            <figure
+            <article
               key={t.n}
               className="glass-card rounded-3xl p-5 sm:p-6 lg:p-8"
             >
-              <span className="block text-stat text-[#F5F5F5]/80 italic mb-3">"</span>
-              <blockquote className="text-quote text-[#F5F5F5]">
+              <p className="text-quote text-[#F5F5F5]">
                 {t.q}
-              </blockquote>
-              <figcaption className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-ice-subtle font-mono text-micro sm:text-xs uppercase tracking-[0.2em] flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="text-[#F5F5F5]">{t.n}</span>
-                <span className="text-[#F5F5F5]/50">· {t.r}</span>
-              </figcaption>
-            </figure>
+              </p>
+              <p className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-ice-subtle font-mono text-micro sm:text-xs uppercase tracking-[0.2em] text-[#C9A35B]">{t.n}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -826,7 +689,7 @@ function Process() {
         <div className="max-w-4xl mb-16 lg:mb-24">
           <p className="eyebrow text-[#C9A35B] mb-5">// 04 — COMO FUNCIONA</p>
           <h2 className="display-xl text-[#111827]">
-            Um caminho simples, com acolhimento do primeiro contato ao <em className="italic text-[#C9A35B]">pós-procedimento.</em>
+            Um caminho simples, do primeiro contato ao <em className="italic text-[#C9A35B]">acompanhamento contínuo.</em>
           </h2>
         </div>
 
@@ -1019,28 +882,18 @@ function QuoteForm() {
 }
 
 function FinalCTA() {
-  const ref = useMouseParallax();
   return (
     <section
       id="agendar"
-      ref={ref}
       className="relative bg-[#111827] text-white py-28 sm:py-40 lg:py-52 overflow-hidden"
-      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 }}
     >
       <img
         src={heroEntrepreneur}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-40"
-        style={{ transform: "translate3d(calc(var(--mx) * -30px), calc(var(--my) * -30px), 0) scale(1.1)" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/80 via-[#111827]/50 to-[#111827]" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(800px circle at calc(50% + var(--mx) * 400px) calc(50% + var(--my) * 400px), rgba(201,163,91,0.35), transparent 60%)",
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(800px_circle_at_50%_50%,rgba(201,163,91,0.20),transparent_60%)]" />
       <div className="relative site-container max-w-5xl">
         <p className="eyebrow text-[#C9A35B] mb-6 sm:mb-8">// PRÓXIMO PASSO</p>
         <h2 className="display-xl max-w-4xl">
@@ -1058,13 +911,6 @@ function FinalCTA() {
           >
             <Icon name="lucide:message-circle" className="text-lg" />
             Falar com Especialista
-          </a>
-          <a
-            href={ORCAMENTO_URL}
-            className="border border-gold hover:border-[#C9A35B] hover:text-[#C9A35B] text-white px-10 sm:px-12 py-5 sm:py-6 rounded-full text-base font-medium tracking-wide transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
-          >
-            <Icon name="lucide:mail" className="text-lg" />
-            Solicitar Orçamento
           </a>
         </div>
       </div>
