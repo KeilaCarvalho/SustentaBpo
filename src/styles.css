@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Uma família em todo o site: a hierarquia vem de peso, escala e espaçamento. */
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Libre Baskerville", serif;
-  --font-card-title: "Libre Baskerville", serif;
-  /* "mono" aqui é apenas o estilo de rótulo (caixa alta + tracking), usando a mesma sans do site */
+  --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-card-title: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
@@ -116,11 +116,11 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  /* Todo e qualquer título usa a serifada (Libre Baskerville) */
+  /* Títulos usam a mesma família, com uma escala e peso mais expressivos. */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
-  /* Todo e qualquer texto normal usa a sans (IBM Plex Sans) */
+  /* Todo o conteúdo usa a mesma família tipográfica. */
   p, li, span, a, label, input, select, textarea, button, small, td, th, dd, dt, figcaption, blockquote {
     font-family: var(--font-sans);
   }
@@ -135,7 +135,7 @@
   .text-quote, .text-quote span, .text-quote em {
     font-family: var(--font-display);
   }
-  /* Rótulos/eyebrows continuam na sans */
+  /* Rótulos/eyebrows ganham distinção por caixa alta e espaçamento. */
   .eyebrow, .eyebrow span, .font-mono, .font-mono span, .text-label {
     font-family: var(--font-sans);
   }
